@@ -1,0 +1,228 @@
+@font-face {
+    /* This declaration targets Internet Explorer */
+    font-family: 'ProcionoTTRegular';
+    src: url('procionott-webfont.eot');
+}
+
+@font-face {
+    /* This declaration targets everything else */
+    font-family: 'ProcionoTTRegular';
+    src: url(//:) format('no404'), url('procionott-webfont.woff') format('woff'), url('procionott-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    /* This declaration targets Internet Explorer */
+    font-family: 'LeagueGothicRegular';
+    src: url('league_gothic-webfont.eot');
+}
+
+@font-face {
+    /* This declaration targets everything else */
+    font-family: 'LeagueGothicRegular';
+    src: url(//:) format('no404'), url('league_gothic-webfont.woff') format('woff'), url('league_gothic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background: #fff;
+    font-family: Georgia, serif;
+}
+
+#blogPosts.single article {
+    //display: none;
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: bottom left;
+}
+
+#blogPosts.single article.single {
+    //display: block;
+    opacity: 1;
+    -webkit-transform: scale(1.0);
+}
+
+article .postNav {
+    display: none;
+}
+
+#blogPosts.single article.single .postNav {
+    display: block;
+}
+
+h1, h2 {
+    font-family: LeagueGothicRegular, sans-serif;
+    font-weight: normal;
+}
+
+h1 {
+    margin-top: 0;
+    padding-top: 10px;
+    font-size: 4em;
+    text-shadow: #fff 1px 1px 1px;
+}
+
+h1 > a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    border: none;
+}
+
+article {
+    width: 900px;
+    -webkit-transition: all 0.8s ease-in-out;
+}
+
+article header h3 {
+    margin-bottom: 0px;
+    font-size: 0.82em;
+    font-weight: normal;
+    font-family: Georgia, serif;
+    color: #333;
+}
+
+article header h3 > a {
+    text-decoration: none;
+    color: #333;
+}
+
+article > div {
+    font-size: 1.2em;
+}
+
+article footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+blockquote {
+  background-color: #fff;
+  border: 1px solid #aaa;
+  padding: 10px;
+}
+
+code { 
+  background-color: #fff;
+  border: 1px solid #aaa;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+code.codeBlock {
+  padding: 5px;
+  display: inline-block;
+}
+
+            
+.wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+.pill {
+    border-radius: 10px;
+}
+
+.postNav {
+    margin-top: 20px;
+}
+
+.next {
+    float: right;
+}
+
+#background {
+   z-index:-1;
+   width:100%;
+   height:100%;
+   overflow: hidden;
+   position: fixed;
+
+   background: #889fb3;
+   background-image: -webkit-gradient(linear, left top, left bottom, from(#889fb3), to(#ffffff));
+background-image: -webkit-linear-gradient(#889fb3, #ffffff);
+background-image: -moz-linear-gradient(0% 90% 90deg, #ffffff, #889fb3);
+filter: progid:DXImageTransform.Microsoft.gradient (startColorstr=#ff889fb3, endColorstr=#ffffffff);
+
+   //background-image: -webkit-gradient(linear, left top, left bottom, from(#889fb3), to(#fff));
+   //background-image: -webkit-linear-gradient(#889fb3, #fff);
+   //background-image: -moz-linear-gradient(0% 90% 90deg, #fff, #889fb3);
+   //filter: progid:DXImageTransform.Microsoft.gradient (startColorstr=#889fb3, endColorstr=#ffffff)";
+}
+
+#container {
+    width: 1024px;
+    margin: auto;
+    padding-left: 50px;
+}
+
+@media only screen and (max-width: 1024px) {
+    article {
+        width: 100%;
+    }
+    
+    #container {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+#pageTitle {
+    padding-top: 24px;
+}
+
+#pageTitle h1, #pageTitle h2 {
+    margin: 0;
+    padding: 5px;
+    padding-left: 0;
+    font-family: ProcionoTTRegular, serif;
+    font-weight: bold;
+}
+
+#pageTitle h1 {
+    font-size: 6em;
+}
+
+#pageTitle h2 {
+    font-size: 2.5em;
+    margin-bottom: 45px;
+    text-shadow: #fff 1px 1px 1px;
+    color: #748696;
+    font-size: 3em;
+}
+
+#blogPosts > article > header {
+    font-size: 1.4em;
+    color: #748696;
+            //text-shadow: #fff 1px 1px 1px;
+    font-weight: bold;
+}
+
+#blogPosts > article time {
+    margin-top: 0;
+}
+
+#blogPosts > article > header h1 {
+    font-size: 2em;
+    margin-bottom: 5px;
+    padding-top: 0px;
+    letter-spacing: 1px;
+}
+
+#blogPosts > article {
+    padding-bottom: 50px;
+}
+
+#errors {
+    //border: 1px solid red;
+    border-radius: 10px;
+    background-color: #f60;
+    width: 200px;
+}
+ 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function between (value, min, max) {
+        return (min <= value && value <= max);
+      }
+
+      function newTile(x, y) {
+        var width = 40;
+        return {
+          x: x,
+          x2: x + width,
+          y: y,
+          y2: y + width,
+          contains: function (clickX, clickY) {
+            return between(clickX, this.x, this.x2) && between(clickY, this.y, this.y2);
+          }
+        };
+      }
+
+      function init () {
+        var t1 = newTile(10, 10);
+        var t2 = newTile(60, 10);
+
+
+      	var canvas = document.querySelector("canvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.font = "2px";
+
+        ctx.fillStyle="#666";
+        ctx.fillRect(t1.x, t1.y, 40, 40);
+        ctx.fillStyle="#fff";
+        ctx.fillText("Square 1", 15, 15);
+
+        ctx.strokeStyle="#666";
+        ctx.lineWidth=5.0;
+        ctx.lineJoin="round";
+        ctx.strokeRect(t2.x, t2.y, 40, 40);
+        ctx.fillStyle="#666";
+        ctx.fillText("Square 2", 65, 15);
+
+        canvas.addEventListener("click", function (event) {
+          var x = event.offsetX, y = event.offsetY;
+          if (t1.contains(x, y)) {
+            alert("1");
+          }
+
+          if (t2.contains(x, y)) {
+            alert("2");
+          }
+        }, false);
+
+
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <h1>Illegal Argument Drinking Game (Canvas Version)</h1>
+    <canvas></canvas>
+  </body>
+</html>
