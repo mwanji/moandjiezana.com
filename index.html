@@ -1,105 +1,216 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href='http://fonts.googleapis.com/css?family=Philosopher&subset=latin' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono&subset=latin' rel='stylesheet' type='text/css'>
-    <link href="https://mwanji.tent.is/tent/profile" rel="https://tent.io/rels/profile">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moandji Ezana</title>
-    
+    <link rel="shortcut icon" href="assets/favico.ico" />
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/bootstrap/css/bootstrap.min.css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,300,900" rel="stylesheet" type="text/css">
     <style>
       body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Droid Sans Mono', arial, serif;
-        background-color: #889FB3;
-      }
-      
-      @media only all and (min-width: 800px) {
-        body {
-          background: #889FB3 url(assets/background_1280x960.jpg) center center fixed no-repeat;
-          background-size: cover;
-          -moz-background-size: cover;
-        }
-      } 
-    
-      #content {
-        font-size: 2em;
-        margin: auto;
-        padding: 0;
-        padding-left: 50px;
-        color: #222;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font: 400 16px/1.5em 'Georgia', serif;
       }
       
       h1 {
-        margin-top: 0px;
-        margin-bottom: 10px;
-        padding-top: 20px;
-        font-size: 3em;
-        color: #fff;
-        font-family: 'Philosopher', arial, serif;
+        font: 900 72px/72px 'Lato', sans-serif;
+      }
+      
+      h1 > small {
+        font-size: 50px;
+        font-weight: 100;
+        text-transform: uppercase;
       }
       
       h2 {
-        margin-top: 0px;
-        margin-bottom: 31px;
-        font-size: 2em;
-        font-family: 'Philosopher', arial, serif;
+        font: 100 58px/72px 'Lato', sans-serif;
       }
       
-      p {
-        margin-left: 20px;
-        width: 350px;
+      h3 {
+        font: 300 40px/72px 'Lato', sans-serif;
       }
       
-      footer {
-        margin-left: 20px;
+      h4 {
+        font:300 28px 'Lato', sans-serif;
       }
       
-      img {
-        border: none;
+      h3 > .muted, h4 > .muted {
+        font-size: 80%;
       }
       
-      .button {
-        background-color: #000;
-        opacity: 0.5;
-        border-radius: 5px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        font-size: 0.5em;
-        padding: 4px;
-        width: 250px;
-        text-align: center;
-        margin-left: 20px;
-      }
-      
-      .button a {
-        color: #fff;
-        text-decoration: none;
+      #page-footer {
+        margin-top: 60px;
+        font-family: 'Lato', sans-serif;
+        text-align: center; 
       }
     </style>
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/bootstrap/css/bootstrap-responsive.min.css" />
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="assets/scripts/html5shiv.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <div id="content" itemscope itemtype="http://data-vocabulary.org/Person">
-      <h1 itemprop="name">Moandji Ezana</h1>
-      
-      <h2 itemprop="title">Software developer.</h2>
-      
-      <p>I've been working on Java web applications since 2005.</p>
-        
-      <p>I'm very interested in client-side development: Android &amp; HTML5.</p>
-      
-      <p>Read my <a href="cv/index.html">CV</a>.</p>
+    <div class="container">
 
-      <footer>
-        <a href="blog" title="Moandji.blog"><img src="assets/blog.png" alt="blog" height="64" width="64"/></a>
-        <a href="http://github.com/mwanji" title="Github"><img src="assets/github.png" height="32" width="32"/></a>
-        <a href="http://code.google.com/u/mwanji/" title="Google Code"><img src="assets/googlecode.png" height="32" width="32"/></a>
-        <a href="http://be.linkedin.com/in/moandjiezana/" title="LinkedIn"><img src="assets/linkedin.png" alt="linkedin" height="32" width="32"/></a>
-        <a href="http://twitter.com/mwanji" title="@mwanji"><img src="assets/twitter.png" alt="twitter" height="32" width="32"/></a>
-        <a href="http://www.facebook.com/mwanji" title="Facebook"><img src="assets/facebook.png" alt="facebook" height="32" width="32"/></a>
-        <a href="http://picasaweb.google.com/mwanji" title="Picasa"><img src="assets/picasa.png" alt="picasa" height="32" width="32"/></a>
-        <a href="mailto:moandji@ezana.net" title="Email"><img src="assets/email.png" alt="email" height="32" width="32"/></a>
+      <div itemscope itemtype="http://data-vocabulary.org/Person">
+        <h1 itemprop="name">Moandji Ezana
+          <small itemprop="title">Software developer</small>
+        </h1>
+        
+        <div class="row">
+          <div class="span12">
+            <h2 class="page-header">tl;dr</h2>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="offset1 span5">
+            <h3>Languages</h3>
+            <p>Java web applications since 2005. JavaScript&#8217;s good parts since 2009. Ruby on Rails in 2012.</p>
+            
+            <h3>Client-side</h3>
+            <p>I&#8217;m very interested in Android &amp; HTML5.</p>
+            
+            <h3>Details</h3>
+            <p>Read my CV: <a href="http://be.linkedin.com/in/moandjiezana/">LinkedIn</a>, <a href="cv/Moandji_Ezana_CV.pdf">PDF</a>.</p>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="offset6 span5">
+            <h3>Leisure</h3>
+            I make <a href="https://github.com/mwanji">apps</a>, <a href="http://mewf.co">libraries</a>, <a href="https://plus.google.com/photos/111520224886440923363/albums">pictures</a> and <a href="#blog">words</a>.
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="span12">
+          <h2 class="page-header">products</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="offset1 span5">
+          <h3>Inet Edge <span class="muted">2012-2013</span></h3>
+          <p>
+            Creation of embeddable widgets such as financial graphs (<a href="assets/img/inet-edge.png">screenshot</a>).
+          </p>
+          <p>
+            Ruby on Rails 3.2, Twitter Bootstrap, Jquery.
+          </p>
+        </div>
+        <div class="span5">
+          <h3><a href="http://optout.truvo.be/en/our-solutions/mysite/free-mysite/">Truvo MySite</a> <span class="muted">2009-2011</span></h3>
+          <p>
+            Customisable merchant websites within the Yellow Pages listings (<a href="http://www.emakina.com/work/projects/projectdetail.cfm?projectId=287">presentation</a>). 
+          </p>
+          <p>
+            Spring MVC, Hibernate, YUI.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="offset1 span5">
+          <h3><a href="http://www.samsungworld.be/nl/home">Samsung World</a> <span class="muted">2011</span></h3>
+          <p>
+            Community site for Samsung Benelux.
+          </p>
+          <p>
+            Spring MVC, Hibernate, Freemarker.
+          </p>
+        </div>
+        <div class="span5">
+          <h3>Ventouris <span class="muted">2007</span></h3>
+          <p>
+            Management application for major Belgian insurance providers.
+          </p>
+          <p>
+            Agile, DDD, EJB 2, JSF, JDO.
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="span12">
+          <h2 class="page-header">open source</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="offset1 span5">
+          <a href="https://github.com/mwanji/DbUtils-JPA"><h3>DbUtils-JPA</h3></a>
+          <p>
+            JPA-aware extension to DbUtils.
+          </p>
+        </div>
+        <div class="span5">
+          <a href="https://github.com/mewf/sql-writer"><h3>sql-writer</h3></a>
+          <p>
+            Generate SQL from Java classes and JPA annotations.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="offset1 span5">
+          <a href="https://github.com/mewf/formaliser"><h3>formaliser</h3></a>
+          <p>
+            From Java classes to HTML forms and back.
+          </p>
+        </div>
+        <div class="span5">
+          <a href="https://github.com/mewf/humpty"><h3>humpty</h3></a>
+          <p>
+            Simple web asset optimisation.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="offset1 span5">
+          <a href="https://github.com/mwanji/essayist"><h3>essayist</h3></a>
+          <p>
+            Blogging app for the Tent protocol.
+          </p>
+        </div>
+        <div class="span5">
+          <a href="https://github.com/mwanji/tent-client-java"><h3>tent-client-java</h3></a>
+          <p>
+            <a href="http://tent.io">Tent protocol</a> API client.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span12">
+          <h2 class="page-header">blog</h2><a name="blog"></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset1 span8">
+          <h4><a href="blog/2011/02/shift-hover.html">Eclipse shortcut: Shift + hover</a> <span class="muted">inline source code</span></h4>
+          <h4><a href="blog/2011/02/java-coders-distrust-neighbours.html">Java coders distrust their neighbours</a> <span class="muted">defensive coding is only for boundaries</span></h4>
+          <h4><a href="blog/2009/11/oxm-madness.html">Object-XML Mapping in Spring 3.0</a> <span class="muted">indirection gets out of hand</span></h4>
+          <h4><a href="blog/2009/11/unit-test-convenience-methods.html">Unit-testing convenience methods</a> <span class="muted">DRYness in unit tests</span></h4>
+        </div>
+      </div>
+
+      <footer id="page-footer" class="row">
+        <div class="span12">
+          <a href="http://github.com/mwanji" title="Github"><img src="assets/github.png" alt="github" height="32" width="32" /></a>
+          <a href="http://be.linkedin.com/in/moandjiezana/" title="LinkedIn"><img src="assets/linkedin.png" alt="linkedin" height="32" width="32" /></a>
+          <a href="https://plus.google.com/111520224886440923363/posts" title="Google+"><img src="assets/google_plus.png" alt="google+" height="32" width="32" /></a>
+          <a href="http://www.facebook.com/mwanji" title="Facebook"><img src="assets/facebook.png" alt="facebook" height="32" width="32" /></a>
+          <a href="http://twitter.com/mwanji" title="@mwanji"><img src="assets/twitter.png" alt="twitter" height="32" width="32" /></a>
+          <!--a href="mailto:moandji@ezana.net" title="Email"><img src="assets/email.png" alt="email" height="32" width="32" /></a-->
+          <a href="mailto:moandji@ezana.net" title="Email">moandji@ezana.net</a>
+        </div>
       </footer>
     </div>
   </body>
 </html>
+
