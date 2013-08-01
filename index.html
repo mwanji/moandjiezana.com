@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Moandji Ezana</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moandji Ezana</title>
     <link rel="shortcut icon" href="assets/favico.ico" />
-    <link rel="stylesheet" type="text/css" href="assets/stylesheets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/font-mfizz/font-mfizz.css">
     <link rel="stylesheet" type="text/css" href="assets/stylesheets/styles.css" />
-    <link rel="stylesheet" type="text/css" href="assets/stylesheets/bootstrap/css/bootstrap-responsive.min.css" />
     <!--[if lt IE 9]>
       <script type="text/javascript" src="assets/scripts/html5shiv.js"></script>
     <![endif]-->
@@ -24,17 +25,21 @@
         </div>
         
         <div class="row">
-          <div class="span12">
+          <div class="col-lg-12">
             <h2 class="page-header">tl;dr</h2>
           </div>
         </div>
         
         <div class="row">
-          <div class="offset1 span5">
-            <h3>Languages</h3>
-            <p>Java web applications since 2005. JavaScript&#8217;s good parts since 2009. Ruby on Rails in 2012.</p>
+          <div class="col-offset-1 col-lg-5">
+            <h3>Languages <i class="icon-java"></i> <i class="icon-javascript"></i> <i class="icon-ruby-on-rails"></i></h3>
+            <p>
+              Java web applications since 2005.<br/>
+              JavaScript&#8217;s good parts since 2009.<br/>
+              Ruby on Rails in 2012.
+            </p>
             
-            <h3>Client-side</h3>
+            <h3>Client-side <i class="icon-android"></i> <i class="icon-html5"></i></h3>
             <p>I&#8217;m very interested in Android &amp; HTML5.</p>
             
             <h3>Details</h3>
@@ -43,7 +48,7 @@
         </div>
         
         <div class="row">
-          <div class="offset6 span5">
+          <div class="col-offset-6 col-lg-5">
             <h3>Leisure</h3>
             I make <a href="https://github.com/mwanji">apps</a>, <a href="http://mewf.co">libraries</a>, <a href="https://plus.google.com/photos/111520224886440923363/albums">pictures</a> and <a href="#blog">words</a>.
           </div>
@@ -51,14 +56,17 @@
       </div>
       
       <div class="row">
-        <div class="span12">
+        <div class="col-lg-12">
           <h2 class="page-header">products</h2>
         </div>
       </div>
 
       <div class="row">
-        <div class="offset1 span5">
-          <h3>Inet Edge <span class="muted">2012-2013</span></h3>
+        <div class="col-offset-1 col-lg-5">
+          <h3>Inet Edge <span class="text-muted">2012-2013</span></h3>
+          <div class="me-icon-row">
+            <i class="icon-ruby-on-rails-alt" title="Rails 3.2"></i> <i class="icon-javascript" title="Jquery, Bootstrap 2, underscore"></i> <i class="icon-css" title="Bootstrap 2"></i> <i class="icon-postgres" title="Postgresql"></i>
+          </div>
           <p>
             Creation of embeddable widgets such as financial graphs (<a href="assets/img/inet-edge.png">screenshot</a>).
           </p>
@@ -66,8 +74,11 @@
             Ruby on Rails 3.2, Twitter Bootstrap, Jquery.
           </p>
         </div>
-        <div class="span5">
-          <h3><a href="http://optout.truvo.be/en/our-solutions/mysite/free-mysite/">Truvo MySite</a> <span class="muted">2009-2010</span></h3>
+        <div class="col-lg-5">
+          <h3><a href="http://optout.truvo.be/en/our-solutions/mysite/free-mysite/">Truvo MySite</a> <span class="text-muted">2009-2010</span></h3>
+          <div class="me-icon-row">
+            <i class="icon-java" title="Spring MVC, Hibernate"></i> <i class="icon-javascript" title="YUI"></i> <i class="icon-mysql" title="MySQL"></i> <i class="icon-tomcat" title="Tomcat 5.5"></i>
+          </div>
           <p>
             Customisable, <a href="http://blog.emakina.eu/2010/09/10/truvo%E2%80%99s-mysite-awarded-at-the-ima/">award-winning</a> merchant websites within Yellow Pages listings in Belgium, Ireland and Portugal (<a href="http://www.emakina.com/work/projects/projectdetail.cfm?projectId=287">presentation</a>, <a href="assets/img/truvo-mysite.jpg">screenshot</a>). 
           </p>
@@ -78,8 +89,11 @@
       </div>
 
       <div class="row">
-        <div class="offset1 span5">
-          <h3><a href="http://www.samsungworld.be/nl/home">Samsung World</a> <span class="muted">2011</span></h3>
+        <div class="col-offset-1 col-lg-5">
+          <h3><a href="http://www.samsungworld.be/nl/home">Samsung World</a> <span class="text-muted">2011</span></h3>
+          <div class="me-icon-row">
+            <i class="icon-java" title="Spring MVC, Hibernate, Freemarker"></i> <i class="icon-mssql" title="MS-SQL"></i>
+          </div>
           <p>
             Community site for Samsung Benelux.
           </p>
@@ -87,8 +101,11 @@
             Spring MVC, Hibernate, Freemarker.
           </p>
         </div>
-        <div class="span5">
-          <h3>Ventouris <span class="muted">2007</span></h3>
+        <div class="col-lg-5">
+          <h3>Ventouris <span class="text-muted">2007</span></h3>
+          <div class="me-icon-row">
+            <i class="icon-java" title="EJB 2, JSF, JDO"></i>
+          </div>
           <p>
             Management application for major Belgian insurance providers.
           </p>
@@ -99,19 +116,36 @@
       </div>
       
       <div class="row">
-        <div class="span12">
+        <div class="col-lg-12">
           <h2 class="page-header">open source</h2>
         </div>
       </div>
 
       <div class="row">
-        <div class="offset1 span5">
+        <div class="col-offset-1 col-lg-5">
+          <a href="https://github.com/mewf/humpty"><h3>humpty</h3></a>
+          <p>
+            Simple web asset optimisation.
+          </p>
+        </div>
+        <div class="col-lg-5">
+          <a href="http://www.webjars.org"><h3>WebJars</h3></a>
+          <p>
+            Version web assets with Java build tools.<br/>
+            [Creator] <a href="https://github.com/webjars/webjars-maven-plugin">webjars-maven-plugin</a>, <a href="https://github.com/webjars/coffee-script/commits?author=mwanji">CoffeeScript</a>, <a href="https://github.com/webjars/bootswatch/commits?author=mwanji">Bootswatch</a>, <a href="https://github.com/webjars/uglifyjs/commits?author=mwanji">UglifyJS</a> WebJars.<br/>
+            [Contributor] <a href="https://github.com/webjars/webjars-locator/commits?author=mwanji">webjars-locator</a>, <a href="https://github.com/webjars/jquery/commits?author=mwanji">Jquery</a>, <a href="https://github.com/webjars/bootstrap/commits?author=mwanji">Bootstrap</a>, <a href="https://github.com/webjars/underscorejs/commits?author=mwanji">underscore</a> and <a href="https://github.com/webjars/bootstrap-datepicker/commits?author=mwanji">Bootstrap Datepicker</a> WebJars.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-offset-1 col-lg-5">
           <a href="https://github.com/sethvargo/bootstrap_forms/commits?author=mwanji"><h3>bootstrap_forms</h3></a>
           <p>
             [Contributor] Ruby on Rails form builder for Twitter Bootstrap.
           </p>
         </div>
-        <div class="span5">
+        <div class="col-lg-5">
           <a href="https://github.com/resteasy/Resteasy/commits?author=mwanji"><h3>resteasy-guice</h3></a>
           <p>
             [Contributor] <a href="http://code.google.com/p/google-guice">Guice</a> integration for JBoss's <a href="http://www.jboss.org/resteasy">RESTEasy</a> JAX-RS implementation.
@@ -120,13 +154,13 @@
       </div>
 
       <div class="row">
-        <div class="offset1 span5">
-          <a href="http://www.webjars.org"><h3>webjars</h3></a>
+        <div class="col-offset-1 col-lg-5">
+          <a href="https://github.com/mewf/formaliser"><h3>formaliser</h3></a>
           <p>
-            [Contributor] Manage web assets as JARs. Contributor to <a href="https://github.com/webjars/webjars-locator/commits?author=mwanji">webjars-locator</a>, creator of or contributor to a number of webjars (<a href="https://github.com/webjars/bootstrap/commits?author=mwanji">Bootstrap</a>, <a href="https://github.com/webjars/coffee-script/commits?author=mwanji">CoffeeScript</a>, <i>etc</i>.)
+            From Java classes to HTML forms and back.
           </p>
         </div>
-        <div class="span5">
+        <div class="col-lg-5">
           <a href="https://github.com/mwanji/DbUtils-JPA"><h3>DbUtils-JPA</h3></a>
           <p>
             JPA-aware extension to <a href="http://commons.apache.org/proper/commons-dbutils/">DbUtils</a>.
@@ -135,58 +169,43 @@
       </div>
 
       <div class="row">
-        <div class="offset1 span5">
-          <a href="https://github.com/mewf/formaliser"><h3>formaliser</h3></a>
-          <p>
-            From Java classes to HTML forms and back.
-          </p>
-        </div>
-        <div class="span5">
-          <a href="https://github.com/mewf/humpty"><h3>humpty</h3></a>
-          <p>
-            Simple web asset optimisation.
-          </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="offset1 span5">
-          <a href="https://github.com/mwanji/essayist"><h3>essayist</h3></a>
-          <p>
-            Blogging app for the Tent protocol.
-          </p>
-        </div>
-        <div class="span5">
+        <div class="col-offset-1 col-lg-5">
           <a href="https://github.com/mwanji/tent-client-java"><h3>tent-client-java</h3></a>
           <p>
             <a href="http://tent.io">Tent protocol</a> API client.
           </p>
         </div>
+        <div class="col-lg-5">
+          <a href="https://github.com/mwanji/essayist"><h3>essayist</h3></a>
+          <p>
+            Blogging app for the Tent protocol.
+          </p>
+        </div>
       </div>
 
       <div class="row">
-        <div class="span12">
+        <div class="col-lg-12">
           <h2 class="page-header">blog</h2><a name="blog"></a>
         </div>
       </div>
       <div class="row">
-        <div class="offset1 span11">
-          <h4><a href="blog/2013/07/readme-driven-development">README-Driven Development</a> <span class="muted">thinking as a user first</span></h4>
-          <h4><a href="blog/2011/02/shift-hover.html">Eclipse shortcut: Shift + hover</a> <span class="muted">inline source code</span></h4>
-          <h4><a href="blog/2011/02/java-coders-distrust-neighbours.html">Java coders distrust their neighbours</a> <span class="muted">defensive coding is only for boundaries</span></h4>
-          <h4><a href="blog/2009/11/oxm-madness.html">Object-XML Mapping in Spring 3.0</a> <span class="muted">indirection gets out of hand</span></h4>
-          <h4><a href="blog/2009/11/unit-test-convenience-methods.html">Unit-testing convenience methods</a> <span class="muted">DRYness in unit tests</span></h4>
+        <div class="col-offset-1 col-lg-11">
+          <h4><a href="blog/2013/07/readme-driven-development">README-Driven Development</a> <span class="text-muted">thinking as a user first</span></h4>
+          <h4><a href="blog/2011/02/shift-hover.html">Eclipse shortcut: Shift + hover</a> <span class="text-muted">inline source code</span></h4>
+          <h4><a href="blog/2011/02/java-coders-distrust-neighbours.html">Java coders distrust their neighbours</a> <span class="text-muted">defensive coding is only for boundaries</span></h4>
+          <h4><a href="blog/2009/11/oxm-madness.html">Object-XML Mapping in Spring 3.0</a> <span class="text-muted">indirection gets out of hand</span></h4>
+          <h4><a href="blog/2009/11/unit-test-convenience-methods.html">Unit-testing convenience methods</a> <span class="text-muted">DRYness in unit tests</span></h4>
         </div>
       </div>
 
       <footer id="page-footer" class="row">
-        <div class="span12">
-          <a href="http://github.com/mwanji" title="Github"><img src="assets/github.png" alt="github" height="32" width="32" /></a>
-          <a href="http://be.linkedin.com/in/moandjiezana/" title="LinkedIn"><img src="assets/linkedin.png" alt="linkedin" height="32" width="32" /></a>
-          <a href="https://plus.google.com/111520224886440923363?rel=author" title="Google+"><img src="assets/google_plus.png" alt="google+" height="32" width="32" /></a>
-          <a href="http://www.facebook.com/mwanji" title="Facebook"><img src="assets/facebook.png" alt="facebook" height="32" width="32" /></a>
-          <a href="http://twitter.com/mwanji" title="@mwanji"><img src="assets/twitter.png" alt="twitter" height="32" width="32" /></a>
-          <a href="mailto:moandji@ezana.net" title="Email">moandji@ezana.net</a>
+        <div class="col-lg-12">
+          <a href="http://github.com/mwanji" title="Github" class="me-icon"><i class="icon-github"></i></a>
+          <a href="http://www.linkedin.com/in/moandjiezana/" title="LinkedIn" class="me-icon"><i class="icon-linkedin"></i></a>
+          <a href="https://plus.google.com/111520224886440923363?rel=author" title="Google+" class="me-icon"><i class="icon-google-plus"></i></a>
+          <a href="http://www.facebook.com/mwanji" title="Facebook" class="me-icon"><i class="icon-facebook"></i></a>
+          <a href="http://twitter.com/mwanji" title="@mwanji" class="me-icon"><i class="icon-twitter"></i></a>
+          <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="icon-envelope"></i></a>
         </div>
       </footer>
     </div>

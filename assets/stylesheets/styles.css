@@ -34,6 +34,11 @@ h3 {
   font: 300 40px/72px 'Lato', sans-serif;
 }
 
+h3 i {
+  color: #aaa;
+  font-size: 85%;
+}
+
 h4 {
   font:300 28px 'Lato', sans-serif;
 }
@@ -46,5 +51,45 @@ h3 > .muted, h4 > .muted {
   margin-top: 60px;
   font-family: 'Lato', sans-serif;
   text-align: center; 
+}
+
+#page-footer a {
+  text-decoration: none;
+  font-size: 32px;
+  padding: 3px;
+}
+
+#page-footer i[class=icon-github] {
+  font-size: 110%;
+  color: #000;
+}
+
+#page-footer i[class=icon-linkedin] {
+  color: #007bb6;
+}
+
+#page-footer i[class=icon-google-plus] {
+  color: #dd4b39;
+}
+
+#page-footer i[class=icon-facebook] {
+  color: #3b5999;
+}
+
+#page-footer i[class=icon-twitter] {
+  color: #00aced;
+}
+
+#page-footer i[class=icon-envelope] {
+  color: #555;
+}
+
+.text-muted {
+  font-size: 85%;
+}
+
+.me-icon-row {
+  font-size: 2em;
+  color: #777;
 }
 
