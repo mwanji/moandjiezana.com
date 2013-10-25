@@ -34,8 +34,15 @@ h3 {
   font: 300 40px/72px 'Lato', sans-serif;
 }
 
-h3 i {
+h2 i, h3 i {
   color: #aaa;
+}
+
+h2 i {
+  letter-spacing: 20px;
+}
+
+h3 i {
   font-size: 85%;
 }
 
@@ -50,6 +57,9 @@ h3 > .muted, h4 > .muted {
 #page-footer {
   margin-top: 60px;
   font-family: 'Lato', sans-serif;
+}
+
+.index #page-footer {
   text-align: center; 
 }
 
