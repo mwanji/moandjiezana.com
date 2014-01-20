@@ -1,0 +1,38 @@
+title=Java Coders Distrust Their Neighbours
+status=published
+type=post
+date=2011-02-02
+og=true
+og_description=A dysfunctional flow.
+og_image=2011/java-coders-distrust-neighbours/jtrust.jpg
+~~~~~~
+<p><img src="/img/2011/java-coders-distrust-neighbours/jtrust.jpg" width="550" height="367" title="Would you trust these people?"/></p>
+<p>Here's a dysfunctional flow I came across today at work and that seems to pop up fairly often.</p>
+
+<ol>
+<li>Query some entities from the database</li>
+<li>Extract the IDs and put them in an array</li>
+<li>Pass the array to another method</li>
+<li>Load each entity from the database, but by ID this time</li>
+</ol>
+
+<p>Ludicrous. If we're lucky, the by-ID lookups will only hit the first-level cache, but those calls shouldn't even be happening at all. What is to blame?</p>
+
+<p>
+<strong>Stupidity?</strong> No, my colleagues aren't stupid at all.<br/>
+<strong>Large codebase?</strong> This is a fairly big application, but not *that* big.<br/>
+<strong>Laziness?</strong> In a sense. There is one case in which the ID array is passed in directly from the client without having been loaded on the server-side first. It could be that the author didn't want to write a second method.<br/>
+<strong>Parano&iuml;a</strong>? Probably. Java developers are prone to that. 
+</p>
+<p>
+A lot of Java developers seem to resist thinking in overall flows in favour of treating every method as an island that can be attacked on all sides by anything at any time. So, each method is front-loaded with a bunch of <code>Assert.notNull(someValue)</code>, objects are copied "just to be sure no-one else is messing with them". The code just gets cruftier.
+</p>
+<p>
+It seems to me that much of this is nonsense and could be alleviated:
+</p>
+<ul>
+<li>Apply strong validation at the beginning of any flow, then the strict minimum afterwards. The database should have the strongest constraints possible.</li>
+<li>Enforce the convention that methods neither accept nor return null values.</li>
+<li>In the single-threaded context of, say, a typical web request, there's no mystery about who is manipulating your objects. Don't worry about it.</li>
+</ul>
+<p>These don't always apply, but are pretty good rules of thumb.</p>
