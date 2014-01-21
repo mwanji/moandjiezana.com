@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Moandji Ezana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Moandji Ezana">
+    <meta name="keywords" content="">    
+    
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/font-mfizz/font-mfizz.css">
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+  <body>
+    <div class="container">
+   
+	
+  <h1><a href="/">Moandji Ezana</a> <small>Blog</small></h1>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h4>January 05, 2014</h4>
+       <h2><a href="/blog/drafts/jax-rs-2.html">JAX-RS 2</a></h2>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-offset-1 col-lg-7">
+    	<p>JAX-RS 2.0, Hibernate 4.2, Guice 3.0 on Tomcat 7</p><p>Thought of using Wildfly, but would have had to deal with too much instability. Now, instability is limited to RESTEasy. Also, gave me a chance to improve the resteasy-guice module.</p><p>File upload with Resteasy:<br/>Add org.jboss.resteasy:resteasy-multipart-provider:3.0-beta-6<br/><a href="http://www.mkyong.com/webservices/jax-rs/file-upload-example-in-resteasy/">http://www.mkyong.com/webservices/jax-rs/file-upload-example-in-resteasy/</a><br/>Terse: <a href="http://docs.jboss.org/resteasy/docs/3.0-beta-6/userguide/html_single/index.html#MultipartFormData">http://docs.jboss.org/resteasy/docs/3.0-beta-6/userguide/html_single/index.html#MultipartFormData</a></p><p>Use @Provider, @Produces(MediaType.APPLICATION_JSON) and ContextResolver<ObjectMapper> to configure Jackson ObjectMapper.</p><p>Hibernate-c3p0 4.2.2.Final uses c3p0 0.9.1, which has a bug with @Lob, exclude it and use c3p0 0.9.2.1.<br/><a href="https://hibernate.atlassian.net/browse/HHH-7778">https://hibernate.atlassian.net/browse/HHH-7778</a></p><p>Make sure to add all resources and providers to Guice modules.</p><p>Using mustache.java + flying saucer (<a href="http://flyingsaucerproject.github.io/flyingsaucer/r8/guide/users-guide-R8.html">http://flyingsaucerproject.github.io/flyingsaucer/r8/guide/users-guide-R8.html</a>) to dynamically generate PDFs from templated HTML is pretty sweet.</p><p>Flying Saucer declares that it&rsquo;s CSS 2.1 compatible, but it also supports an interesting sub-set of CSS 3, including things I&rsquo;d never heard of, such as <a href="http://www.w3.org/TR/css3-page/#margin-boxes">margin boxes</a> and <a href="http://www.w3.org/TR/2007/WD-css3-gcpm-20070504/#running1">running elements</a>.</p><p>Took me a moment to understand that calling running(footer) defines the &ldquo;variable&rdquo; that can be used later on in the content() function.</p><p>Guice-Persist</p><p>Entity Managers are never closed if they are injected outside of a transaction/UnitOfWork!<br/><a href="http://stackoverflow.com/questions/14585505/jpa-guice-persist-permanently-opened-connection-issue">http://stackoverflow.com/questions/14585505/jpa-guice-persist-permanently-opened-connection-issue</a></p><p>Hibernate/JPA</p><p>When customising the NamingStrategy, make sure to extend EJB3NamingStrategy. DefaultNamingStrategy leads to NPE.</p>
+	  </div>
+  </div>
+
+    <footer id="page-footer">
+      <div class="row">
+        <div id="social-links" class="col-lg-12">
+          <a href="http://github.com/mwanji" title="Github" class="me-icon"><i class="fa fa-github"></i></a>
+          <a href="http://www.linkedin.com/in/moandjiezana/" title="LinkedIn" class="me-icon"><i class="fa fa-linkedin"></i></a>
+          <a href="https://google.com/+MoandjiEzana?rel=author" title="Google+" class="me-icon"><i class="fa fa-google-plus"></i></a>
+          <a href="http://www.facebook.com/mwanji" title="Facebook" class="me-icon"><i class="fa fa-facebook"></i></a>
+          <a href="http://twitter.com/mwanji" title="@mwanji" class="me-icon"><i class="fa fa-twitter"></i></a>
+          <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="fa fa-envelope-o"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <p class="muted credits">&copy; 2009-2014 Moandji Ezana | Baked with <a href="http://jbake.org">JBake</a></p>
+        </div>
+      </div>
+    </footer>
+    
+  </body>
+</html>

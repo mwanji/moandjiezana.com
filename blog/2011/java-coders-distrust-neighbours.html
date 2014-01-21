@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Moandji Ezana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Moandji Ezana">
+    <meta name="keywords" content="">    
+          <meta property="og:type" content="article"/>
+      <meta property="og:url" content="http://moandjiezana.com/blog/2011/java-coders-distrust-neighbours.html"/>
+      <meta property="og:site_name" content="Moandji Ezana Blog"/>
+      <meta property="article:author" content="http://facebook.com/mwanji">
+      <meta property="og:title" content="Java Coders Distrust Their Neighbours">
+      <meta property="og:description" content="A dysfunctional flow.">
+        <meta property="og:image" content="http://moandjiezana.com/img/2011/java-coders-distrust-neighbours/jtrust.jpg">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/font-mfizz/font-mfizz.css">
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+  <body>
+    <div class="container">
+   
+	
+  <h1><a href="/">Moandji Ezana</a> <small>Blog</small></h1>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h4>February 02, 2011</h4>
+       <h2><a href="/blog/2011/java-coders-distrust-neighbours.html">Java Coders Distrust Their Neighbours</a></h2>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-offset-1 col-lg-7">
+    	<p><img src="/img/2011/java-coders-distrust-neighbours/jtrust.jpg" width="550" height="367" title="Would you trust these people?"/></p>
+<p>Here's a dysfunctional flow I came across today at work and that seems to pop up fairly often.</p>
+
+<ol>
+<li>Query some entities from the database</li>
+<li>Extract the IDs and put them in an array</li>
+<li>Pass the array to another method</li>
+<li>Load each entity from the database, but by ID this time</li>
+</ol>
+
+<p>Ludicrous. If we're lucky, the by-ID lookups will only hit the first-level cache, but those calls shouldn't even be happening at all. What is to blame?</p>
+
+<p>
+<strong>Stupidity?</strong> No, my colleagues aren't stupid at all.<br/>
+<strong>Large codebase?</strong> This is a fairly big application, but not *that* big.<br/>
+<strong>Laziness?</strong> In a sense. There is one case in which the ID array is passed in directly from the client without having been loaded on the server-side first. It could be that the author didn't want to write a second method.<br/>
+<strong>Parano&iuml;a</strong>? Probably. Java developers are prone to that. 
+</p>
+<p>
+A lot of Java developers seem to resist thinking in overall flows in favour of treating every method as an island that can be attacked on all sides by anything at any time. So, each method is front-loaded with a bunch of <code>Assert.notNull(someValue)</code>, objects are copied "just to be sure no-one else is messing with them". The code just gets cruftier.
+</p>
+<p>
+It seems to me that much of this is nonsense and could be alleviated:
+</p>
+<ul>
+<li>Apply strong validation at the beginning of any flow, then the strict minimum afterwards. The database should have the strongest constraints possible.</li>
+<li>Enforce the convention that methods neither accept nor return null values.</li>
+<li>In the single-threaded context of, say, a typical web request, there's no mystery about who is manipulating your objects. Don't worry about it.</li>
+</ul>
+<p>These don't always apply, but are pretty good rules of thumb.</p>
+
+	  </div>
+  </div>
+
+    <footer id="page-footer">
+      <div class="row">
+        <div id="social-links" class="col-lg-12">
+          <a href="http://github.com/mwanji" title="Github" class="me-icon"><i class="fa fa-github"></i></a>
+          <a href="http://www.linkedin.com/in/moandjiezana/" title="LinkedIn" class="me-icon"><i class="fa fa-linkedin"></i></a>
+          <a href="https://google.com/+MoandjiEzana?rel=author" title="Google+" class="me-icon"><i class="fa fa-google-plus"></i></a>
+          <a href="http://www.facebook.com/mwanji" title="Facebook" class="me-icon"><i class="fa fa-facebook"></i></a>
+          <a href="http://twitter.com/mwanji" title="@mwanji" class="me-icon"><i class="fa fa-twitter"></i></a>
+          <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="fa fa-envelope-o"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <p class="muted credits">&copy; 2009-2014 Moandji Ezana | Baked with <a href="http://jbake.org">JBake</a></p>
+        </div>
+      </div>
+    </footer>
+    
+  </body>
+</html>

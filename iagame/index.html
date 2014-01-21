@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Illegal Argument Drinking Game</title>
+    <style>
+      body {
+        margin-top: 0;
+      }
+      
+      body > div {
+        width: 960px;
+        margin: auto;
+        font-family: Verdana, Geneva, sans-serif;
+        text-align: center;
+      }
+
+      h1, h2{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: normal;
+        margin-top: 0;
+      }
+      
+      h1 {
+        background-color: #0F2925;
+        color: #F2E5BD;
+        font-size: 35px;
+        padding: 10px;
+        margin-bottom: 0;
+        border-bottom: solid 1px black;
+        //text-shadow: 0 1px 1px rgba(0, 0, 0, 1);
+      }
+      
+      .red {
+        color: #C03;
+      }
+      
+      h2 {
+        color: #999;
+        background-color: #2C372E;
+        padding: 10px;
+        margin-bottom: 0;
+        border-top: solid 1px #485B4B;
+      }
+      
+      h2 a {
+        color: #999;
+      }
+      
+      h2 a:hover {
+        color: #fff;
+      }
+      
+      #body {
+        padding-top: 50px;
+        background-color: #FFF2D9;
+        border-left: solid 1px #D6D6D6;
+        border-right: solid 1px #D6D6D6;
+        border-bottom: solid 1px #D6D6D6;
+        font-size: 14px;
+      }
+      
+      table {
+        width: 100%;
+      
+      }
+    
+      div.table {
+        display: table;
+      }
+      
+      div.row {
+        display: table-row;
+      }
+      
+      div.row > div {
+        display: table-cell;
+        width: 500px;
+        height: 100px;
+      }
+      
+      div.row > div > div {
+        border: 1px #666 solid;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        padding: 5px;
+        margin: 5px;
+        width: 85%;
+        height: 90%;
+        cursor: pointer;
+      }
+      
+      img {
+        -webkit-transition: opacity 0.7s ease;
+        -o-transition: opacity 0.7s ease;
+        -moz-transition: opacity 0.7s ease;
+        transition: opacity 0.7s ease;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      li {
+        text-align: left;
+      }
+      
+      #events {
+        width: 400px;
+      }
+      
+      #events div.row > div > div {
+        //-webkit-transition: background-color 0.5s ease, -webkit-transform 0.5s ease-in-out;
+        -moz-transition: background-color 0.5s ease, color 0.1s ease, -moz-transform 0.5s ease-in-out;
+        -o-transition: background-color 0.5s ease, color 0.1s ease, -o-transform 0.5s ease-in-out;
+        transition: background-color 0.5s ease, color 0.1s ease, transform 0.5s ease-in-out;
+        text-align: center;
+      }
+      
+      #events div.row > div > div:hover {
+        background-color: #666;
+        opacity: 0.9;
+        color: #fff;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
+        -webkit-transform: scale(1.4);
+        -moz-transform: scale(1.4);
+        -o-transform: scale(1.4);
+        transform: scale(1.4);
+      }
+      
+      #score {
+        margin-top: 50px;
+      }
+
+      .drunkometer {
+        width: 5px;
+        height: 20px;   
+        border: solid 1px #666;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        margin-top: 10px;
+      }
+      
+      .hidden {
+        display: none;
+      }
+    </style>
+    <script type="text/javascript">
+      var severities = {
+        "low": { score: 20, imgSrc: "beer.jpg" },
+        "medium": { score: 30, imgSrc: "wine.jpg" },
+        "high": { score: 60, imgSrc: "shot.png" }
+      };
+      var audio;
+      var scoreTimeline = [];
+
+      var data = [
+        {text: "Richard calls something stupid", severity: "low"},
+        {text: "Greg gets cut off", severity: "low"},
+        {text: "Mark gets cut off", severity: "low"},
+        {text: "Anthony is totally unaware of a massive bit of news", severity: "low"},
+        {text: "Anthony starts doing research for day job", severity: "medium"},
+        {text: "Apache is called a graveyard", severity: "high"},
+        {text: "Maven", severity: "medium"},
+        {text: "Richard brings up a conversation from work", severity: "low"},
+        {text: "Anthony fishes for solutions to work-related problems", severity: "low"},
+        {text: "Richard calls something retarded", severity: "high"},
+        {text: "The name of Anthony's company changes", severity: "high"},
+        {text: "Discussion of a topic starts without introducing it", severity: "high"},
+        {text: 'Richard calls Silverlight "SilverFish"', severity: "high"},
+        {text: "Greg laments difficulty of implementing idea on a phone", severity: "medium"},
+        {text: "Richard disses non-Groovy language", severity: "medium"},
+        {text: '"We should save this for The Build Show"', severity: "high"},
+        {text: '"We should save this for Illegal Argument"', severity: "medium"},
+        {text: "Richard admits he's wrong", severity: "high"},
+        {text: '"Maybe we should introduce our guest"', severity: "high"},
+        {text: "Spring Roo is insulted", severity: "medium"},
+        {text: "Mention of NZ company no-one knows", severity: "medium"},
+        {text: "JavaScript", severity: "medium"},
+        {text: "A plane flies overhead", severity: "medium"},
+        {text: "Geossities", severity: "high"}
+      ];
+    
+      var getNextIndex = function () {
+        var cache = [];
+      
+        return function () {
+          
+          if (cache.length === data.length) {
+            cache = [];
+          }
+        
+          var index = Math.floor(Math.random() * data.length);
+
+          if (cache.indexOf(index) !== -1) {
+            return getNextIndex();
+          }
+          
+          cache.push(index);
+          return index;
+        }
+      }();
+    
+      function init() {
+        var events = document.querySelectorAll("#events .row > div > div");
+        var actionsImg = document.getElementById("actionsImg");
+        audio = document.querySelector("audio");
+        
+        var fadeIn = function (imgSrc) {
+          actionsImg.src = imgSrc;
+          actionsImg.style.opacity = 1;
+        }
+
+        var newDrunkometer = function (container) {
+          var drunkometer = document.createElement("div");
+          drunkometer.className = "drunkometer";
+          container.appendChild(drunkometer);
+          
+          return drunkometer;
+        }
+
+        var score = 0;
+        var timeline = document.getElementById("timeline");
+
+        var updateScore = function () {
+          var partialScore = 0, currentIndex = 0, 
+            scoreHolder = document.getElementById("score");
+          /*var drunkometers = document.getElementById("score"),
+            drunkometer = newDrunkometer(drunkometers);*/
+          
+          return function (severity) {
+            score += severity.score;
+            scoreHolder.innerHTML = score;
+            partialScore += severity.score;
+            /*if (partialScore >= 300) {
+              drunkometer.style.width = "300px";
+              partialScore -= 300;
+              drunkometer = newDrunkometer(drunkometers);
+            }
+            drunkometer.style.width = partialScore.toString() + "px";*/
+          };
+        }();
+
+        var updateTimeline = function (selectedCell) {
+          var severityKey = selectedCell.getAttribute("data-severity");
+
+          scoreTimeline.push({
+            text: selectedCell.innerHTML,
+            severity: severityKey,
+            score: score,
+            timestamp: audio.currentTime
+          });
+
+          var rawSeconds = Math.round(audio.currentTime);
+          var minutes = Math.floor(rawSeconds / 60);
+          minutes = minutes >= 10 ? minutes.toString() : "0" + minutes.toString();
+          var seconds = rawSeconds % 60;
+          seconds = seconds >= 10 ? seconds.toString() : "0" + seconds.toString();
+
+          timeline.innerHTML += "<li>" + minutes + ":" + seconds + " = " + selectedCell.innerHTML + "</li>";          
+        };
+
+        var updateCell = function (cell) {
+          var cellData = data[getNextIndex()];
+          cell.setAttribute("data-severity", cellData.severity);
+          cell.innerHTML = cellData.text;
+        };
+        
+        var updateAction = function () {
+          var severityKey = this.getAttribute("data-severity");
+          var severity = severities[severityKey];
+          actionsImg.style.opacity = 0;
+          var imgSrc = severity.imgSrc;
+          setTimeout(function () {
+            actionsImg.src = imgSrc;
+            actionsImg.style.opacity = 1;
+          }, 500);
+
+          updateScore(severity);
+          updateTimeline(this);
+          updateCell(this);
+        };
+        
+        var i;
+        for (i = 0; i < events.length; i++) {
+          var event = events[i];
+          event.addEventListener("click", updateAction, false);
+          var cellData = data[getNextIndex()];
+          event.setAttribute("data-severity", cellData.severity);
+          event.innerHTML = cellData.text;
+        }
+        
+        /*document.getElementById("save").addEventListener("click", function () {
+          document.getElementById("saveForm").className = "";
+        });*/
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <div>
+      <h1>The Illegal Argument <span class="red">Drinking</span> Game</h1>
+      
+      <h2>Play while listening to the <a href="http://www.illegalargument.com" target="_blank">latest episode</a>!</h2>
+      <div id="body">
+        <table>
+          <tr>
+            <td>
+              <audio src="http://traffic.libsyn.com/illegalargument/57_Illegal_Argument_Episode_57.mp3" controls="controls" preload="none"></audio>
+            </td>
+          </tr>
+          <tr valign="top">
+          <td align="center">
+            <div id="events" class="table">
+              <div class="row">
+                <div><div></div></div>
+                <div><div></div></div>
+                <div><div></div></div>
+              </div>
+              <div class="row">
+                <div><div></div></div>
+                <div><div></div></div>
+                <div><div></div></div>
+              </div>
+              <div class="row">
+                <div><div></div></div>
+                <div><div></div></div>
+                <div><div></div></div>
+              </div>
+            </div>
+            <div>
+              <h2 id="score">0</h2>
+              <!--input id="save" type="button" value="save game" /-->
+              <form id="saveForm" class="hidden">
+                Episode # <input type="text" name="epNb" size="1" />
+              </form>
+            </div>
+            <ul id="timeline">
+            </ul>
+          </td><td>
+            <div id="actions">
+              <img id="actionsImg" src="empty.png" />
+            </div>
+          </td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+    <img src="beer.jpg" style="visibility: hidden;" height="1px" />
+    <img src="wine.jpg" style="visibility: hidden;" height="1px" />
+    <img src="shot.png" style="visibility: hidden;" height="1px" />
+  </body>
+</html>

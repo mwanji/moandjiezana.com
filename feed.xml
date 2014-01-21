@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JBake</title>
+    <link>http://moandjiezana.com</link>
+    <atom:link href="http://moandjiezana.com/feed.xml" rel="self" type="application/rss+xml" />
+    <description>JBake Bootstrap Template</description>
+    <language>en-gb</language>
+    <pubDate>Mon, 20 Jan 2014 21:29:00 +0200</pubDate>
+    <lastBuildDate>Mon, 20 Jan 2014 21:29:00 +0200</lastBuildDate>
+
+    <item>
+      <title>README-Driven Development</title>
+      <link>http://moandjiezana.com/blog/2013/readme-driven-development.html</link>
+      <pubDate>Fri, 12 Jul 2013 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">/blog/2013/readme-driven-development.html</guid>
+      	<description>
+	&lt;p&gt;Among &lt;a href=&quot;http://github.com&quot;&gt;Github&lt;/a&gt;&amp;rsquo;s many contributions to software development, the prominence it affords the README is undervalued. By making it obvious to users where to start looking for info about a project, it also gives developers a good starting point.&lt;/p&gt;&lt;p&gt;There&amp;rsquo;s nothing worse than hearing about a new library, then discovering that it&amp;rsquo;s hosted on java.net. 80% of the time, I will be unable to figure out how the library works, because java.net is so confusing and the projects it hosts rarely do a better job (10% of the time, java.net itself won&amp;rsquo;t load). The most catastrophic example of this is Rome, supposedly Java&amp;rsquo;s leading RSS library. &lt;a href=&quot;https://java.net/projects/rome/pages/Home&quot;&gt;java.net site&lt;/a&gt; links to a URL that has been taken over by spammers. The &lt;a href=&quot;https://rometools.jira.com/wiki/display/ROME/Home&quot;&gt;real site&lt;/a&gt; contains broken links (notably the Tutorials and Articles link!) and very little information.&lt;/p&gt;&lt;p&gt;When the project is on Github, however, there&amp;rsquo;s a 90% chance there&amp;rsquo;ll be a good README, or at least a pointer to a dedicated site. That means users feel good about checking out Github projects and that new projects are more likely to make documentation a priority.&lt;/p&gt;&lt;p&gt;I now try to fully embrace the README and treat it as a first-class citizen alongside code and tests. This is similar to &lt;a href=&quot;http://www.allthingsdistributed.com/2006/11/working_backwards.html&quot;&gt;Amazon&amp;rsquo;s &amp;ldquo;working backwards&amp;rdquo; approach&lt;/a&gt;. Werner Vogels summarises it as &amp;ldquo;start by writing the documents we&amp;rsquo;ll need at launch (the press release and the faq) and then work towards documents that are closer to the implementation&amp;rdquo; (I first read about this as &lt;a href=&quot;http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management&quot;&gt;an answer to a question on Quora&lt;/a&gt;, but Quora has devolved into a horrible place). Starting with the README puts the developer in the mindset of the user. Questions such as &amp;ldquo;what is this for?&amp;rdquo;, &amp;ldquo;what does the user need to know to get started?&amp;rdquo;, &amp;ldquo;what do I want the API to look like?&amp;rdquo; come to the fore right away. Complex installations, burdensome multi-step operations, etc. are revealed and can be simplified before too many users have to struggle through them.&lt;/p&gt;&lt;p&gt;While I&amp;rsquo;m not yet quite as rigorous as Amazon and tend to iterate on the code and the README in tandem, the benefits are still sizeable. At the very least, I&amp;rsquo;m guaranteed to have documentation (a project without documentation might as well not exist!). At best, I&amp;rsquo;ll have much better and friendlier software.&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>Eclipse shortcut: shift + hover</title>
+      <link>http://moandjiezana.com/blog/2011/shift-hover.html</link>
+      <pubDate>Sun, 20 Feb 2011 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">/blog/2011/shift-hover.html</guid>
+      	<description>
+	&lt;p&gt;&lt;a href=&quot;/img/2011/shift-hover/shift-hover.png&quot;&gt;&lt;img src=&quot;/img/2011/shift-hover/shift-hover-small.png&quot; width=&quot;626&quot; height=&quot;180&quot; title=&quot;shift + hover&quot;/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;In Eclipse, press and hold shift just before hovering over a class or method to pop up its source code.&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>Java Coders Distrust Their Neighbours</title>
+      <link>http://moandjiezana.com/blog/2011/java-coders-distrust-neighbours.html</link>
+      <pubDate>Wed, 2 Feb 2011 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">/blog/2011/java-coders-distrust-neighbours.html</guid>
+      	<description>
+	&lt;p&gt;&lt;img src=&quot;/img/2011/java-coders-distrust-neighbours/jtrust.jpg&quot; width=&quot;550&quot; height=&quot;367&quot; title=&quot;Would you trust these people?&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;Here&apos;s a dysfunctional flow I came across today at work and that seems to pop up fairly often.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Query some entities from the database&lt;/li&gt;
+&lt;li&gt;Extract the IDs and put them in an array&lt;/li&gt;
+&lt;li&gt;Pass the array to another method&lt;/li&gt;
+&lt;li&gt;Load each entity from the database, but by ID this time&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Ludicrous. If we&apos;re lucky, the by-ID lookups will only hit the first-level cache, but those calls shouldn&apos;t even be happening at all. What is to blame?&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Stupidity?&lt;/strong&gt; No, my colleagues aren&apos;t stupid at all.&lt;br/&gt;
+&lt;strong&gt;Large codebase?&lt;/strong&gt; This is a fairly big application, but not *that* big.&lt;br/&gt;
+&lt;strong&gt;Laziness?&lt;/strong&gt; In a sense. There is one case in which the ID array is passed in directly from the client without having been loaded on the server-side first. It could be that the author didn&apos;t want to write a second method.&lt;br/&gt;
+&lt;strong&gt;Parano&amp;iuml;a&lt;/strong&gt;? Probably. Java developers are prone to that. 
+&lt;/p&gt;
+&lt;p&gt;
+A lot of Java developers seem to resist thinking in overall flows in favour of treating every method as an island that can be attacked on all sides by anything at any time. So, each method is front-loaded with a bunch of &lt;code&gt;Assert.notNull(someValue)&lt;/code&gt;, objects are copied &quot;just to be sure no-one else is messing with them&quot;. The code just gets cruftier.
+&lt;/p&gt;
+&lt;p&gt;
+It seems to me that much of this is nonsense and could be alleviated:
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Apply strong validation at the beginning of any flow, then the strict minimum afterwards. The database should have the strongest constraints possible.&lt;/li&gt;
+&lt;li&gt;Enforce the convention that methods neither accept nor return null values.&lt;/li&gt;
+&lt;li&gt;In the single-threaded context of, say, a typical web request, there&apos;s no mystery about who is manipulating your objects. Don&apos;t worry about it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These don&apos;t always apply, but are pretty good rules of thumb.&lt;/p&gt;
+
+	</description>
+    </item>
+    <item>
+      <title>Super Keziah, Then and Now</title>
+      <link>http://moandjiezana.com/blog/2011/super-keziah-then-and-now.html</link>
+      <pubDate>Tue, 1 Feb 2011 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">/blog/2011/super-keziah-then-and-now.html</guid>
+      	<description>
+	&lt;p&gt;&lt;a href=&quot;/img/2011/super-keziah-then-and-now/super-keziah-combined.jpg&quot;&gt;&lt;img src=&quot;/img/2011/super-keziah-then-and-now/super-keziah-combined.jpg&quot; width=&quot;757&quot; height=&quot;534&quot; title=&quot;Super Keziahs&quot;/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Two pictures, taken a year apart. Not much has changed, has it?&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>Eclipse shortcut of the day: Hippie Completion</title>
+      <link>http://moandjiezana.com/blog/2010/hippie-completion.html</link>
+      <pubDate>Mon, 29 Mar 2010 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">/blog/2010/hippie-completion.html</guid>
+      	<description>
+	&lt;p&gt;Key binding: Alt /&lt;/p&gt;&lt;p&gt;Alt / is the &amp;ldquo;I&amp;rsquo;m feeling lucky&amp;rdquo; version of Ctrl Space. Instead of listing suggestions, it takes its best guess.&lt;/p&gt;&lt;p&gt;&lt;em&gt;[via: &lt;a href=&quot;http://blogs.sun.com/tor/entry/ide_tips&quot;&gt;Tor Norbye&lt;/a&gt; and &lt;a href=&quot;http://beust.com/weblog2/archives/000258.html&quot;&gt;Cédric Beust&lt;/a&gt;]&lt;/em&gt;&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>Keziah&apos;s Stats for 05/01/2010</title>
+      <link>http://moandjiezana.com/blog/2010/keziah-stats-1.html</link>
+      <pubDate>Tue, 5 Jan 2010 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">/blog/2010/keziah-stats-1.html</guid>
+      	<description>
+	&lt;p&gt;&lt;a href=&quot;/img/2010/keziah-stats-1/super-keziah.jpg&quot;&gt;&lt;img src=&quot;/img/2010/keziah-stats-1/super-keziah-small.jpg&quot; width=&quot;300&quot; height=&quot;400&quot; title=&quot;Super Keziah&quot;/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Weight: 4.700kg (+ 1.05kg)&lt;br/&gt;Height: 53.5cm (+2cm)&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>Object-XML Mapping in Spring 3.0: when indirection gets out of hand</title>
+      <link>http://moandjiezana.com/blog/2009/oxm-madness.html</link>
+      <pubDate>Sun, 8 Nov 2009 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">/blog/2009/oxm-madness.html</guid>
+      	<description>
+	&lt;p&gt;&lt;a href=&quot;cookies-1024x768.jpg&quot;&gt;&lt;img title=&quot;how many layers?&quot; src=&quot;/img/2009/oxm-madness/cookies-300x225.jpg&quot; alt=&quot;how many layers?&quot; width=&quot;300&quot; height=&quot;225&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.ibm.com/developerworks/java/library/x-springXOM/index.html?ca=drs-&quot;&gt;Meet the Object/XML mapping support in Spring&lt;/a&gt; is an introduction to the &lt;a title=&quot;Spring WS OXM documentation&quot; href=&quot;http://static.springsource.org/spring-ws/site/reference/html/oxm.html&quot;&gt;Marshaller and Unmarshaller interfaces&lt;/a&gt; that have been rolled into Spring 3.0 from Spring WS.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;In summary:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Application code uses the two interfaces and delegates the object-to-XML-and-back (or OXM) work to them.&lt;/li&gt;
+  &lt;li&gt;The application context is configured to use Spring&amp;rsquo;s wrapper around an OXM framework.&lt;/li&gt;
+  &lt;li&gt;The wrapper is injected into the bean.&lt;/li&gt;
+  &lt;li&gt;The OXM framework also needs to be added to the classpath and configured.&lt;/li&gt;
+&lt;/ol&gt;&lt;p&gt;To me, there are two levels of indirection too many here, already. Add another level if the application wraps this up in an XmlService interface and corresponding implementation.&lt;/p&gt;&lt;p&gt;Furthermore, it turns out that the &lt;a href=&quot;http://www.joelonsoftware.com/articles/LeakyAbstractions.html&quot;&gt;abstraction is leaky&lt;/a&gt;! From the Spring WS docs:&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Although the marshal method accepts a plain object as its first parameter, most Marshaller implementations cannot handle arbitrary objects. Instead, an object class must be mapped in a mapping file, registered with the marshaller, or have a common base class. Refer to the further sections in this chapter to determine how your O/X technology of choice manages this.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;p&gt;Despite all that indirection, you still need to know which OXM is being used. If you have to know what you&amp;rsquo;re using, why not work more directly with the OXM and avoid the &lt;a title=&quot;a paraphrase of Security Theater&quot; href=&quot;http://en.wikipedia.org/wiki/Security_theater&quot;&gt;abstraction theater&lt;/a&gt;?&lt;/p&gt;&lt;p&gt;I would go so far as to argue that, not only is the indirection not buying you anything, it&amp;rsquo;s probably going to end up costing you, by making the application&amp;rsquo;s wiring more difficult to understand and maintain.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;I&amp;rsquo;ve been working with &lt;a href=&quot;http://code.google.com/p/google-guice/&quot;&gt;Guice&lt;/a&gt; of late. Its focus on programmatic configuration encourages you to &amp;ldquo;touch&amp;rdquo; 3rd-party APIs directly. This feels lean and natural compared to Spring&amp;rsquo;s often unnecessary infinite indirection.&lt;/p&gt;&lt;p&gt;Apply DAO design to XML and you&amp;rsquo;ll find that a few simple methods are enough to decouple you from your OXM in the same way a DAO decouples your from your ORM. For example:&lt;/p&gt;
+&lt;pre&gt;void save(Object entity) &lt;span style=&quot;color: #008000;&quot;&gt;// serialises to XML&lt;/span&gt;
+&amp;lt;T&amp;gt; T get(Class&amp;lt;T&amp;gt; myClass, String xml) &lt;span style=&quot;color: #008000;&quot;&gt;/* converts from XML to object of type T. Replace String with File or InputStream as needed */&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;Even if for some bizarre reason you need two OXM frameworks at the same time, the XML DAO should be injected with both OXM classes and decide which one to use based on the class of the object passed into the save() method.&lt;/p&gt;
+&lt;p&gt;To be really fancy, apply the Interface Segregation Principle (&lt;a href=&quot;http://www.objectmentor.com/resources/articles/isp.pdf&quot;&gt;PDF&lt;/a&gt;): have the XML DAO implement two interfaces and let clients choose the one they&apos;re interested in. These might be drawn from the problem domain (UserXmlDao, ArticleXmlDao) or the solution domain (CastorXmlDao, JaxbXmlDao) [1].&lt;/p&gt;&lt;p&gt;In conclusion: indirection has advantages, but it also has a cost. Using it indiscriminately for trivial things leads to &lt;a href=&quot;http://97-things.near-time.net/wiki/simplify-essential-complexity-diminish-accidental-complexity&quot;&gt;accidental complexity&lt;/a&gt; and confusion through over-engineering.&lt;/p&gt;&lt;p&gt;[1] See Tim Ottinger&amp;rsquo;s &lt;a href=&quot;http://www.objectmentor.com/resources/articles/naming.htm&quot;&gt;paper on variable naming&lt;/a&gt; for the concept of problem and solution domains&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>Unit-testing Convenience Methods</title>
+      <link>http://moandjiezana.com/blog/2009/unit-test-convenience-methods.html</link>
+      <pubDate>Sun, 8 Nov 2009 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">/blog/2009/unit-test-convenience-methods.html</guid>
+      	<description>
+	&lt;p&gt;An easy way to unit test convenience methods: bootstrap them with the already-tested methods they&amp;apos;re simplifying the interface of.&lt;/p&gt;
+
+&lt;p&gt;The advantage is that you&amp;apos;re doing state-based rather than interaction-based testing and the assertions are fairly readable (and would be even more so with FEST-Assert).&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&quot;http://gist.github.com/226640.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+	</description>
+    </item>
+
+  </channel> 
+</rss>
