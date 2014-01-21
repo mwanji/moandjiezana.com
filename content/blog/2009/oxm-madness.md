@@ -2,7 +2,6 @@ title=Object-XML Mapping in Spring 3.0: when indirection gets out of hand
 status=published
 type=post
 date=2009-11-08
-og=true
 og_description=When indirection gets out of hand.
 og_image=2009/oxm-madness/cookies-1024x768.jpg
 ~~~~~~

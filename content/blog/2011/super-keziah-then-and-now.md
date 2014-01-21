@@ -2,7 +2,6 @@ title=Super Keziah, Then and Now
 status=published
 type=post
 date=2011-02-01
-og=true
 og_description=One year ago, and today.
 og_image=2011/super-keziah-then-and-now/super-keziah-combined.jpg
 ~~~~~~

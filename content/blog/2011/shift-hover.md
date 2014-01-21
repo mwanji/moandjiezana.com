@@ -2,7 +2,6 @@ title=Eclipse shortcut: shift + hover
 status=published
 type=post
 date=2011-02-20
-og=true
 og_description=See the code right away.
 og_image=2011/shift-hover/shift-hover.png
 ~~~~~~

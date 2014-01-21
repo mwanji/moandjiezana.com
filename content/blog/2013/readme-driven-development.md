@@ -2,7 +2,6 @@ title=README-Driven Development
 status=published
 type=post
 date=2013-07-12
-og=true
 og_description=Starting with a README leads to better software and happier users. Thanks to Github for featuring it prominently.
 ~~~~~~
 Among [Github](http://github.com)'s many contributions to software development, the prominence it affords the README is undervalued. By making it obvious to users where to start looking for info about a project, it also gives developers a good starting point.

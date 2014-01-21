@@ -2,7 +2,6 @@ title=Keziah's Stats for 05/01/2010
 status=published
 type=post
 date=2010-01-05
-og=true
 og_description=Keziah after one month.
 og_image=2010/keziah-stats-1/super-keziah.jpg
 ~~~~~~

@@ -2,7 +2,6 @@ title=Eclipse shortcut of the day: Hippie Completion
 status=published
 type=post
 date=2010-03-29
-og=true
 og_description=Feeling lucky?
 ~~~~~~
 Key binding: Alt /
