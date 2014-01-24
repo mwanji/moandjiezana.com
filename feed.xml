@@ -6,8 +6,8 @@
     <atom:link href="http://moandjiezana.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>A Software Developer Blog</description>
     <language>en-gb</language>
-    <pubDate>Tue, 21 Jan 2014 13:54:13 +0200</pubDate>
-    <lastBuildDate>Tue, 21 Jan 2014 13:54:13 +0200</lastBuildDate>
+    <pubDate>Fri, 24 Jan 2014 10:54:32 +0200</pubDate>
+    <lastBuildDate>Fri, 24 Jan 2014 10:54:32 +0200</lastBuildDate>
 
     <item>
       <title>README-Driven Development</title>
@@ -16,6 +16,15 @@
       <guid isPermaLink="false">/blog/2013/readme-driven-development.html</guid>
     	<description>
 	        &lt;p&gt;Among &lt;a href=&quot;http://github.com&quot;&gt;Github&lt;/a&gt;&amp;rsquo;s many contributions to software development, the prominence it affords the README is undervalued. By making it obvious to users where to start looking for info about a project, it also gives developers a good starting point.&lt;/p&gt;&lt;p&gt;There&amp;rsquo;s nothing worse than hearing about a new library, then discovering that it&amp;rsquo;s hosted on java.net. 80% of the time, I will be unable to figure out how the library works, because java.net is so confusing and the projects it hosts rarely do a better job (10% of the time, java.net itself won&amp;rsquo;t load). The most catastrophic example of this is Rome, supposedly Java&amp;rsquo;s leading RSS library. &lt;a href=&quot;https://java.net/projects/rome/pages/Home&quot;&gt;java.net site&lt;/a&gt; links to a URL that has been taken over by spammers. The &lt;a href=&quot;https://rometools.jira.com/wiki/display/ROME/Home&quot;&gt;real site&lt;/a&gt; contains broken links (notably the Tutorials and Articles link!) and very little information.&lt;/p&gt;&lt;p&gt;When the project is on Github, however, there&amp;rsquo;s a 90% chance there&amp;rsquo;ll be a good README, or at least a pointer to a dedicated site. That means users feel good about checking out Github projects and that new projects are more likely to make documentation a priority.&lt;/p&gt;&lt;p&gt;I now try to fully embrace the README and treat it as a first-class citizen alongside code and tests. This is similar to &lt;a href=&quot;http://www.allthingsdistributed.com/2006/11/working_backwards.html&quot;&gt;Amazon&amp;rsquo;s &amp;ldquo;working backwards&amp;rdquo; approach&lt;/a&gt;. Werner Vogels summarises it as &amp;ldquo;start by writing the documents we&amp;rsquo;ll need at launch (the press release and the faq) and then work towards documents that are closer to the implementation&amp;rdquo; (I first read about this as &lt;a href=&quot;http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management&quot;&gt;an answer to a question on Quora&lt;/a&gt;, but Quora has devolved into a horrible place). Starting with the README puts the developer in the mindset of the user. Questions such as &amp;ldquo;what is this for?&amp;rdquo;, &amp;ldquo;what does the user need to know to get started?&amp;rdquo;, &amp;ldquo;what do I want the API to look like?&amp;rdquo; come to the fore right away. Complex installations, burdensome multi-step operations, etc. are revealed and can be simplified before too many users have to struggle through them.&lt;/p&gt;&lt;p&gt;While I&amp;rsquo;m not yet quite as rigorous as Amazon and tend to iterate on the code and the README in tandem, the benefits are still sizeable. At the very least, I&amp;rsquo;m guaranteed to have documentation (a project without documentation might as well not exist!). At best, I&amp;rsquo;ll have much better and friendlier software.&lt;/p&gt;
+	    </description>
+    </item>
+    <item>
+      <title>Stage-Naming Your Kids</title>
+      <link>http://moandjiezana.com/blog/2012/stage-naming-your-kids.html</link>
+      <pubDate>Wed, 12 Dec 2012 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">/blog/2012/stage-naming-your-kids.html</guid>
+    	<description>
+	        &lt;p&gt;&lt;img src=&quot;/img/2012/stage-naming-your-kids/keziah_kravitz.jpg&quot; width=&quot;846&quot; height=&quot;392&quot; title=&quot;Keziah rocks out&quot; /&gt;&lt;/p&gt;&lt;p&gt;During my Masters at Warwick University, I once booked a band practice room. The guy asked me what name to make the booking under. I said &amp;ldquo;Mwanji&amp;rdquo; and he asked &amp;ldquo;Is that your name or the band&amp;rsquo;s name?&amp;rdquo;. He was impressed that it was mine. I immediately resolved to give my children names cool enough to use as stage names.&lt;/p&gt;&lt;p&gt;Keziah was inspired by &lt;a href=&quot;http://keziahjones.biz/&quot;&gt;Keziah Jones&lt;/a&gt;: we were watching him play a fantastic set a &lt;a href=&quot;http://www.couleurcafe.be/&quot;&gt;Couleur Café&lt;/a&gt; 2009 and Iris said &amp;ldquo;Keziah Ezana would sound really great.&amp;rdquo; And it does.&lt;/p&gt;&lt;p&gt;Ayanda Lily combines quirky and gentle in a way suitable for either a Starbucks-ready guitar-strumming singer-songwriter or a Joanna Newsom-like outlier. Or she could do death metal and use it ironically.&lt;/p&gt;
 	    </description>
     </item>
     <item>
