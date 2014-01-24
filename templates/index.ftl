@@ -152,9 +152,9 @@
 
 <div class="row">
   <div class="col-lg-offset-1 col-lg-5">
-    <h3><a href="https://github.com/soulgalore/jdbcmetrics/commits?author=mwanji">jdbcmetrics</a> <i class="icon-java" title="Java"></i></h3>
+    <h3><a href="https://github.com/mwanji/jbake-watch-node">jbake-watch</a> <i class="icon-nodejs" title="Node.js"></i></h3>
     <p>
-      [contributor] A JDBC extension to the <a href="http://metrics.codahale.com/">Metrics</a> performance measurement library.
+      [creator] A Node.js-based file-watching utility for <a href="http://jbake.org">JBake</a>, a static site generator.
     </p>
   </div>
   <div class="col-lg-5">
@@ -173,24 +173,24 @@
     </p>
   </div>
   <div class="col-lg-5">
-    <h3><a href="https://github.com/mwanji/DbUtils-JPA">DbUtils-JPA</a> <i class="icon-java" title="Java"></i></h3>
+    <h3><a href="https://github.com/soulgalore/jdbcmetrics/commits?author=mwanji">jdbcmetrics</a> <i class="icon-java" title="Java"></i></h3>
     <p>
-      [creator] JPA-aware extension to <a href="http://commons.apache.org/proper/commons-dbutils/">DbUtils</a>.
+      [contributor] A JDBC extension to the <a href="http://metrics.codahale.com/">Metrics</a> performance measurement library.
     </p>
   </div>
 </div>
 
 <div class="row">
   <div class="col-lg-offset-1 col-lg-5">
-    <h3><a href="https://github.com/mwanji/tent-client-java">tent-client-java</a> <i class="icon-java" title="Java"></i></h3>
+    <h3><a href="https://github.com/mwanji/DbUtils-JPA">DbUtils-JPA</a> <i class="icon-java" title="Java"></i></h3>
     <p>
-      [creator] <a href="http://tent.io">Tent</a> protocol API client.
+      [creator] JPA-aware extension to <a href="http://commons.apache.org/proper/commons-dbutils/">DbUtils</a>.
     </p>
   </div>
   <div class="col-lg-5">
     <h3><a href="https://github.com/mwanji/essayist">essayist</a> <i class="icon-java" title="Java"></i></h3>
     <p>
-      [creator] Blogging app for the <a href="http://tent.io">Tent</a> protocol.
+      [creator] Blogging app for the <a href="http://tent.io">Tent</a> protocol, along with a <a href="https://github.com/mwanji/tent-client-java">protocol client</a>.
     </p>
   </div>
 </div>
