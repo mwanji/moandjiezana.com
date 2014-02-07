@@ -158,9 +158,9 @@
     </p>
   </div>
   <div class="col-lg-5">
-    <h3><a href="https://github.com/resteasy/Resteasy/commits?author=mwanji">resteasy-guice</a> <i class="icon-java" title="Java"></i></h3>
+    <h3><a href="https://github.com/mwanji/jscolor-rails">jscolor-rails</a> <i class="icon-ruby-on-rails-alt" title="Ruby on Rails"></i> <i class="icon-javascript" title="jscolor"></i></h3>
     <p>
-      [contributor] <a href="http://code.google.com/p/google-guice">Guice</a> integration for JBoss's <a href="http://www.jboss.org/resteasy">RESTEasy</a> JAX-RS implementation.
+      [creator] A gem that makes <a href="http://www.jscolor.com">JSColor</a> available to Ruby on Rails apps.
     </p>
   </div>
 </div>
@@ -173,9 +173,9 @@
     </p>
   </div>
   <div class="col-lg-5">
-    <h3><a href="https://github.com/soulgalore/jdbcmetrics/commits?author=mwanji">jdbcmetrics</a> <i class="icon-java" title="Java"></i></h3>
+    <h3><a href="https://github.com/resteasy/Resteasy/commits?author=mwanji">resteasy-guice</a> <i class="icon-java" title="Java"></i></h3>
     <p>
-      [contributor] A JDBC extension to the <a href="http://metrics.codahale.com/">Metrics</a> performance measurement library.
+      [contributor] <a href="http://code.google.com/p/google-guice">Guice</a> integration for JBoss's <a href="http://www.jboss.org/resteasy">RESTEasy</a> JAX-RS implementation.
     </p>
   </div>
 </div>
@@ -188,6 +188,15 @@
     </p>
   </div>
   <div class="col-lg-5">
+    <h3><a href="https://github.com/soulgalore/jdbcmetrics/commits?author=mwanji">jdbcmetrics</a> <i class="icon-java" title="Java"></i></h3>
+    <p>
+      [contributor] A JDBC extension to the <a href="http://metrics.codahale.com/">Metrics</a> performance measurement library.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-offset-1 col-lg-5">
     <h3><a href="https://github.com/mwanji/essayist">essayist</a> <i class="icon-java" title="Java"></i></h3>
     <p>
       [creator] Blogging app for the <a href="http://tent.io">Tent</a> protocol, along with a <a href="https://github.com/mwanji/tent-client-java">protocol client</a>.
