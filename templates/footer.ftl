@@ -6,7 +6,7 @@
           <a href="https://google.com/+MoandjiEzana?rel=author" title="Google+" class="me-icon"><i class="fa fa-google-plus"></i></a>
           <a href="http://www.facebook.com/mwanji" title="Facebook" class="me-icon"><i class="fa fa-facebook"></i></a>
           <a href="http://twitter.com/mwanji" title="@mwanji" class="me-icon"><i class="fa fa-twitter"></i></a>
-          <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="fa fa-envelope-o"></i></a>
+          <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="fa fa-envelope"></i></a>
         </div>
       </div>
       <div class="row">
