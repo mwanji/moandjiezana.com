@@ -72,7 +72,7 @@
     </p>
   </div>
   <div class="col-lg-5">
-    <h3 class="no-margin-bottom"><a href="http://optout.truvo.be/en/our-solutions/mysite/free-mysite/">Truvo MySite</a> <span class="text-muted">2009-2010</span></h3>
+    <h3 class="no-margin-bottom"><a href="http://goldenpages.microsite.be/ie/home">Truvo MySite</a> <span class="text-muted">2009-2010</span></h3>
     <div class="me-icon-row">
       <i class="icon-java" title="Spring MVC, Hibernate"></i> <i class="icon-javascript" title="YUI"></i> <i class="icon-mysql" title="MySQL"></i> <i class="icon-tomcat" title="Tomcat 5.5"></i>
     </div>
