@@ -6,107 +6,156 @@
     <atom:link href="http://moandjiezana.com/feed.xml" rel="self" type="application/rss+xml" />
     <description>A Software Developer Blog</description>
     <language>en-gb</language>
-    <pubDate>Fri, 24 Jan 2014 10:54:32 +0200</pubDate>
-    <lastBuildDate>Fri, 24 Jan 2014 10:54:32 +0200</lastBuildDate>
+    <pubDate>Wed, 17 Dec 2014 13:34:55 +0200</pubDate>
+    <lastBuildDate>Wed, 17 Dec 2014 13:34:55 +0200</lastBuildDate>
 
     <item>
+      <title>Using Java 8 with Eclipse and m2e</title>
+      <link>http://moandjiezana.com/blog/2014/eclipse-m2e-java-8/index.html</link>
+      <pubDate>Thu, 10 Apr 2014 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">/blog/2014/eclipse-m2e-java-8/index.html</guid>
+    	<description>
+	        &lt;p&gt;Eclipse is as confusing as ever. And the splash screens aren&amp;rsquo;t getting any better&amp;hellip;&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;/img/2014/eclipse-m2e-java-8/kepler.png&quot; alt=&quot;Kepler splash screen&quot; title=&quot;Kepler splash screen&quot;&quot;/&gt;&lt;img src=&quot;/img/2014/eclipse-m2e-java-8/luna.png&quot; alt=&quot;Luna splash screen&quot; title=&quot;Luna splash screen&quot;&quot;/&gt;&lt;/p&gt;&lt;p&gt;With the official release of Java 8, Eclipse &lt;a href=&quot;https://wiki.eclipse.org/JDT/Eclipse_Java_8_Support_For_Kepler&quot;&gt;announced support for Java 8 in Kepler and Luna&lt;/a&gt;. In reality, that support is not provided out-of-the-box, especially if you want to use Maven.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Kepler&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;In Eclipse Kepler SR2 (4.3.2) (the SR2 part is important), you need to get a JDT patch from the &lt;a href=&quot;http://download.eclipse.org/eclipse/updates/4.3-P-builds/&quot;&gt;4.3 update site&lt;/a&gt;. There are instuctions in the &lt;a href=&quot;https://wiki.eclipse.org/JDT/Eclipse_Java_8_Support_For_Kepler&quot;&gt;announcement&lt;/a&gt;. Then, add an Installed JRE and an execution environment:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Window &amp;gt; Preferences &amp;gt; Java &amp;gt; Installed JREs&lt;/li&gt;
+  &lt;li&gt;Add&amp;hellip;&lt;/li&gt;
+  &lt;li&gt;Choose JDK 8&amp;rsquo;s home directory&lt;/li&gt;
+  &lt;li&gt;Click OK and go to Window &amp;gt; Preferences &amp;gt; Java &amp;gt; Installed JREs &amp;gt; Execution Environment (you have to close the preferences pane because the list of execution environments isn&amp;rsquo;t updated when you add the Java 8 JDK)&lt;/li&gt;
+  &lt;li&gt;Select JavaSE-1.8 and check jdk1.8.0&lt;/li&gt;
+&lt;/ol&gt;&lt;p&gt;&lt;strong&gt;Luna&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;I initially downloaded Luna Milestone 6 and was surprised not to see Java 8 support. By reading the announcement very carefully, it turns out that the earliest Luna build with Java 8 support is from March 18, 2014 and Milestone 6 was released on March 6. So, you can either:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;download the latest &lt;a href=&quot;http://download.eclipse.org/eclipse/downloads/&quot;&gt;4.4 milestone&lt;/a&gt; (&lt;a href=&quot;http://download.eclipse.org/eclipse/downloads/drops4/S-4.4M6-201403061200/&quot;&gt;4.4M6&lt;/a&gt; at the time of writing) and add the integration builds &lt;a href=&quot;http://download.eclipse.org/eclipse/updates/4.4-I-builds&quot;&gt;update site&lt;/a&gt;, or&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://download.eclipse.org/eclipse/downloads/drops4/I20140325-0830/&quot;&gt;download I20140325-0830&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;&lt;p&gt;In both cases, choose a download from the &amp;ldquo;Eclipse SDK&amp;rdquo; section. I took the first option, because of all the big red X&amp;rsquo;s in the Status column of the integration build.&lt;/p&gt;&lt;p&gt;Luna is still rough. It seems to work, but there are a lot of weird, dev-related items in menus.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Maven&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;When using Maven your work is still not done: setting the maven-compiler-plugin to 1.8 will cause Eclipse to set the project&amp;rsquo;s compiler level to 1.4.&lt;/p&gt;&lt;p&gt;You need the latest from the &lt;a href=&quot;http://eclipse.org/m2e&quot;&gt;m2e&lt;/a&gt; 1.5 milestones &lt;a href=&quot;http://download.eclipse.org/technology/m2e/milestones/1.5&quot;&gt;update site&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;And there you have it: Java 8 and Maven in Eclipse, in 657 easy steps!&lt;/p&gt;
+	    </description>
+    </item>
+    <item>
+      <title>Understanding Java 8 Method References</title>
+      <link>http://moandjiezana.com/blog/2014/understanding-method-references/index.html</link>
+      <pubDate>Tue, 1 Apr 2014 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">/blog/2014/understanding-method-references/index.html</guid>
+    	<description>
+	        &lt;p&gt;Method references are a nice facility in Java 8. They can make code very concise and expressive. However, there are a few things to understand about them: they are merely a shorthand for lambdas and they are desugared in a specific way.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Method References Are Abbreviated Lambdas&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;One fundamental thing I hadn&amp;rsquo;t understood is that a method reference doesn&amp;rsquo;t refer directly to the method literal. It&amp;rsquo;s not a typesafe equivalent of &lt;code&gt;User.class.getMethod(&amp;quot;getName&amp;quot;)&lt;/code&gt;, it&amp;rsquo;s syntactic sugar for a lambda. You can see this in the following code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class MyClass {
+  public static void printFunction(Function&amp;lt;String, String&amp;gt; func) {
+    System.out.println(func);
+  }
+
+  public static void main(String[] args) {
+    printFunction(String::valueOf);
+  }
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Running this prints something like &amp;ldquo;MyClass$$Lambda$1/1510467688&amp;rdquo;. This shows that method references should be considered abbreviations for common lambdas. So you can&amp;rsquo;t use a method reference to reflect on a method&amp;rsquo;s signature in a typesafe way, which is what I was hoping to do.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Referring to Instance Methods&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;There are four types of method references. References to static methods, references to methods of a specific instance and references to constructors are easy to understand. The explanation of the fourth type, the &amp;ldquo;Reference to an Instance Method of an Arbitrary Object of a Particular Type&amp;rdquo;, provided in Oracle&amp;rsquo;s &lt;a href=&quot;http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html&quot;&gt;method reference tutorial&lt;/a&gt; is very uninformative. Reading it has not helped me use one myself.&lt;/p&gt;&lt;p&gt;Thankfully, Toby Weston &lt;a href=&quot;http://baddotrobot.com/blog/2014/02/18/method-references-in-java8/&quot;&gt;explains method references&lt;/a&gt; much more clearly and with nice examples.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Desugaring Lambdas&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Another source of confusion is Oracle&amp;rsquo;s example of using a method reference to an instance method of an unknown object (an &amp;ldquo;object supplied later&amp;rdquo;, as Weston puts it):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;String[] stringArray = { &amp;quot;Barbara&amp;quot;, &amp;quot;James&amp;quot;, &amp;quot;Mary&amp;quot;, &amp;quot;John&amp;quot;, &amp;quot;Patricia&amp;quot;, &amp;quot;Robert&amp;quot;, &amp;quot;Michael&amp;quot;, &amp;quot;Linda&amp;quot; };
+Arrays.sort(stringArray, String::compareToIgnoreCase);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;How can String&amp;rsquo;s compareToIgnoreCase serve as a Comparator? The answer is found in Brian Goetz&amp;rsquo;s &lt;a href=&quot;http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html&quot;&gt;Translation of Lambda Expressions&lt;/a&gt; from April 2012. He says that, when converting a method reference to a lambda, &amp;ldquo;if the desugared method is an instance method, the receiver is considered to be the first argument&amp;rdquo;. Also, the lambda&amp;rsquo;s remaining arguments are passed as arguments to the referred method.&lt;/p&gt;&lt;p&gt;The desugaring process can be broken down into the following steps:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;Arrays#sort&lt;/code&gt; expects a &lt;code&gt;Comparator&amp;lt;String&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;Comparator&amp;lt;String&amp;gt;&lt;/code&gt;&amp;rsquo;s abstract method is &lt;code&gt;int sort(String, String)&lt;/code&gt;, which is equivalent to &lt;code&gt;BiFunction&amp;lt;String, String, Integer&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;The comparator instance could therefore be supplied by a &lt;code&gt;BiFunction&lt;/code&gt;-compatible lambda: &lt;code&gt;(String a, String b) -&amp;gt; a.compareToIgnoreCase(b)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;String::compareToIgnoreCase&lt;/code&gt; refers to an instance method that takes a String argument, so it is compatible with the above lambda: &lt;code&gt;String a&lt;/code&gt; becomes the receiver and &lt;code&gt;String b&lt;/code&gt; becomes the method argument&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;To try it for myself, I defined a TriFunction equivalent to BiFunction and a corresponding method reference:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;interface TriFunction&amp;lt;T1, T2, T3, R&amp;gt; {
+  R apply(T1 receiver, T2 argument1, T3 argument2);
+}
+
+class MyClass {
+
+  Integer triRef(String s1, String s2) {
+    return 1;
+  }
+
+  static void tri(TriFunction&amp;lt;MyClass, String, String, Integer&amp;gt; func) {}
+
+  public static void main(String[] args) {
+    tri(MyClass::triRef); // is equivalent to
+    tri((MyClass myClass, String s1, String s2) -&amp;gt; myClass.triRef(s1, s2));
+  }
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;When a method reference is used where a &lt;code&gt;TriFunction&lt;/code&gt; is required, the referred method (&lt;code&gt;triRef&lt;/code&gt; in this case) will be called on &lt;code&gt;receiver&lt;/code&gt; and &lt;code&gt;argument1&lt;/code&gt; and &lt;code&gt;argument2&lt;/code&gt; will be passed as parameters to the referred method.&lt;/p&gt;
+	    </description>
+    </item>
+    <item>
       <title>README-Driven Development</title>
-      <link>http://moandjiezana.com/blog/2013/readme-driven-development.html</link>
+      <link>http://moandjiezana.com/blog/2013/readme-driven-development/index.html</link>
       <pubDate>Fri, 12 Jul 2013 00:00:00 +0200</pubDate>
-      <guid isPermaLink="false">/blog/2013/readme-driven-development.html</guid>
+      <guid isPermaLink="false">/blog/2013/readme-driven-development/index.html</guid>
     	<description>
 	        &lt;p&gt;Among &lt;a href=&quot;http://github.com&quot;&gt;Github&lt;/a&gt;&amp;rsquo;s many contributions to software development, the prominence it affords the README is undervalued. By making it obvious to users where to start looking for info about a project, it also gives developers a good starting point.&lt;/p&gt;&lt;p&gt;There&amp;rsquo;s nothing worse than hearing about a new library, then discovering that it&amp;rsquo;s hosted on java.net. 80% of the time, I will be unable to figure out how the library works, because java.net is so confusing and the projects it hosts rarely do a better job (10% of the time, java.net itself won&amp;rsquo;t load). The most catastrophic example of this is Rome, supposedly Java&amp;rsquo;s leading RSS library. &lt;a href=&quot;https://java.net/projects/rome/pages/Home&quot;&gt;java.net site&lt;/a&gt; links to a URL that has been taken over by spammers. The &lt;a href=&quot;https://rometools.jira.com/wiki/display/ROME/Home&quot;&gt;real site&lt;/a&gt; contains broken links (notably the Tutorials and Articles link!) and very little information.&lt;/p&gt;&lt;p&gt;When the project is on Github, however, there&amp;rsquo;s a 90% chance there&amp;rsquo;ll be a good README, or at least a pointer to a dedicated site. That means users feel good about checking out Github projects and that new projects are more likely to make documentation a priority.&lt;/p&gt;&lt;p&gt;I now try to fully embrace the README and treat it as a first-class citizen alongside code and tests. This is similar to &lt;a href=&quot;http://www.allthingsdistributed.com/2006/11/working_backwards.html&quot;&gt;Amazon&amp;rsquo;s &amp;ldquo;working backwards&amp;rdquo; approach&lt;/a&gt;. Werner Vogels summarises it as &amp;ldquo;start by writing the documents we&amp;rsquo;ll need at launch (the press release and the faq) and then work towards documents that are closer to the implementation&amp;rdquo; (I first read about this as &lt;a href=&quot;http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management&quot;&gt;an answer to a question on Quora&lt;/a&gt;, but Quora has devolved into a horrible place). Starting with the README puts the developer in the mindset of the user. Questions such as &amp;ldquo;what is this for?&amp;rdquo;, &amp;ldquo;what does the user need to know to get started?&amp;rdquo;, &amp;ldquo;what do I want the API to look like?&amp;rdquo; come to the fore right away. Complex installations, burdensome multi-step operations, etc. are revealed and can be simplified before too many users have to struggle through them.&lt;/p&gt;&lt;p&gt;While I&amp;rsquo;m not yet quite as rigorous as Amazon and tend to iterate on the code and the README in tandem, the benefits are still sizeable. At the very least, I&amp;rsquo;m guaranteed to have documentation (a project without documentation might as well not exist!). At best, I&amp;rsquo;ll have much better and friendlier software.&lt;/p&gt;
 	    </description>
     </item>
     <item>
       <title>Stage-Naming Your Kids</title>
-      <link>http://moandjiezana.com/blog/2012/stage-naming-your-kids.html</link>
+      <link>http://moandjiezana.com/blog/2012/stage-naming-your-kids/index.html</link>
       <pubDate>Wed, 12 Dec 2012 00:00:00 +0200</pubDate>
-      <guid isPermaLink="false">/blog/2012/stage-naming-your-kids.html</guid>
+      <guid isPermaLink="false">/blog/2012/stage-naming-your-kids/index.html</guid>
     	<description>
 	        &lt;p&gt;&lt;img src=&quot;/img/2012/stage-naming-your-kids/keziah_kravitz.jpg&quot; width=&quot;846&quot; height=&quot;392&quot; title=&quot;Keziah rocks out&quot; /&gt;&lt;/p&gt;&lt;p&gt;During my Masters at Warwick University, I once booked a band practice room. The guy asked me what name to make the booking under. I said &amp;ldquo;Mwanji&amp;rdquo; and he asked &amp;ldquo;Is that your name or the band&amp;rsquo;s name?&amp;rdquo;. He was impressed that it was mine. I immediately resolved to give my children names cool enough to use as stage names.&lt;/p&gt;&lt;p&gt;Keziah was inspired by &lt;a href=&quot;http://keziahjones.biz/&quot;&gt;Keziah Jones&lt;/a&gt;: we were watching him play a fantastic set a &lt;a href=&quot;http://www.couleurcafe.be/&quot;&gt;Couleur Café&lt;/a&gt; 2009 and Iris said &amp;ldquo;Keziah Ezana would sound really great.&amp;rdquo; And it does.&lt;/p&gt;&lt;p&gt;Ayanda Lily combines quirky and gentle in a way suitable for either a Starbucks-ready guitar-strumming singer-songwriter or a Joanna Newsom-like outlier. Or she could do death metal and use it ironically.&lt;/p&gt;
 	    </description>
     </item>
     <item>
       <title>Eclipse shortcut: shift + hover</title>
-      <link>http://moandjiezana.com/blog/2011/shift-hover.html</link>
+      <link>http://moandjiezana.com/blog/2011/shift-hover/index.html</link>
       <pubDate>Sun, 20 Feb 2011 00:00:00 +0200</pubDate>
-      <guid isPermaLink="false">/blog/2011/shift-hover.html</guid>
+      <guid isPermaLink="false">/blog/2011/shift-hover/index.html</guid>
     	<description>
 	        &lt;p&gt;&lt;a href=&quot;/img/2011/shift-hover/shift-hover.png&quot;&gt;&lt;img src=&quot;/img/2011/shift-hover/shift-hover-small.png&quot; width=&quot;626&quot; height=&quot;180&quot; title=&quot;shift + hover&quot;/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;In Eclipse, press and hold shift just before hovering over a class or method to pop up its source code.&lt;/p&gt;
 	    </description>
     </item>
     <item>
       <title>Java Coders Distrust Their Neighbours</title>
-      <link>http://moandjiezana.com/blog/2011/java-coders-distrust-neighbours.html</link>
+      <link>http://moandjiezana.com/blog/2011/java-coders-distrust-neighbours/index.html</link>
       <pubDate>Wed, 2 Feb 2011 00:00:00 +0200</pubDate>
-      <guid isPermaLink="false">/blog/2011/java-coders-distrust-neighbours.html</guid>
+      <guid isPermaLink="false">/blog/2011/java-coders-distrust-neighbours/index.html</guid>
     	<description>
-	        &lt;p&gt;&lt;img src=&quot;/img/2011/java-coders-distrust-neighbours/jtrust.jpg&quot; width=&quot;550&quot; height=&quot;367&quot; title=&quot;Would you trust these people?&quot;/&gt;&lt;/p&gt;
-&lt;p&gt;Here&apos;s a dysfunctional flow I came across today at work and that seems to pop up fairly often.&lt;/p&gt;
-
+	        &lt;p&gt;&lt;img src=&quot;/img/2011/java-coders-distrust-neighbours/jtrust.jpg&quot; width=&quot;550&quot; height=&quot;367&quot; title=&quot;Would you trust these people?&quot;/&gt;&lt;/p&gt;&lt;p&gt;Here&amp;rsquo;s a dysfunctional flow I came across today at work and that seems to pop up fairly often.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Query some entities from the database&lt;/li&gt;
-&lt;li&gt;Extract the IDs and put them in an array&lt;/li&gt;
-&lt;li&gt;Pass the array to another method&lt;/li&gt;
-&lt;li&gt;Load each entity from the database, but by ID this time&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Ludicrous. If we&apos;re lucky, the by-ID lookups will only hit the first-level cache, but those calls shouldn&apos;t even be happening at all. What is to blame?&lt;/p&gt;
-
-&lt;p&gt;
-&lt;strong&gt;Stupidity?&lt;/strong&gt; No, my colleagues aren&apos;t stupid at all.&lt;br/&gt;
-&lt;strong&gt;Large codebase?&lt;/strong&gt; This is a fairly big application, but not *that* big.&lt;br/&gt;
-&lt;strong&gt;Laziness?&lt;/strong&gt; In a sense. There is one case in which the ID array is passed in directly from the client without having been loaded on the server-side first. It could be that the author didn&apos;t want to write a second method.&lt;br/&gt;
-&lt;strong&gt;Parano&amp;iuml;a&lt;/strong&gt;? Probably. Java developers are prone to that. 
-&lt;/p&gt;
-&lt;p&gt;
-A lot of Java developers seem to resist thinking in overall flows in favour of treating every method as an island that can be attacked on all sides by anything at any time. So, each method is front-loaded with a bunch of &lt;code&gt;Assert.notNull(someValue)&lt;/code&gt;, objects are copied &quot;just to be sure no-one else is messing with them&quot;. The code just gets cruftier.
-&lt;/p&gt;
-&lt;p&gt;
-It seems to me that much of this is nonsense and could be alleviated:
-&lt;/p&gt;
+  &lt;li&gt;Query some entities from the database&lt;/li&gt;
+  &lt;li&gt;Extract the IDs and put them in an array&lt;/li&gt;
+  &lt;li&gt;Pass the array to another method&lt;/li&gt;
+  &lt;li&gt;Load each entity from the database, but by ID this time&lt;/li&gt;
+&lt;/ol&gt;&lt;p&gt;Ludicrous. If we&amp;rsquo;re lucky, the by-ID lookups will only hit the first-level cache, but those calls shouldn&amp;rsquo;t even be happening at all. What is to blame?&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Stupidity?&lt;/strong&gt; No, my colleagues aren&amp;rsquo;t stupid at all.&lt;br/&gt;&lt;strong&gt;Large codebase?&lt;/strong&gt; This is a fairly big application, but not &lt;em&gt;that&lt;/em&gt; big.&lt;br/&gt;&lt;strong&gt;Laziness?&lt;/strong&gt; In a sense. There is one case in which the ID array is passed in directly from the client without having been loaded on the server-side first. It could be that the author didn&amp;rsquo;t want to write a second method.&lt;br/&gt;&lt;strong&gt;Parano&amp;iuml;a&lt;/strong&gt;? Probably. Java developers are prone to that. &lt;/p&gt;&lt;p&gt;A lot of Java developers seem to resist thinking in overall flows in favour of treating every method as an island that can be attacked on all sides by anything at any time. So, each method is front-loaded with a bunch of &lt;code&gt;Assert.notNull(someValue)&lt;/code&gt;, objects are copied &amp;ldquo;just to be sure no-one else is messing with them&amp;rdquo;. The code just gets cruftier.&lt;/p&gt;&lt;p&gt;It seems to me that much of this is nonsense and could be alleviated:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Apply strong validation at the beginning of any flow, then the strict minimum afterwards. The database should have the strongest constraints possible.&lt;/li&gt;
-&lt;li&gt;Enforce the convention that methods neither accept nor return null values.&lt;/li&gt;
-&lt;li&gt;In the single-threaded context of, say, a typical web request, there&apos;s no mystery about who is manipulating your objects. Don&apos;t worry about it.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;These don&apos;t always apply, but are pretty good rules of thumb.&lt;/p&gt;
-
+  &lt;li&gt;Apply strong validation at the beginning of any flow, then the strict minimum afterwards. The database should have the strongest constraints possible.&lt;/li&gt;
+  &lt;li&gt;Enforce the convention that methods neither accept nor return null values.&lt;/li&gt;
+  &lt;li&gt;In the single-threaded context of, say, a typical web request, there&amp;rsquo;s no mystery about who is manipulating your objects. Don&amp;rsquo;t worry about it.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;These don&amp;rsquo;t always apply, but are pretty good rules of thumb.&lt;/p&gt;
 	    </description>
     </item>
     <item>
       <title>Super Keziah, Then and Now</title>
-      <link>http://moandjiezana.com/blog/2011/super-keziah-then-and-now.html</link>
+      <link>http://moandjiezana.com/blog/2011/super-keziah-then-and-now/index.html</link>
       <pubDate>Tue, 1 Feb 2011 00:00:00 +0200</pubDate>
-      <guid isPermaLink="false">/blog/2011/super-keziah-then-and-now.html</guid>
+      <guid isPermaLink="false">/blog/2011/super-keziah-then-and-now/index.html</guid>
     	<description>
 	        &lt;p&gt;&lt;a href=&quot;/img/2011/super-keziah-then-and-now/super-keziah-combined.jpg&quot;&gt;&lt;img src=&quot;/img/2011/super-keziah-then-and-now/super-keziah-combined.jpg&quot; width=&quot;757&quot; height=&quot;534&quot; title=&quot;Super Keziahs&quot;/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Two pictures, taken a year apart. Not much has changed, has it?&lt;/p&gt;
 	    </description>
     </item>
     <item>
       <title>Eclipse shortcut of the day: Hippie Completion</title>
-      <link>http://moandjiezana.com/blog/2010/hippie-completion.html</link>
+      <link>http://moandjiezana.com/blog/2010/hippie-completion/index.html</link>
       <pubDate>Mon, 29 Mar 2010 00:00:00 +0200</pubDate>
-      <guid isPermaLink="false">/blog/2010/hippie-completion.html</guid>
+      <guid isPermaLink="false">/blog/2010/hippie-completion/index.html</guid>
     	<description>
 	        &lt;p&gt;Key binding: Alt /&lt;/p&gt;&lt;p&gt;Alt / is the &amp;ldquo;I&amp;rsquo;m feeling lucky&amp;rdquo; version of Ctrl Space. Instead of listing suggestions, it takes its best guess.&lt;/p&gt;&lt;p&gt;&lt;em&gt;[via: &lt;a href=&quot;http://blogs.sun.com/tor/entry/ide_tips&quot;&gt;Tor Norbye&lt;/a&gt; and &lt;a href=&quot;http://beust.com/weblog2/archives/000258.html&quot;&gt;Cédric Beust&lt;/a&gt;]&lt;/em&gt;&lt;/p&gt;
 	    </description>
     </item>
     <item>
       <title>Keziah&apos;s Stats for 05/01/2010</title>
-      <link>http://moandjiezana.com/blog/2010/keziah-stats-1.html</link>
+      <link>http://moandjiezana.com/blog/2010/keziah-stats-1/index.html</link>
       <pubDate>Tue, 5 Jan 2010 00:00:00 +0200</pubDate>
-      <guid isPermaLink="false">/blog/2010/keziah-stats-1.html</guid>
+      <guid isPermaLink="false">/blog/2010/keziah-stats-1/index.html</guid>
     	<description>
 	        &lt;p&gt;&lt;a href=&quot;/img/2010/keziah-stats-1/super-keziah.jpg&quot;&gt;&lt;img src=&quot;/img/2010/keziah-stats-1/super-keziah-small.jpg&quot; width=&quot;300&quot; height=&quot;400&quot; title=&quot;Super Keziah&quot;/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Weight: 4.700kg (+ 1.05kg)&lt;br/&gt;Height: 53.5cm (+2cm)&lt;/p&gt;
 	    </description>
     </item>
     <item>
       <title>Object-XML Mapping in Spring 3.0: when indirection gets out of hand</title>
-      <link>http://moandjiezana.com/blog/2009/oxm-madness.html</link>
+      <link>http://moandjiezana.com/blog/2009/oxm-madness/index.html</link>
       <pubDate>Sun, 8 Nov 2009 00:00:00 +0200</pubDate>
-      <guid isPermaLink="false">/blog/2009/oxm-madness.html</guid>
+      <guid isPermaLink="false">/blog/2009/oxm-madness/index.html</guid>
     	<description>
 	        &lt;p&gt;&lt;a href=&quot;cookies-1024x768.jpg&quot;&gt;&lt;img title=&quot;how many layers?&quot; src=&quot;/img/2009/oxm-madness/cookies-300x225.jpg&quot; alt=&quot;how many layers?&quot; width=&quot;300&quot; height=&quot;225&quot; /&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.ibm.com/developerworks/java/library/x-springXOM/index.html?ca=drs-&quot;&gt;Meet the Object/XML mapping support in Spring&lt;/a&gt; is an introduction to the &lt;a title=&quot;Spring WS OXM documentation&quot; href=&quot;http://static.springsource.org/spring-ws/site/reference/html/oxm.html&quot;&gt;Marshaller and Unmarshaller interfaces&lt;/a&gt; that have been rolled into Spring 3.0 from Spring WS.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;In summary:&lt;/p&gt;
 &lt;ol&gt;
@@ -125,16 +174,12 @@ It seems to me that much of this is nonsense and could be alleviated:
     </item>
     <item>
       <title>Unit-testing Convenience Methods</title>
-      <link>http://moandjiezana.com/blog/2009/unit-test-convenience-methods.html</link>
+      <link>http://moandjiezana.com/blog/2009/unit-test-convenience-methods/index.html</link>
       <pubDate>Sun, 8 Nov 2009 00:00:00 +0200</pubDate>
-      <guid isPermaLink="false">/blog/2009/unit-test-convenience-methods.html</guid>
+      <guid isPermaLink="false">/blog/2009/unit-test-convenience-methods/index.html</guid>
     	<description>
-	        &lt;p&gt;An easy way to unit test convenience methods: bootstrap them with the already-tested methods they&amp;apos;re simplifying the interface of.&lt;/p&gt;
-
-&lt;p&gt;The advantage is that you&amp;apos;re doing state-based rather than interaction-based testing and the assertions are fairly readable (and would be even more so with FEST-Assert).&lt;/p&gt;
-
-&lt;p&gt;&lt;script src=&quot;http://gist.github.com/226640.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
-
+	        &lt;p&gt;An easy way to unit test convenience methods: bootstrap them with the already-tested methods they&amp;apos;re simplifying the interface of.&lt;/p&gt;&lt;p&gt;The advantage is that you&amp;apos;re doing state-based rather than interaction-based testing and the assertions are fairly readable (and would be even more so with FEST-Assert).&lt;/p&gt;
+&lt;script src=&quot;http://gist.github.com/226640.js&quot;&gt;&lt;/script&gt;
 	    </description>
     </item>
   </channel> 

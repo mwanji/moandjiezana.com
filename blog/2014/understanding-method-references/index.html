@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Moandji Ezana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Moandji Ezana">
+          <meta property="og:type" content="article"/>
+      <meta property="og:url" content="http://moandjiezana.com/blog/2014/understanding-method-references/index.html"/>
+      <meta property="og:site_name" content="Moandji Ezana Blog"/>
+      <meta property="article:author" content="http://facebook.com/mwanji">
+      <meta property="og:title" content="Understanding Java 8 Method References">
+      <meta property="og:description" content="Method references aren't quite what they appear to be">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/font-mfizz/font-mfizz.css">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+  <body>
+    <div class="container">
+   
+	
+  <h1><a href="/">Moandji Ezana</a> <small>Blog</small></h1>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h4>April 01, 2014</h4>
+       <h2><a href="/blog/2014/understanding-method-references/index.html">Understanding Java 8 Method References</a></h2>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-offset-1 col-lg-7">
+    	<p>Method references are a nice facility in Java 8. They can make code very concise and expressive. However, there are a few things to understand about them: they are merely a shorthand for lambdas and they are desugared in a specific way.</p><p><strong>Method References Are Abbreviated Lambdas</strong></p><p>One fundamental thing I hadn&rsquo;t understood is that a method reference doesn&rsquo;t refer directly to the method literal. It&rsquo;s not a typesafe equivalent of <code>User.class.getMethod(&quot;getName&quot;)</code>, it&rsquo;s syntactic sugar for a lambda. You can see this in the following code:</p>
+<pre><code>class MyClass {
+  public static void printFunction(Function&lt;String, String&gt; func) {
+    System.out.println(func);
+  }
+
+  public static void main(String[] args) {
+    printFunction(String::valueOf);
+  }
+}
+
+</code></pre><p>Running this prints something like &ldquo;MyClass$$Lambda$1/1510467688&rdquo;. This shows that method references should be considered abbreviations for common lambdas. So you can&rsquo;t use a method reference to reflect on a method&rsquo;s signature in a typesafe way, which is what I was hoping to do.</p><p><strong>Referring to Instance Methods</strong></p><p>There are four types of method references. References to static methods, references to methods of a specific instance and references to constructors are easy to understand. The explanation of the fourth type, the &ldquo;Reference to an Instance Method of an Arbitrary Object of a Particular Type&rdquo;, provided in Oracle&rsquo;s <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html">method reference tutorial</a> is very uninformative. Reading it has not helped me use one myself.</p><p>Thankfully, Toby Weston <a href="http://baddotrobot.com/blog/2014/02/18/method-references-in-java8/">explains method references</a> much more clearly and with nice examples.</p><p><strong>Desugaring Lambdas</strong></p><p>Another source of confusion is Oracle&rsquo;s example of using a method reference to an instance method of an unknown object (an &ldquo;object supplied later&rdquo;, as Weston puts it):</p>
+<pre><code>String[] stringArray = { &quot;Barbara&quot;, &quot;James&quot;, &quot;Mary&quot;, &quot;John&quot;, &quot;Patricia&quot;, &quot;Robert&quot;, &quot;Michael&quot;, &quot;Linda&quot; };
+Arrays.sort(stringArray, String::compareToIgnoreCase);
+</code></pre><p>How can String&rsquo;s compareToIgnoreCase serve as a Comparator? The answer is found in Brian Goetz&rsquo;s <a href="http://cr.openjdk.java.net/~briangoetz/lambda/lambda-translation.html">Translation of Lambda Expressions</a> from April 2012. He says that, when converting a method reference to a lambda, &ldquo;if the desugared method is an instance method, the receiver is considered to be the first argument&rdquo;. Also, the lambda&rsquo;s remaining arguments are passed as arguments to the referred method.</p><p>The desugaring process can be broken down into the following steps:</p>
+<ul>
+  <li><code>Arrays#sort</code> expects a <code>Comparator&lt;String&gt;</code></li>
+  <li><code>Comparator&lt;String&gt;</code>&rsquo;s abstract method is <code>int sort(String, String)</code>, which is equivalent to <code>BiFunction&lt;String, String, Integer&gt;</code></li>
+  <li>The comparator instance could therefore be supplied by a <code>BiFunction</code>-compatible lambda: <code>(String a, String b) -&gt; a.compareToIgnoreCase(b)</code></li>
+  <li><code>String::compareToIgnoreCase</code> refers to an instance method that takes a String argument, so it is compatible with the above lambda: <code>String a</code> becomes the receiver and <code>String b</code> becomes the method argument</li>
+</ul><p>To try it for myself, I defined a TriFunction equivalent to BiFunction and a corresponding method reference:</p>
+<pre><code>interface TriFunction&lt;T1, T2, T3, R&gt; {
+  R apply(T1 receiver, T2 argument1, T3 argument2);
+}
+
+class MyClass {
+
+  Integer triRef(String s1, String s2) {
+    return 1;
+  }
+
+  static void tri(TriFunction&lt;MyClass, String, String, Integer&gt; func) {}
+
+  public static void main(String[] args) {
+    tri(MyClass::triRef); // is equivalent to
+    tri((MyClass myClass, String s1, String s2) -&gt; myClass.triRef(s1, s2));
+  }
+}
+
+</code></pre><p>When a method reference is used where a <code>TriFunction</code> is required, the referred method (<code>triRef</code> in this case) will be called on <code>receiver</code> and <code>argument1</code> and <code>argument2</code> will be passed as parameters to the referred method.</p>
+	  </div>
+  </div>
+
+    <footer id="page-footer">
+      <div class="row">
+        <div id="social-links" class="col-lg-12">
+          <a href="http://github.com/mwanji" title="Github" class="me-icon"><i class="fa fa-github"></i></a>
+          <a href="http://www.linkedin.com/in/moandjiezana/" title="LinkedIn" class="me-icon"><i class="fa fa-linkedin"></i></a>
+          <a href="https://google.com/+MoandjiEzana?rel=author" title="Google+" class="me-icon"><i class="fa fa-google-plus"></i></a>
+          <a href="http://www.facebook.com/mwanji" title="Facebook" class="me-icon"><i class="fa fa-facebook"></i></a>
+          <a href="http://twitter.com/mwanji" title="@mwanji" class="me-icon"><i class="fa fa-twitter"></i></a>
+          <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <p class="muted credits">&copy; 2009-2014 Moandji Ezana | Baked with <a href="http://jbake.org">JBake</a></p>
+        </div>
+      </div>
+    </footer>
+    
+  </body>
+</html>

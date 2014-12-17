@@ -32,14 +32,16 @@
 
   <div class="row">
     <div class="col-lg-12">
-      <h4>January 05, 2014</h4>
-       <h2><a href="/blog/drafts/vertx-2-chat-server.html">Vert.x chat</a></h2>
+      <h4>February 08, 2014</h4>
+       <h2><a href="/blog/drafts/learning-classpath/index.html">Learning the Classpath</a></h2>
     </div>
   </div>
   
   <div class="row">
     <div class="col-lg-offset-1 col-lg-7">
-    	<p>Generate project with archetype</p><p>Delete unnecessary files and clean up mod.json</p><p>Use mvn vertx:runModEclipse to make sure files (eg. mod.json) are up-to-date.</p><p>If using static assets, add them to assembly <filesets>:</p><p><fileSet><br/> <outputDirectory>src/main/webapp</outputDirectory><br/> <directory>src/main/webapp</directory><br/> <includes><br/> <include>**</include><br/> </includes><br/></fileSet></p>
+    	<p>While <a href="https://github.com/mwanji/jbake/tree/plugin_dir">exploring</a> how the bootstrap phase of a plugin system for <a href="http://jbake.org">JBake</a> could work, I had to learn more about manually creating a classpath.</p><p>I&rsquo;ll admit that I&rsquo;ve never had to manually manage the <a href="http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/classpath.html">classpath</a>, so I didn&rsquo;t know, for example, that the <code>-jar</code> and <code>-cp</code> options were mutually exclusive: when <code>-jar</code> is used, classpath information is taken only from the JAR&rsquo;s manifest.</p><p>What did come in handy was the wildcard support added in Java 6. As explicit items, wildcard items and JAR manifest items can be combined in a single classpath, my JBake classpath argument ended up looking like this:</p>
+<pre><code>-cp &quot;${JBAKE_HOME}/jbake-core.jar:plugin/*&quot;
+</code></pre>
 	  </div>
   </div>
 
@@ -51,7 +53,7 @@
           <a href="https://google.com/+MoandjiEzana?rel=author" title="Google+" class="me-icon"><i class="fa fa-google-plus"></i></a>
           <a href="http://www.facebook.com/mwanji" title="Facebook" class="me-icon"><i class="fa fa-facebook"></i></a>
           <a href="http://twitter.com/mwanji" title="@mwanji" class="me-icon"><i class="fa fa-twitter"></i></a>
-          <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="fa fa-envelope-o"></i></a>
+          <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="fa fa-envelope"></i></a>
         </div>
       </div>
       <div class="row">

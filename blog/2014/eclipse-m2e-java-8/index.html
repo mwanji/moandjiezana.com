@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Moandji Ezana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Moandji Ezana">
+          <meta property="og:type" content="article"/>
+      <meta property="og:url" content="http://moandjiezana.com/blog/2014/eclipse-m2e-java-8/index.html"/>
+      <meta property="og:site_name" content="Moandji Ezana Blog"/>
+      <meta property="article:author" content="http://facebook.com/mwanji">
+      <meta property="og:title" content="Using Java 8 with Eclipse and m2e">
+      <meta property="og:description" content="How to get Java 8 and Maven to work in Eclipse 4.3 and 4.4">
+        <meta property="og:image" content="http://moandjiezana.com/img//img/2014/eclipse-m2e-java-8/luna.png">
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/font-mfizz/font-mfizz.css">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+  <body>
+    <div class="container">
+   
+	
+  <h1><a href="/">Moandji Ezana</a> <small>Blog</small></h1>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h4>April 10, 2014</h4>
+       <h2><a href="/blog/2014/eclipse-m2e-java-8/index.html">Using Java 8 with Eclipse and m2e</a></h2>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-offset-1 col-lg-7">
+    	<p>Eclipse is as confusing as ever. And the splash screens aren&rsquo;t getting any better&hellip;</p><p><img src="/img/2014/eclipse-m2e-java-8/kepler.png" alt="Kepler splash screen" title="Kepler splash screen""/><img src="/img/2014/eclipse-m2e-java-8/luna.png" alt="Luna splash screen" title="Luna splash screen""/></p><p>With the official release of Java 8, Eclipse <a href="https://wiki.eclipse.org/JDT/Eclipse_Java_8_Support_For_Kepler">announced support for Java 8 in Kepler and Luna</a>. In reality, that support is not provided out-of-the-box, especially if you want to use Maven.</p><p><strong>Kepler</strong></p><p>In Eclipse Kepler SR2 (4.3.2) (the SR2 part is important), you need to get a JDT patch from the <a href="http://download.eclipse.org/eclipse/updates/4.3-P-builds/">4.3 update site</a>. There are instuctions in the <a href="https://wiki.eclipse.org/JDT/Eclipse_Java_8_Support_For_Kepler">announcement</a>. Then, add an Installed JRE and an execution environment:</p>
+<ol>
+  <li>Window &gt; Preferences &gt; Java &gt; Installed JREs</li>
+  <li>Add&hellip;</li>
+  <li>Choose JDK 8&rsquo;s home directory</li>
+  <li>Click OK and go to Window &gt; Preferences &gt; Java &gt; Installed JREs &gt; Execution Environment (you have to close the preferences pane because the list of execution environments isn&rsquo;t updated when you add the Java 8 JDK)</li>
+  <li>Select JavaSE-1.8 and check jdk1.8.0</li>
+</ol><p><strong>Luna</strong></p><p>I initially downloaded Luna Milestone 6 and was surprised not to see Java 8 support. By reading the announcement very carefully, it turns out that the earliest Luna build with Java 8 support is from March 18, 2014 and Milestone 6 was released on March 6. So, you can either:</p>
+<ol>
+  <li>download the latest <a href="http://download.eclipse.org/eclipse/downloads/">4.4 milestone</a> (<a href="http://download.eclipse.org/eclipse/downloads/drops4/S-4.4M6-201403061200/">4.4M6</a> at the time of writing) and add the integration builds <a href="http://download.eclipse.org/eclipse/updates/4.4-I-builds">update site</a>, or</li>
+  <li><a href="http://download.eclipse.org/eclipse/downloads/drops4/I20140325-0830/">download I20140325-0830</a>.</li>
+</ol><p>In both cases, choose a download from the &ldquo;Eclipse SDK&rdquo; section. I took the first option, because of all the big red X&rsquo;s in the Status column of the integration build.</p><p>Luna is still rough. It seems to work, but there are a lot of weird, dev-related items in menus.</p><p><strong>Maven</strong></p><p>When using Maven your work is still not done: setting the maven-compiler-plugin to 1.8 will cause Eclipse to set the project&rsquo;s compiler level to 1.4.</p><p>You need the latest from the <a href="http://eclipse.org/m2e">m2e</a> 1.5 milestones <a href="http://download.eclipse.org/technology/m2e/milestones/1.5">update site</a>.</p><p>And there you have it: Java 8 and Maven in Eclipse, in 657 easy steps!</p>
+	  </div>
+  </div>
+
+    <footer id="page-footer">
+      <div class="row">
+        <div id="social-links" class="col-lg-12">
+          <a href="http://github.com/mwanji" title="Github" class="me-icon"><i class="fa fa-github"></i></a>
+          <a href="http://www.linkedin.com/in/moandjiezana/" title="LinkedIn" class="me-icon"><i class="fa fa-linkedin"></i></a>
+          <a href="https://google.com/+MoandjiEzana?rel=author" title="Google+" class="me-icon"><i class="fa fa-google-plus"></i></a>
+          <a href="http://www.facebook.com/mwanji" title="Facebook" class="me-icon"><i class="fa fa-facebook"></i></a>
+          <a href="http://twitter.com/mwanji" title="@mwanji" class="me-icon"><i class="fa fa-twitter"></i></a>
+          <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <p class="muted credits">&copy; 2009-2014 Moandji Ezana | Baked with <a href="http://jbake.org">JBake</a></p>
+        </div>
+      </div>
+    </footer>
+    
+  </body>
+</html>
