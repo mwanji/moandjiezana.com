@@ -9,8 +9,8 @@
     </div>
   </div>
   
-  <div class="row">
-    <div class="col-lg-offset-1 col-lg-7">
+  <div class="row post-body">
+    <div class="col-lg-offset-1 col-lg-8">
     	${content.body}
 	  </div>
   </div>
