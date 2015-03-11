@@ -72,7 +72,11 @@ h3 > .muted, h4 > .muted {
 }
 
 div.post-body {
-  font: 400 26px/1.2em 'Lato', sans-serif;
+  font: 400 26px/1.3em 'Lato', sans-serif;
+}
+
+div.post-body p {
+  margin: 0px 0px 1.5em;
 }
 
 
