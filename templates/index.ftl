@@ -66,7 +66,7 @@
 
 <div class="row">
   <div class="col-lg-offset-1 col-lg-5">
-    <h3 class="no-margin-bottom"><a href="https://orderbook.biz">OrderBook.biz</a> <span class="text-muted">2014</span></h3>
+    <h3 class="no-margin-bottom"><a href="https://orderbook.biz">OrderBook.biz</a> <span class="text-muted">2014 - 2015</span></h3>
     <div class="me-icon-row">
       <i class="icon-java" title="Java 8"></i> <i class="icon-javascript" title="Jquery"></i> <i class="icon-css3" title="Bootstrap 3"></i> <i class="icon-tomcat" title="Tomcat 8.0"></i> <i class="icon-mysql" title="MySql"></i> <i class="icon-ubuntu" title="Ubuntu 14.04"></i>
     </div>
@@ -93,7 +93,7 @@
 
 <div class="row">
   <div class="col-lg-offset-1 col-lg-5">
-    <h3 class="no-margin-bottom"><a href="http://goldenpages.microsite.be/ie/home">Truvo MySite</a> <span class="text-muted">2009-2010</span></h3>
+    <h3 class="no-margin-bottom"><a href="http://www.goldenpages.be/businesscenter/create-company-website-MySite">Truvo MySite</a> <span class="text-muted">2009-2010</span></h3>
     <div class="me-icon-row">
       <i class="icon-java" title="Spring MVC, Hibernate"></i> <i class="icon-javascript" title="YUI"></i> <i class="icon-mysql" title="MySQL"></i> <i class="icon-tomcat" title="Tomcat 5.5"></i>
     </div>
