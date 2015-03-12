@@ -10,7 +10,7 @@
   </div>
   
   <div class="row post-body">
-    <div class="col-lg-offset-1 col-lg-8">
+    <div class="col-lg-10">
     	${content.body}
 	  </div>
   </div>
