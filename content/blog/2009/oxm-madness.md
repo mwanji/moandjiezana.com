@@ -34,6 +34,6 @@ Apply DAO design to XML and you'll find that a few simple methods are enough to 
 <p>Even if for some bizarre reason you need two OXM frameworks at the same time, the XML DAO should be injected with both OXM classes and decide which one to use based on the class of the object passed into the save() method.</p>
 <p>To be really fancy, apply the Interface Segregation Principle (<a href="http://www.objectmentor.com/resources/articles/isp.pdf">PDF</a>): have the XML DAO implement two interfaces and let clients choose the one they're interested in. These might be drawn from the problem domain (UserXmlDao, ArticleXmlDao) or the solution domain (CastorXmlDao, JaxbXmlDao) [1].</p>
 
-In conclusion: indirection has advantages, but it also has a cost. Using it indiscriminately for trivial things leads to <a href="http://97-things.near-time.net/wiki/simplify-essential-complexity-diminish-accidental-complexity">accidental complexity</a> and confusion through over-engineering.
+In conclusion: indirection has advantages, but it also has a cost. Using it indiscriminately for trivial things leads to <a href="http://97things.oreilly.com/wiki/index.php/Simplify_essential_complexity;_diminish_accidental_complexity">accidental complexity</a> and confusion through over-engineering.
 
 [1] See Tim Ottinger's <a href="http://www.objectmentor.com/resources/articles/naming.htm">paper on variable naming</a> for the concept of problem and solution domains
