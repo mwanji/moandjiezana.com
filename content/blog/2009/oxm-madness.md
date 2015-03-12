@@ -24,8 +24,9 @@ Furthermore, it turns out that the <a href="http://www.joelonsoftware.com/articl
 
 Despite all that indirection, you still need to know which OXM is being used. If you have to know what you're using, why not work more directly with the OXM and avoid the <a title="a paraphrase of Security Theater" href="http://en.wikipedia.org/wiki/Security_theater">abstraction theater</a>?
 
-I would go so far as to argue that, not only is the indirection not buying you anything, it's probably going to end up costing you, by making the application's wiring more difficult to understand and maintain.</p>
-<p>I've been working with <a href="http://code.google.com/p/google-guice/">Guice</a> of late. Its focus on programmatic configuration encourages you to "touch" 3rd-party APIs directly. This feels lean and natural compared to Spring's often unnecessary infinite indirection.
+I would go so far as to argue that, not only is the indirection not buying you anything, it's probably going to end up costing you, by making the application's wiring more difficult to understand and maintain.
+
+I've been working with <a href="http://code.google.com/p/google-guice/">Guice</a> of late. Its focus on programmatic configuration encourages you to "touch" 3rd-party APIs directly. This feels lean and natural compared to Spring's often unnecessary infinite indirection.
 
 Apply DAO design to XML and you'll find that a few simple methods are enough to decouple you from your OXM in the same way a DAO decouples your from your ORM. For example:
 
