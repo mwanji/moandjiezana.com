@@ -19,16 +19,16 @@
   <div class="col-lg-offset-1 col-lg-5">
     <h3>Open Source</h3>
     <p>
-      <a href="https://github.com/mwanji/humpty">humpty</a> puts your web assets back together<br/>
-      <a href="https://github.com/mwanji/toml4j">toml4j</a> parses TOML
+      <a href="https://github.com/mwanji/toml4j">toml4j</a> parses TOML<br/>
+      <a href="https://github.com/mwanji/humpty">humpty</a> puts your web assets back together
     </p>
     
     <h3>Languages</h3>
     <p>
       Java web applications since 2005.<br/>
       JavaScript&#8217;s good parts since 2009.<br/>
-      Ruby on Rails in 2012.<br/>
-      Node.js in 2013.
+      Ruby on Rails in 2012 &amp; 2013.<br/>
+      Node.js since 2013.
     </p>
   </div>
   <div class="col-lg-6">
