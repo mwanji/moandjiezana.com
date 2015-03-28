@@ -79,6 +79,13 @@ div.post-body p {
   margin: 0px 0px 1.5em;
 }
 
+div.post-body blockquote p {
+  font-size: 1.3em;
+}
+
+div.post-body blockquote p:last-child {
+  margin-bottom: 0;
+}
 
 #page-footer {
   margin-top: 2em;
