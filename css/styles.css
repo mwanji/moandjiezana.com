@@ -3,7 +3,7 @@
 body {
   padding-top: 30px;
   padding-bottom: 30px;
-  font: 400 16px/1.5em 'Georgia', serif;
+  font: 400 22px/1.5em 'Lato', sans-serif;
 }
 
 a {
@@ -69,6 +69,22 @@ h4 {
 
 h3 > .muted, h4 > .muted {
   font-size: 80%;
+}
+
+div.post-body {
+  font: 400 26px/1.3em 'Lato', sans-serif;
+}
+
+div.post-body p {
+  margin: 0px 0px 1.5em;
+}
+
+div.post-body blockquote p {
+  font-size: 1.3em;
+}
+
+div.post-body blockquote p:last-child {
+  margin-bottom: 0;
 }
 
 #page-footer {

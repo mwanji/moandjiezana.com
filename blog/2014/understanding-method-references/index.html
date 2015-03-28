@@ -43,8 +43,8 @@
     </div>
   </div>
   
-  <div class="row">
-    <div class="col-lg-offset-1 col-lg-7">
+  <div class="row post-body">
+    <div class="col-lg-10">
     	<p>Method references are a nice facility in Java 8. They can make code very concise and expressive. However, there are a few things to understand about them: they are merely a shorthand for lambdas and they are desugared in a specific way.</p><p><strong>Method References Are Abbreviated Lambdas</strong></p><p>One fundamental thing I hadn&rsquo;t understood is that a method reference doesn&rsquo;t refer directly to the method literal. It&rsquo;s not a typesafe equivalent of <code>User.class.getMethod(&quot;getName&quot;)</code>, it&rsquo;s syntactic sugar for a lambda. You can see this in the following code:</p>
 <pre><code>class MyClass {
   public static void printFunction(Function&lt;String, String&gt; func) {
@@ -101,7 +101,7 @@ class MyClass {
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <p class="muted credits">&copy; 2009-2014 Moandji Ezana | Baked with <a href="http://jbake.org">JBake</a></p>
+          <p class="muted credits">&copy; 2009-2015 Moandji Ezana | Baked with <a href="http://jbake.org">JBake</a></p>
         </div>
       </div>
     </footer>
