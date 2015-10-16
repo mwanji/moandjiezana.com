@@ -153,23 +153,23 @@ webpackJsonp([0],{
 	
 	var _dashboard2 = _interopRequireDefault(_dashboard);
 	
-	var _individus = __webpack_require__(/*! ./individus */ 418);
+	var _individus = __webpack_require__(/*! ./individus */ 265);
 	
 	var _individus2 = _interopRequireDefault(_individus);
 	
-	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 178);
+	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 243);
 	
 	var _stagiaires2 = _interopRequireDefault(_stagiaires);
 	
-	var _evenements = __webpack_require__(/*! ./evenements */ 419);
+	var _evenements = __webpack_require__(/*! ./evenements */ 196);
 	
 	var _evenements2 = _interopRequireDefault(_evenements);
 	
-	var _salles = __webpack_require__(/*! ./salles */ 438);
+	var _salles = __webpack_require__(/*! ./salles */ 266);
 	
 	var _salles2 = _interopRequireDefault(_salles);
 	
-	var _formateurs = __webpack_require__(/*! ./formateurs */ 439);
+	var _formateurs = __webpack_require__(/*! ./formateurs */ 267);
 	
 	var _formateurs2 = _interopRequireDefault(_formateurs);
 	
@@ -232,7 +232,6 @@ webpackJsonp([0],{
 			return _react2["default"].createElement(
 				_layout2["default"].Global,
 				null,
-				_react2["default"].createElement(_layout2["default"].Navbar, null),
 				body
 			);
 		}
@@ -281,6 +280,11 @@ webpackJsonp([0],{
 			key: "getKey",
 			value: function getKey() {
 				return this.id || this.type + "-" + this.date;
+			}
+		}, {
+			key: "getTableName",
+			value: function getTableName() {
+				return this.type.split("-")[0];
 			}
 		}], [{
 			key: "load",
@@ -463,13 +467,17 @@ webpackJsonp([0],{
 	
 	var _storage2 = _interopRequireDefault(_storage);
 	
-	var _evenements = __webpack_require__(/*! ./evenements */ 419);
+	var _evenements = __webpack_require__(/*! ./evenements */ 196);
 	
 	var _evenements2 = _interopRequireDefault(_evenements);
 	
-	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 178);
+	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 243);
 	
 	var _stagiaires2 = _interopRequireDefault(_stagiaires);
+	
+	var _reactBootstrapLibPanel = __webpack_require__(/*! react-bootstrap/lib/Panel */ 197);
+	
+	var _reactBootstrapLibPanel2 = _interopRequireDefault(_reactBootstrapLibPanel);
 	
 	var Dashboard = _react2["default"].createClass({
 		displayName: "Dashboard",
@@ -492,7 +500,11 @@ webpackJsonp([0],{
 				}
 			});
 			var eventRows = events.map(function (event) {
-				return _react2["default"].createElement(Event, { key: event.getKey(), event: event });
+				var tableName = event.getTableName();
+				var record = _storage2["default"].get(tableName, event.payload);
+				var onClick = _app2["default"].edit.bind(_app2["default"], tableName, record.id);
+	
+				return _react2["default"].createElement(Event, { key: event.getKey(), type: event.type, record: record, onClick: onClick });
 			});
 	
 			return _react2["default"].createElement(
@@ -533,149 +545,40 @@ webpackJsonp([0],{
 		}
 	});
 	
-	var Event = _react2["default"].createClass({
-		displayName: "Event",
+	var Event = function Event(_ref) {
+		var type = _ref.type;
+		var record = _ref.record;
+		var onClick = _ref.onClick;
 	
-		render: function render() {
-			var tableName = this.props.event.type.split("-")[0];
-			var record = _storage2["default"].get(tableName, this.props.event.payload);
+		var text = undefined;
 	
-			switch (this.props.event.type) {
-				case "stagiaires-create":
-					return _react2["default"].createElement(Event.View, { tableName: tableName, record: record, text: "Le stagiaire " + record.prenom + " " + record.nom + " a été créé" });
-				case "evenements-create":
-					return _react2["default"].createElement(Event.View, { tableName: tableName, record: record, text: "L'évènement " + record.nom + " a été programmé pour le " + (0, _moment2["default"])(record.date).format("DD/MM/YYYY") });
-				case "salles-create":
-					return _react2["default"].createElement(Event.View, { tableName: tableName, record: record, text: "La salle " + record.nom + " a été créée" });
-				case "formateurs-create":
-					return _react2["default"].createElement(Event.View, { tableName: tableName, record: record, text: "Le formateur " + record.nom + " a été créé" });
-				default:
-					return _react2["default"].createElement(
-						"div",
-						null,
-						"UNKNOWN EVENT: ",
-						this.props.event.type
-					);
-			}
+		switch (type) {
+			case "stagiaires-create":
+				text = "Le stagiaire " + record.prenom + " " + record.nom + " a été créé";
+				break;
+			case "evenements-create":
+				text = "L'évènement " + record.nom + " a été programmé pour le " + (0, _moment2["default"])(record.date).format("DD/MM/YYYY");
+				break;
+			case "salles-create":
+				text = "La salle " + record.nom + " a été créée";
+				break;
+			case "formateurs-create":
+				text = "Le formateur " + record.nom + " a été créé";
+				break;
+			default:
+				return _react2["default"].createElement(
+					"div",
+					null,
+					"UNKNOWN EVENT: ",
+					type
+				);
 		}
-	});
 	
-	Event.View = _react2["default"].createClass({
-		displayName: "Event.View",
-		propTypes: {
-			tableName: _react2["default"].PropTypes.string.isRequired,
-			record: _react2["default"].PropTypes.object.isRequired,
-			text: _react2["default"].PropTypes.string.isRequired
-		},
-		onClick: function onClick() {
-			_app2["default"].edit(this.props.tableName, this.props.record.id);
-		},
-		render: function render() {
-			return _react2["default"].createElement(
-				"div",
-				{ onClick: this.onClick, className: "spacingTop clickable", style: { border: "solid #ddd 1px", padding: "1em" } },
-				this.props.text
-			);
-		}
-	});
-	
-	Event.Stagiaires = {
-		Create: _react2["default"].createClass({
-			displayName: "Create",
-	
-			propTypes: {
-				payload: _react2["default"].PropTypes.number.isRequired
-			},
-			getInitialState: function getInitialState() {
-				return {
-					stagiaire: _storage2["default"].get("stagiaires", this.props.payload)
-				};
-			},
-			onClick: function onClick() {
-				_app2["default"].render("stagiaires", this.state.stagiaire);
-			},
-			render: function render() {
-				var stagiaire = this.state.stagiaire;
-				return _react2["default"].createElement(
-					"div",
-					{ onClick: this.onClick, className: "spacingTop clickable", style: { border: "solid #ddd 1px", padding: "1em" } },
-					"Le stagiaire ",
-					stagiaire.prenom,
-					" ",
-					stagiaire.nom,
-					" a été créé"
-				);
-			}
-		})
-	};
-	
-	Event.Evenements = {
-		Create: _react2["default"].createClass({
-			displayName: "Create",
-	
-			propTypes: {
-				payload: _react2["default"].PropTypes.number.isRequired
-			},
-			getInitialState: function getInitialState() {
-				return {
-					evenement: _storage2["default"].get("evenements", this.props.payload)
-				};
-			},
-			onClick: function onClick() {
-				_app2["default"].render("evenements", this.state.evenement);
-			},
-			render: function render() {
-				var evenement = this.state.evenement;
-				return _react2["default"].createElement(
-					"div",
-					{ onClick: this.onClick, className: "spacingTop clickable", style: { border: "solid #ddd 1px", padding: "1em" } },
-					"L'évènement ",
-					evenement.nom,
-					" a été programmé pour le ",
-					(0, _moment2["default"])(evenement.date).format("DD/MM/YYYY")
-				);
-			}
-		})
-	};
-	
-	Event.Salles = {
-		Create: _react2["default"].createClass({
-			displayName: "Create",
-	
-			propTypes: {
-				payload: _react2["default"].PropTypes.number.isRequired
-			},
-			render: function render() {
-				var salle = _storage2["default"].get("salles", this.props.payload);
-				return _react2["default"].createElement(
-					"div",
-					{ onClick: this.onClick, className: "spacingTop clickable", style: { border: "solid #ddd 1px", padding: "1em" } },
-					"La salle ",
-					salle.nom,
-					" a été créée"
-				);
-			}
-		})
-	};
-	
-	Event.Formateurs = {
-		Create: _react2["default"].createClass({
-			displayName: "Create",
-	
-			propTypes: {
-				payload: _react2["default"].PropTypes.number.isRequired
-			},
-			render: function render() {
-				var formateur = _storage2["default"].get("formateurs", this.props.payload);
-				return _react2["default"].createElement(
-					"div",
-					{ onClick: this.onClick, className: "spacingTop clickable", style: { border: "solid #ddd 1px", padding: "1em" } },
-					"Le formateur ",
-					formateur.nom,
-					" a été créée"
-				);
-			}
-		})
+		return _react2["default"].createElement(
+			_reactBootstrapLibPanel2["default"],
+			{ onClick: onClick, className: "spacingTop clickable" },
+			text
+		);
 	};
 	
 	exports["default"] = Dashboard;
@@ -697,7 +600,15 @@ webpackJsonp([0],{
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var _app = __webpack_require__(/*! ./app */ 1);
 	
@@ -715,6 +626,8 @@ webpackJsonp([0],{
 	
 	var _reactAddonsLinkedStateMixin2 = _interopRequireDefault(_reactAddonsLinkedStateMixin);
 	
+	var _reactBootstrapLib = __webpack_require__(/*! react-bootstrap/lib */ 268);
+	
 	var Layout = {};
 	
 	exports.Layout = Layout;
@@ -724,51 +637,55 @@ webpackJsonp([0],{
 		render: function render() {
 			return _react2["default"].createElement(
 				"div",
-				{ className: "container" },
-				this.props.children
+				null,
+				_react2["default"].createElement(AppNavbar, null),
+				_react2["default"].createElement(
+					"div",
+					{ className: "container" },
+					this.props.children
+				)
 			);
 		}
 	});
 	
-	Layout.Navbar = _react2["default"].createClass({
-		displayName: "Navbar",
+	var AppNavbar = (function (_React$Component) {
+		_inherits(AppNavbar, _React$Component);
 	
-		onLogoff: function onLogoff(event) {
-			event.preventDefault();
-			_app2["default"].logged = false;
-			_app2["default"].render();
-		},
-		navigateTo: function navigateTo(view, event) {
-			event.preventDefault();
-			_app2["default"].render(view);
-		},
-		active: function active(view) {
-			return _app2["default"].view === view ? "active" : "";
-		},
-		render: function render() {
-			var showNavigation = _app2["default"].role !== "Individu";
+		function AppNavbar() {
+			_classCallCheck(this, AppNavbar);
 	
-			return _react2["default"].createElement(
-				"nav",
-				{ className: "navbar navbar-default" },
-				_react2["default"].createElement(
-					"div",
-					{ className: "container-fluid" },
+			_get(Object.getPrototypeOf(AppNavbar.prototype), "constructor", this).call(this);
+		}
+	
+		_createClass(AppNavbar, [{
+			key: "onLogoff",
+			value: function onLogoff(event) {
+				event.preventDefault();
+				_app2["default"].logged = false;
+				_app2["default"].render();
+			}
+		}, {
+			key: "navigateTo",
+			value: function navigateTo(view, event) {
+				event.preventDefault();
+				_app2["default"].render(view);
+			}
+		}, {
+			key: "active",
+			value: function active(view) {
+				return _app2["default"].view === view;
+			}
+		}, {
+			key: "render",
+			value: function render() {
+				var showNavigation = _app2["default"].role !== "Individu";
+	
+				return _react2["default"].createElement(
+					_reactBootstrapLib.Navbar,
+					{ toggleNavKey: showNavigation ? 0 : undefined },
 					_react2["default"].createElement(
-						"div",
-						{ className: "navbar-header" },
-						showNavigation ? _react2["default"].createElement(
-							"button",
-							{ type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#bs-example-navbar-collapse-1", "aria-expanded": "false" },
-							_react2["default"].createElement(
-								"span",
-								{ className: "sr-only" },
-								"Toggle navigation"
-							),
-							_react2["default"].createElement("span", { className: "icon-bar" }),
-							_react2["default"].createElement("span", { className: "icon-bar" }),
-							_react2["default"].createElement("span", { className: "icon-bar" })
-						) : null,
+						_reactBootstrapLib.NavBrand,
+						null,
 						_react2["default"].createElement(
 							"a",
 							{ className: "navbar-brand", href: "#", onClick: this.navigateTo.bind(this, _app2["default"].role === "Agent" ? "dashboard" : "login") },
@@ -776,67 +693,49 @@ webpackJsonp([0],{
 						)
 					),
 					showNavigation ? _react2["default"].createElement(
-						"div",
-						{ className: "collapse navbar-collapse", id: "bs-example-navbar-collapse-1" },
+						_reactBootstrapLib.CollapsibleNav,
+						{ eventKey: 0 },
 						_react2["default"].createElement(
-							"ul",
-							{ className: "nav navbar-nav" },
+							_reactBootstrapLib.Nav,
+							{ navbar: true },
 							_react2["default"].createElement(
-								"li",
-								{ className: this.active("stagiaires") },
-								_react2["default"].createElement(
-									"a",
-									{ href: "#", onClick: this.navigateTo.bind(this, "stagiaires") },
-									"Stagiaires"
-								)
+								_reactBootstrapLib.NavItem,
+								{ eventKey: 1, active: this.active("stagiaires"), href: "#", onClick: this.navigateTo.bind(this, "stagiaires") },
+								"Stagiaires"
 							),
 							_react2["default"].createElement(
-								"li",
-								{ className: this.active("evenements") },
-								_react2["default"].createElement(
-									"a",
-									{ href: "#", onClick: this.navigateTo.bind(this, "evenements"), className: this.active("evenements") },
-									"Evènements"
-								)
+								_reactBootstrapLib.NavItem,
+								{ eventKey: 2, active: this.active("evenements"), href: "#", onClick: this.navigateTo.bind(this, "evenements") },
+								"Evènements"
 							),
 							_react2["default"].createElement(
-								"li",
-								{ className: this.active("salles") },
-								_react2["default"].createElement(
-									"a",
-									{ href: "#", onClick: this.navigateTo.bind(this, "salles"), className: this.active("salles") },
-									"Salles"
-								)
+								_reactBootstrapLib.NavItem,
+								{ eventKey: 3, active: this.active("salles"), href: "#", onClick: this.navigateTo.bind(this, "salles") },
+								"Salles"
 							),
 							_react2["default"].createElement(
-								"li",
-								{ className: this.active("formateurs") },
-								_react2["default"].createElement(
-									"a",
-									{ href: "#", onClick: this.navigateTo.bind(this, "formateurs") },
-									"Formateurs"
-								)
+								_reactBootstrapLib.NavItem,
+								{ eventKey: 4, active: this.active("formateurs"), href: "#", onClick: this.navigateTo.bind(this, "formateurs") },
+								"Formateurs"
 							)
 						),
 						_react2["default"].createElement(
-							"ul",
-							{ className: "nav navbar-nav navbar-right" },
+							_reactBootstrapLib.Nav,
+							{ navbar: true, right: true },
 							_react2["default"].createElement(
-								"li",
-								null,
-								_react2["default"].createElement(
-									"a",
-									{ href: "#", onClick: this.onLogoff },
-									_react2["default"].createElement(Glyph, { icon: "off" }),
-									" Déconnexion"
-								)
+								_reactBootstrapLib.NavItem,
+								{ eventKey: 5, href: "#", onClick: this.onLogoff },
+								_react2["default"].createElement(_reactBootstrapLib.Glyphicon, { glyph: "off" }),
+								" Déconnexion"
 							)
 						)
 					) : null
-				)
-			);
-		}
-	});
+				);
+			}
+		}]);
+	
+		return AppNavbar;
+	})(_react2["default"].Component);
 	
 	Layout.Row = _react2["default"].createClass({
 		displayName: "Row",
@@ -1037,47 +936,401 @@ webpackJsonp([0],{
 		}
 	});
 	
-	var Glyph = _react2["default"].createClass({
-		displayName: "Glyph",
-	
-		render: function render() {
-			var icon = "glyphicon glyphicon-" + this.props.icon;
-			return _react2["default"].createElement("span", { className: icon });
-		}
-	});
+	var Glyph = function Glyph(_ref) {
+		var icon = _ref.icon;
+		return _react2["default"].createElement(_reactBootstrapLib.Glyphicon, { glyph: icon });
+	};
 	
 	exports.Glyph = Glyph;
-	var Label = _react2["default"].createClass({
-		displayName: "Label",
+	var Label = function Label(props) {
+		var primary = props.primary;
+		var success = props.success;
+		var info = props.info;
+		var warning = props.warning;
+		var danger = props.danger;
+		var link = props.link;
+		var children = props.children;
 	
+		var classes = (0, _classnames2["default"])({
+			label: true,
+			"label-primary": primary,
+			"label-success": success,
+			"label-info": info,
+			"label-warning": warning,
+			"label-danger": danger,
+			"label-link": link,
+			"label-default": !(primary || success || info || warning || danger || link)
+		});
+	
+		return _react2["default"].createElement(
+			"span",
+			{ className: classes },
+			children
+		);
+	};
+	
+	exports.Label = Label;
+	/*
+	export const Label = React.createClass({
 		propTypes: {
-			type: _react2["default"].PropTypes.string,
-			text: _react2["default"].PropTypes.string.isRequired
+			type: React.PropTypes.string,
+			text: React.PropTypes.string.isRequired
 		},
-		getDefaultProps: function getDefaultProps() {
+		getDefaultProps: function () {
 			return {
 				type: "default"
 			};
 		},
-		render: function render() {
-			var classes = {
+		render: function () {
+			const classes = {
 				label: true
 			};
 			classes["label-" + this.props.type] = true;
-			return _react2["default"].createElement(
-				"span",
-				{ className: (0, _classnames2["default"])(classes) },
-				this.props.text
-			);
+			return <span className={classNames(classes)}>{this.props.text}</span>
 		}
 	});
-	
-	exports.Label = Label;
+	*/
 	exports["default"] = Layout;
 
 /***/ },
 
-/***/ 178:
+/***/ 196:
+/*!************************!*\
+  !*** ./evenements.jsx ***!
+  \************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	
+	var _jquery = __webpack_require__(/*! jquery */ 2);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _moment = __webpack_require__(/*! moment */ 164);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
+	var _react = __webpack_require__(/*! react */ 3);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactBootstrapLibPanel = __webpack_require__(/*! react-bootstrap/lib/Panel */ 197);
+	
+	var _reactBootstrapLibPanel2 = _interopRequireDefault(_reactBootstrapLibPanel);
+	
+	var _momentLocaleFr = __webpack_require__(/*! moment/locale/fr */ 170);
+	
+	var _momentLocaleFr2 = _interopRequireDefault(_momentLocaleFr);
+	
+	var _reactDatePicker = __webpack_require__(/*! react-date-picker */ 231);
+	
+	var _reactDatePicker2 = _interopRequireDefault(_reactDatePicker);
+	
+	var _app = __webpack_require__(/*! ./app */ 1);
+	
+	var _app2 = _interopRequireDefault(_app);
+	
+	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 243);
+	
+	var _stagiaires2 = _interopRequireDefault(_stagiaires);
+	
+	var _classnames = __webpack_require__(/*! classnames */ 173);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _layout = __webpack_require__(/*! ./layout */ 172);
+	
+	var _mixins = __webpack_require__(/*! ./mixins */ 258);
+	
+	__webpack_require__(/*! react-date-picker/base.css */ 259);
+	__webpack_require__(/*! react-date-picker/theme/hackerone.css */ 263);
+	
+	function create() {
+		return {
+			date: new Date(),
+			nbStagiairesActuel: 0,
+			nbStagiairesMin: 1,
+			materiel: false
+		};
+	}
+	
+	var Evenements = {
+		create: create
+	};
+	
+	Evenements.View = _react2["default"].createClass({
+		displayName: "View",
+	
+		propTypes: {
+			view: _react.PropTypes.string,
+			evenements: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+			evenement: _react.PropTypes.object,
+			stagiaires: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+			formateurs: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+			salles: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
+			onEdit: _react.PropTypes.func.isRequired,
+			onSave: _react.PropTypes.func.isRequired
+		},
+		getDefaultProps: function getDefaultProps() {
+			return {
+				view: "list"
+			};
+		},
+		render: function render() {
+			switch (this.props.view) {
+				case "list":
+					return _react2["default"].createElement(List, { evenements: this.props.evenements, onEdit: this.props.onEdit, stagiaires: this.props.stagiaires });
+				case "edit":
+					return _react2["default"].createElement(_Form, { evenement: this.props.evenement, stagiaires: this.props.stagiaires, formateurs: this.props.formateurs, salles: this.props.salles, onSave: this.props.onSave });
+			}
+		}
+	});
+	
+	Evenements.CalendrierItem = _react2["default"].createClass({
+		displayName: "CalendrierItem",
+	
+		propTypes: {
+			evenement: _react.PropTypes.object.isRequired
+		},
+		onClick: function onClick(event) {
+			event.preventDefault();
+			_app2["default"].edit("evenements", this.props.evenement.id);
+		},
+		render: function render() {
+			return _react2["default"].createElement(
+				_reactBootstrapLibPanel2["default"],
+				{ onClick: this.onClick, className: "clickable" },
+				(0, _moment2["default"])(this.props.evenement.date).format("DD/MM/YYYY"),
+				" ",
+				_react2["default"].createElement(
+					"a",
+					{ href: "#" },
+					this.props.evenement.nom
+				)
+			);
+		}
+	});
+	
+	var _Form = _react2["default"].createClass({
+		displayName: "_Form",
+	
+		mixins: [_mixins.LinkedFormMixin],
+		getInitialState: function getInitialState() {
+			return { showCalendar: false, linkedForm: _jquery2["default"].extend({}, this.props.evenement) };
+		},
+		onCalendarToggle: function onCalendarToggle() {
+			this.setState({
+				showCalendar: !this.state.showCalendar
+			});
+		},
+		onDateChange: function onDateChange(dateText, momentDate) {
+			this.setState({
+				linkedForm: _jquery2["default"].extend(this.state.linkedForm, { date: momentDate.toDate() })
+			});
+		},
+		onSubmit: function onSubmit(event) {
+			event.preventDefault();
+			this.props.onSave(this.state.linkedForm);
+		},
+		render: function render() {
+			var newEvenement = this.props.evenement.id === undefined;
+			var stagiairesMin = newEvenement ? false : _stagiaires2["default"].countParticipants(this.props.stagiaires, this.props.evenement) >= this.props.evenement.nbStagiairesMin;
+			var statut = stagiairesMin && this.props.evenement.materiel && this.props.evenement.formateurId && this.props.evenement.salleId ? "Ouvert" : "Proposé";
+			var minDate = _moment2["default"].min((0, _moment2["default"])(this.state.linkedForm.date), (0, _moment2["default"])());
+			var cal = this.state.showCalendar ? _react2["default"].createElement(_reactDatePicker2["default"], { date: (0, _moment2["default"])(this.state.linkedForm.date), onChange: this.onDateChange, minDate: minDate, dateFormat: "DD/MM/YYYY" }) : null;
+			var salles = this.props.salles;
+	
+			var optionMapper = function optionMapper(salle) {
+				return {
+					value: salle.id,
+					label: salle.nom + " (" + salle.places + ")"
+				};
+			};
+			var formateurOptionMapper = function formateurOptionMapper(formateur) {
+				return {
+					value: formateur.id,
+					label: formateur.prenom + " " + formateur.nom
+				};
+			};
+	
+			return _react2["default"].createElement(
+				"form",
+				{ onSubmit: this.onSubmit },
+				_react2["default"].createElement(
+					"div",
+					{ className: "form-group" },
+					_react2["default"].createElement(
+						"label",
+						null,
+						"Statut: ",
+						statut
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "form-control-static" },
+						_react2["default"].createElement(
+							_layout.Label,
+							{ success: stagiairesMin },
+							_react2["default"].createElement(_layout.Glyph, { icon: stagiairesMin ? "ok" : "remove" }),
+							" Salle"
+						),
+						" ",
+						_react2["default"].createElement(
+							_layout.Label,
+							{ success: this.props.evenement.salleId },
+							_react2["default"].createElement(_layout.Glyph, { icon: this.props.evenement.salleId ? "ok" : "remove" }),
+							" Salle"
+						),
+						" ",
+						_react2["default"].createElement(
+							_layout.Label,
+							{ success: this.props.evenement.formateurId },
+							_react2["default"].createElement(_layout.Glyph, { icon: this.props.evenement.formateurId ? "ok" : "remove" }),
+							" Formateur"
+						),
+						" ",
+						_react2["default"].createElement(
+							_layout.Label,
+							{ success: this.props.evenement.materiel },
+							_react2["default"].createElement(_layout.Glyph, { icon: this.props.evenement.materiel ? "ok" : "remove" }),
+							" Matériel"
+						)
+					)
+				),
+				_react2["default"].createElement(_layout.Form.Text, { name: "nom", label: "Nom", value: this.linkText("nom") }),
+				_react2["default"].createElement(
+					"div",
+					{ className: "form-group" },
+					_react2["default"].createElement(
+						"button",
+						{ onClick: this.onCalendarToggle, className: "btn btn-default", type: "button" },
+						_react2["default"].createElement(_layout.Glyph, { icon: "calendar" }),
+						" ",
+						(0, _moment2["default"])(this.state.linkedForm.date).format("DD/MM/YYYY")
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "row" },
+						_react2["default"].createElement(
+							"div",
+							{ className: "col-md-4" },
+							cal
+						)
+					)
+				),
+				_react2["default"].createElement(
+					"div",
+					{ className: "form-group" },
+					_react2["default"].createElement(
+						"label",
+						{ htmlFor: "type" },
+						"Type"
+					),
+					_react2["default"].createElement(
+						"select",
+						{ id: "type", className: "form-control", valueLink: this.linkText("type") },
+						_react2["default"].createElement(
+							"option",
+							{ value: "rdv" },
+							"Rendez-vous individuel"
+						),
+						_react2["default"].createElement(
+							"option",
+							{ value: "reunion" },
+							"Reunion d'information collective"
+						)
+					)
+				),
+				_react2["default"].createElement(_layout.Form.Text, { name: "nbStagiairesMin", label: "Nombre minimum de stagiaires", value: this.linkNumber("nbStagiairesMin"), type: "number", min: 1 }),
+				_react2["default"].createElement(_layout.Form.Select, { name: "salleId", value: this.linkNumber("salleId"), options: salles, optionMapper: optionMapper, label: "Salle" }),
+				_react2["default"].createElement(_layout.Form.Select, { name: "formateurId", value: this.linkNumber("formateurId"), options: this.props.formateurs, optionMapper: formateurOptionMapper, label: "Formateur" }),
+				_react2["default"].createElement(_layout.Form.Checkbox, { label: "Matériel disponible", checked: this.state.linkedForm.materiel, value: this.linkText("materiel") }),
+				_react2["default"].createElement(_layout.Form.Submit, { create: newEvenement })
+			);
+		}
+	});
+	
+	var List = _react2["default"].createClass({
+		displayName: "List",
+	
+		onClick: function onClick(evenement) {
+			this.props.onEdit(evenement);
+		},
+		render: function render() {
+			var _this = this;
+	
+			var rows = this.props.evenements.map(function (evenement) {
+				return _react2["default"].createElement(
+					"tr",
+					{ onClick: _this.onClick.bind(_this, evenement), key: evenement.id, className: "clickable" },
+					_react2["default"].createElement(
+						"td",
+						null,
+						evenement.nom
+					),
+					_react2["default"].createElement(
+						"td",
+						null,
+						(0, _moment2["default"])(evenement.date).format("DD/MM/YYYY")
+					),
+					_react2["default"].createElement(
+						"td",
+						null,
+						_stagiaires2["default"].countParticipants(_this.props.stagiaires, evenement),
+						" / ",
+						evenement.nbStagiairesMin
+					),
+					_react2["default"].createElement(
+						"td",
+						null,
+						_react2["default"].createElement(
+							"button",
+							{ type: "button", className: "btn btn-default" },
+							_react2["default"].createElement(_layout.Glyph, { icon: "eye-open" }),
+							" Détails"
+						)
+					)
+				);
+			});
+	
+			return _react2["default"].createElement(
+				"div",
+				null,
+				_react2["default"].createElement(
+					_layout.Layout.Row,
+					null,
+					_react2["default"].createElement(
+						"button",
+						{ type: "button", onClick: this.onClick.bind(this, create()), className: "btn btn-primary" },
+						_react2["default"].createElement(_layout.Glyph, { icon: "plus" }),
+						" Créer évènement"
+					)
+				),
+				_react2["default"].createElement(
+					_layout.Layout.Row,
+					{ spacing: "Top" },
+					_react2["default"].createElement(
+						_layout.Layout.Table,
+						{ cols: ["Nom", "Date", "Nb Participants"] },
+						rows
+					)
+				)
+			);
+		}
+	});
+	
+	exports["default"] = Evenements;
+	module.exports = exports["default"];
+
+/***/ },
+
+/***/ 243:
 /*!************************!*\
   !*** ./stagiaires.jsx ***!
   \************************/
@@ -1107,7 +1360,13 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactBootstrapLib = __webpack_require__(/*! react-bootstrap/lib */ 179);
+	var _reactBootstrapLibTabs = __webpack_require__(/*! react-bootstrap/lib/Tabs */ 244);
+	
+	var _reactBootstrapLibTabs2 = _interopRequireDefault(_reactBootstrapLibTabs);
+	
+	var _reactBootstrapLibTab = __webpack_require__(/*! react-bootstrap/lib/Tab */ 256);
+	
+	var _reactBootstrapLibTab2 = _interopRequireDefault(_reactBootstrapLibTab);
 	
 	var _app = __webpack_require__(/*! ./app */ 1);
 	
@@ -1115,7 +1374,7 @@ webpackJsonp([0],{
 	
 	var _layout = __webpack_require__(/*! ./layout */ 172);
 	
-	var _mixins = __webpack_require__(/*! ./mixins */ 417);
+	var _mixins = __webpack_require__(/*! ./mixins */ 258);
 	
 	function create() {
 		return {
@@ -1328,7 +1587,7 @@ webpackJsonp([0],{
 				var evenement = _this3.props.evenements.filter(function (evenement) {
 					return evenement.id === stagiaireEvenement.evenementId;
 				})[0];
-				var labelType = stagiaireEvenement.statut === "PRESENT" ? "success" : stagiaireEvenement.statut === "ABSENT" ? "warning" : "default";
+				var statut = stagiaireEvenement.statut;
 	
 				return _react2["default"].createElement(
 					"tr",
@@ -1345,7 +1604,11 @@ webpackJsonp([0],{
 					_react2["default"].createElement(
 						"td",
 						null,
-						_react2["default"].createElement(_layout.Label, { text: stagiaireEvenement.statut, type: labelType })
+						_react2["default"].createElement(
+							_layout.Label,
+							{ success: statut === "PRESENT", warning: statut === "ABSENT" },
+							stagiaireEvenement.statut
+						)
 					),
 					_react2["default"].createElement(
 						"td",
@@ -1378,10 +1641,10 @@ webpackJsonp([0],{
 				"form",
 				{ onSubmit: this.onSubmit },
 				_react2["default"].createElement(
-					_reactBootstrapLib.Tabs,
+					_reactBootstrapLibTabs2["default"],
 					{ defaultActiveKey: 1 },
 					_react2["default"].createElement(
-						_reactBootstrapLib.Tab,
+						_reactBootstrapLibTab2["default"],
 						{ eventKey: 1, title: "Identité" },
 						_react2["default"].createElement(_layout.Layout.Row, { spacing: "Top" }),
 						_react2["default"].createElement(_layout.Form.Text, { name: "nom", label: "Nom", value: this.linkText("nom") }),
@@ -1390,7 +1653,7 @@ webpackJsonp([0],{
 						_react2["default"].createElement(_layout.Form.Checkbox, { name: "eligible", value: this.linkText("eligible"), label: "Eligible" })
 					),
 					_react2["default"].createElement(
-						_reactBootstrapLib.Tab,
+						_reactBootstrapLibTab2["default"],
 						{ eventKey: 2, title: "Calendrier", disabled: !this.props.stagiaire.eligible },
 						_react2["default"].createElement(
 							"div",
@@ -1440,7 +1703,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 417:
+/***/ 258:
 /*!*******************!*\
   !*** ./mixins.js ***!
   \*******************/
@@ -1511,459 +1774,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 418:
-/*!***********************!*\
-  !*** ./individus.jsx ***!
-  \***********************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
-	var _react = __webpack_require__(/*! react */ 3);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactAddonsLinkedStateMixin = __webpack_require__(/*! react-addons-linked-state-mixin */ 174);
-	
-	var _reactAddonsLinkedStateMixin2 = _interopRequireDefault(_reactAddonsLinkedStateMixin);
-	
-	var _app = __webpack_require__(/*! ./app */ 1);
-	
-	var _app2 = _interopRequireDefault(_app);
-	
-	var _storage = __webpack_require__(/*! ./storage */ 161);
-	
-	var _storage2 = _interopRequireDefault(_storage);
-	
-	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 178);
-	
-	var _stagiaires2 = _interopRequireDefault(_stagiaires);
-	
-	var _layout = __webpack_require__(/*! ./layout */ 172);
-	
-	var Individus = {};
-	
-	(function () {
-		Individus.View = _react2["default"].createClass({
-			displayName: "View",
-	
-			getInitialState: function getInitialState() {
-				return {
-					view: "form"
-				};
-			},
-			onSubmit: function onSubmit(stagiaire) {
-				_storage2["default"].create("stagiaires", stagiaire);
-				this.setState({
-					view: "thankYou"
-				});
-			},
-			render: function render() {
-				switch (this.state.view) {
-					case "form":
-						return _react2["default"].createElement(_Form, { onSubmit: this.onSubmit });
-					case "thankYou":
-						return _react2["default"].createElement(_ThankYou, null);
-				}
-			}
-		});
-	
-		var _Form = _react2["default"].createClass({
-			displayName: "_Form",
-	
-			mixins: [_reactAddonsLinkedStateMixin2["default"]],
-			propTypes: {
-				onSubmit: _react2["default"].PropTypes.func.isRequired
-			},
-			getInitialState: _stagiaires2["default"].create,
-			onSubmit: function onSubmit(event) {
-				event.preventDefault();
-				this.props.onSubmit(this.state);
-			},
-			render: function render() {
-				return _react2["default"].createElement(
-					"form",
-					{ onSubmit: this.onSubmit },
-					_react2["default"].createElement(
-						"h2",
-						null,
-						"Formulaire d'inscription"
-					),
-					_react2["default"].createElement(_layout.Form.Text, { name: "nom", label: "Nom", value: this.linkState("nom") }),
-					_react2["default"].createElement(_layout.Form.Text, { name: "prenom", label: "Prénom", value: this.linkState("prenom") }),
-					_react2["default"].createElement(_layout.Form.Text, { name: "numeroId", label: "Numéro ID", value: this.linkState("numeroId") }),
-					_react2["default"].createElement(
-						"button",
-						{ type: "submit", className: "btn btn-primary" },
-						_react2["default"].createElement(_layout.Glyph, { icon: "ok" }),
-						" Soumettre"
-					)
-				);
-			}
-		});
-	
-		var _ThankYou = _react2["default"].createClass({
-			displayName: "_ThankYou",
-	
-			render: function render() {
-				return _react2["default"].createElement(
-					"div",
-					{ className: "alert alert-success", role: "alert" },
-					"Votre demande a bien été prise en compte."
-				);
-			}
-		});
-	})();
-	
-	exports["default"] = Individus;
-	module.exports = exports["default"];
-
-/***/ },
-
-/***/ 419:
-/*!************************!*\
-  !*** ./evenements.jsx ***!
-  \************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
-	var _jquery = __webpack_require__(/*! jquery */ 2);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	var _moment = __webpack_require__(/*! moment */ 164);
-	
-	var _moment2 = _interopRequireDefault(_moment);
-	
-	var _react = __webpack_require__(/*! react */ 3);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactBootstrapLib = __webpack_require__(/*! react-bootstrap/lib */ 179);
-	
-	var _momentLocaleFr = __webpack_require__(/*! moment/locale/fr */ 170);
-	
-	var _momentLocaleFr2 = _interopRequireDefault(_momentLocaleFr);
-	
-	var _reactDatePicker = __webpack_require__(/*! react-date-picker */ 420);
-	
-	var _reactDatePicker2 = _interopRequireDefault(_reactDatePicker);
-	
-	var _app = __webpack_require__(/*! ./app */ 1);
-	
-	var _app2 = _interopRequireDefault(_app);
-	
-	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 178);
-	
-	var _stagiaires2 = _interopRequireDefault(_stagiaires);
-	
-	var _classnames = __webpack_require__(/*! classnames */ 173);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	var _layout = __webpack_require__(/*! ./layout */ 172);
-	
-	var _mixins = __webpack_require__(/*! ./mixins */ 417);
-	
-	__webpack_require__(/*! react-date-picker/base.css */ 432);
-	__webpack_require__(/*! react-date-picker/theme/hackerone.css */ 436);
-	
-	function create() {
-		return {
-			date: new Date(),
-			nbStagiairesActuel: 0,
-			nbStagiairesMin: 1,
-			materiel: false
-		};
-	}
-	
-	var Evenements = {
-		create: create
-	};
-	
-	Evenements.View = _react2["default"].createClass({
-		displayName: "View",
-	
-		propTypes: {
-			view: _react.PropTypes.string,
-			evenements: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
-			evenement: _react.PropTypes.object,
-			stagiaires: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
-			formateurs: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
-			salles: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
-			onEdit: _react.PropTypes.func.isRequired,
-			onSave: _react.PropTypes.func.isRequired
-		},
-		getDefaultProps: function getDefaultProps() {
-			return {
-				view: "list"
-			};
-		},
-		render: function render() {
-			switch (this.props.view) {
-				case "list":
-					return _react2["default"].createElement(List, { evenements: this.props.evenements, onEdit: this.props.onEdit, stagiaires: this.props.stagiaires });
-				case "edit":
-					return _react2["default"].createElement(_Form, { evenement: this.props.evenement, stagiaires: this.props.stagiaires, formateurs: this.props.formateurs, salles: this.props.salles, onSave: this.props.onSave });
-			}
-		}
-	});
-	
-	Evenements.CalendrierItem = _react2["default"].createClass({
-		displayName: "CalendrierItem",
-	
-		propTypes: {
-			evenement: _react.PropTypes.object.isRequired
-		},
-		onClick: function onClick(event) {
-			event.preventDefault();
-			_app2["default"].edit("evenements", this.props.evenement.id);
-		},
-		render: function render() {
-			return _react2["default"].createElement(
-				_reactBootstrapLib.Panel,
-				{ onClick: this.onClick, className: "clickable" },
-				(0, _moment2["default"])(this.props.evenement.date).format("DD/MM/YYYY"),
-				" ",
-				_react2["default"].createElement(
-					"a",
-					{ href: "#" },
-					this.props.evenement.nom
-				)
-			);
-		}
-	});
-	
-	var _Form = _react2["default"].createClass({
-		displayName: "_Form",
-	
-		mixins: [_mixins.LinkedFormMixin],
-		getInitialState: function getInitialState() {
-			return { showCalendar: false, linkedForm: _jquery2["default"].extend({}, this.props.evenement) };
-		},
-		onCalendarToggle: function onCalendarToggle() {
-			this.setState({
-				showCalendar: !this.state.showCalendar
-			});
-		},
-		onDateChange: function onDateChange(dateText, momentDate) {
-			this.setState({
-				linkedForm: _jquery2["default"].extend(this.state.linkedForm, { date: momentDate.toDate() })
-			});
-		},
-		onSubmit: function onSubmit(event) {
-			event.preventDefault();
-			this.props.onSave(this.state.linkedForm);
-		},
-		render: function render() {
-			var newEvenement = this.props.evenement.id === undefined;
-			var stagiairesMin = newEvenement ? false : _stagiaires2["default"].countParticipants(this.props.stagiaires, this.props.evenement) >= this.props.evenement.nbStagiairesMin;
-			var statut = stagiairesMin && this.props.evenement.materiel && this.props.evenement.formateurId && this.props.evenement.salleId ? "Ouvert" : "Proposé";
-			var minDate = _moment2["default"].min((0, _moment2["default"])(this.state.linkedForm.date), (0, _moment2["default"])());
-			var cal = this.state.showCalendar ? _react2["default"].createElement(_reactDatePicker2["default"], { date: (0, _moment2["default"])(this.state.linkedForm.date), onChange: this.onDateChange, minDate: minDate, dateFormat: "DD/MM/YYYY" }) : null;
-			var salles = this.props.salles;
-			var optionMapper = function optionMapper(salle) {
-				return {
-					value: salle.id,
-					label: salle.nom + " (" + salle.places + ")"
-				};
-			};
-			var formateurOptionMapper = function formateurOptionMapper(formateur) {
-				return {
-					value: formateur.id,
-					label: formateur.prenom + " " + formateur.nom
-				};
-			};
-	
-			return _react2["default"].createElement(
-				"form",
-				{ onSubmit: this.onSubmit },
-				_react2["default"].createElement(
-					"div",
-					{ className: "form-group" },
-					_react2["default"].createElement(
-						"label",
-						null,
-						"Statut: ",
-						statut
-					),
-					_react2["default"].createElement(
-						"div",
-						{ className: "form-control-static" },
-						_react2["default"].createElement(
-							"span",
-							{ className: (0, _classnames2["default"])({
-									label: true,
-									"label-default": !stagiairesMin,
-									"label-success": stagiairesMin
-								}) },
-							_react2["default"].createElement(_layout.Glyph, { icon: stagiairesMin ? "ok" : "remove" }),
-							" Stagiaires"
-						),
-						" ",
-						_react2["default"].createElement(
-							"span",
-							{ className: "label label-" + (this.props.evenement.salleId ? "success" : "default") },
-							_react2["default"].createElement(_layout.Glyph, { icon: this.props.evenement.salleId ? "ok" : "remove" }),
-							" Salle"
-						),
-						" ",
-						_react2["default"].createElement(
-							"span",
-							{ className: "label label-" + (this.props.evenement.formateurId ? "success" : "default") },
-							_react2["default"].createElement(_layout.Glyph, { icon: this.props.evenement.formateurId ? "ok" : "remove" }),
-							" Formateur"
-						),
-						" ",
-						_react2["default"].createElement(
-							"span",
-							{ className: "label label-" + (this.props.evenement.materiel ? "success" : "default") },
-							_react2["default"].createElement(_layout.Glyph, { icon: this.props.evenement.materiel ? "ok" : "remove" }),
-							" Matériel"
-						)
-					)
-				),
-				_react2["default"].createElement(_layout.Form.Text, { name: "nom", label: "Nom", value: this.linkText("nom") }),
-				_react2["default"].createElement(
-					"div",
-					{ className: "form-group" },
-					_react2["default"].createElement(
-						"button",
-						{ onClick: this.onCalendarToggle, className: "btn btn-default", type: "button" },
-						_react2["default"].createElement(_layout.Glyph, { icon: "calendar" }),
-						" ",
-						(0, _moment2["default"])(this.state.linkedForm.date).format("DD/MM/YYYY")
-					),
-					_react2["default"].createElement(
-						"div",
-						{ className: "row" },
-						_react2["default"].createElement(
-							"div",
-							{ className: "col-md-4" },
-							cal
-						)
-					)
-				),
-				_react2["default"].createElement(
-					"div",
-					{ className: "form-group" },
-					_react2["default"].createElement(
-						"label",
-						{ htmlFor: "type" },
-						"Type"
-					),
-					_react2["default"].createElement(
-						"select",
-						{ id: "type", className: "form-control", valueLink: this.linkText("type") },
-						_react2["default"].createElement(
-							"option",
-							{ value: "rdv" },
-							"Rendez-vous individuel"
-						),
-						_react2["default"].createElement(
-							"option",
-							{ value: "reunion" },
-							"Reunion d'information collective"
-						)
-					)
-				),
-				_react2["default"].createElement(_layout.Form.Text, { name: "nbStagiairesMin", label: "Nombre minimum de stagiaires", value: this.linkNumber("nbStagiairesMin"), type: "number", min: 1 }),
-				_react2["default"].createElement(_layout.Form.Select, { name: "salleId", value: this.linkNumber("salleId"), options: salles, optionMapper: optionMapper, label: "Salle" }),
-				_react2["default"].createElement(_layout.Form.Select, { name: "formateurId", value: this.linkNumber("formateurId"), options: this.props.formateurs, optionMapper: formateurOptionMapper, label: "Formateur" }),
-				_react2["default"].createElement(_layout.Form.Checkbox, { label: "Matériel disponible", checked: this.state.linkedForm.materiel, value: this.linkText("materiel") }),
-				_react2["default"].createElement(_layout.Form.Submit, { create: newEvenement })
-			);
-		}
-	});
-	
-	var List = _react2["default"].createClass({
-		displayName: "List",
-	
-		onClick: function onClick(evenement) {
-			this.props.onEdit(evenement);
-		},
-		render: function render() {
-			var _this = this;
-	
-			var rows = this.props.evenements.map(function (evenement) {
-				return _react2["default"].createElement(
-					"tr",
-					{ onClick: _this.onClick.bind(_this, evenement), key: evenement.id, className: "clickable" },
-					_react2["default"].createElement(
-						"td",
-						null,
-						evenement.nom
-					),
-					_react2["default"].createElement(
-						"td",
-						null,
-						(0, _moment2["default"])(evenement.date).format("DD/MM/YYYY")
-					),
-					_react2["default"].createElement(
-						"td",
-						null,
-						_stagiaires2["default"].countParticipants(_this.props.stagiaires, evenement),
-						" / ",
-						evenement.nbStagiairesMin
-					),
-					_react2["default"].createElement(
-						"td",
-						null,
-						_react2["default"].createElement(
-							"button",
-							{ type: "button", className: "btn btn-default" },
-							_react2["default"].createElement(_layout.Glyph, { icon: "eye-open" }),
-							" Détails"
-						)
-					)
-				);
-			});
-	
-			return _react2["default"].createElement(
-				"div",
-				null,
-				_react2["default"].createElement(
-					_layout.Layout.Row,
-					null,
-					_react2["default"].createElement(
-						"button",
-						{ type: "button", onClick: this.onClick.bind(this, create()), className: "btn btn-primary" },
-						_react2["default"].createElement(_layout.Glyph, { icon: "plus" }),
-						" Créer évènement"
-					)
-				),
-				_react2["default"].createElement(
-					_layout.Layout.Row,
-					{ spacing: "Top" },
-					_react2["default"].createElement(
-						_layout.Layout.Table,
-						{ cols: ["Nom", "Date", "Nb Participants"] },
-						rows
-					)
-				)
-			);
-		}
-	});
-	
-	exports["default"] = Evenements;
-	module.exports = exports["default"];
-
-/***/ },
-
-/***/ 432:
+/***/ 259:
 /*!***************************************!*\
   !*** ../~/react-date-picker/base.css ***!
   \***************************************/
@@ -1972,10 +1783,10 @@ webpackJsonp([0],{
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../css-loader!./base.css */ 433);
+	var content = __webpack_require__(/*! !./../css-loader!./base.css */ 260);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../style-loader/addStyles.js */ 435)(content, {});
+	var update = __webpack_require__(/*! ./../style-loader/addStyles.js */ 262)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -1993,13 +1804,13 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 433:
+/***/ 260:
 /*!*******************************************************!*\
   !*** ../~/css-loader!../~/react-date-picker/base.css ***!
   \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../css-loader/lib/css-base.js */ 434)();
+	exports = module.exports = __webpack_require__(/*! ./../css-loader/lib/css-base.js */ 261)();
 	// imports
 	
 	
@@ -2011,7 +1822,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 434:
+/***/ 261:
 /*!***************************************!*\
   !*** ../~/css-loader/lib/css-base.js ***!
   \***************************************/
@@ -2071,7 +1882,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 435:
+/***/ 262:
 /*!**************************************!*\
   !*** ../~/style-loader/addStyles.js ***!
   \**************************************/
@@ -2300,7 +2111,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 436:
+/***/ 263:
 /*!**************************************************!*\
   !*** ../~/react-date-picker/theme/hackerone.css ***!
   \**************************************************/
@@ -2309,10 +2120,10 @@ webpackJsonp([0],{
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../css-loader!./hackerone.css */ 437);
+	var content = __webpack_require__(/*! !./../../css-loader!./hackerone.css */ 264);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../style-loader/addStyles.js */ 435)(content, {});
+	var update = __webpack_require__(/*! ./../../style-loader/addStyles.js */ 262)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -2330,13 +2141,13 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 437:
+/***/ 264:
 /*!******************************************************************!*\
   !*** ../~/css-loader!../~/react-date-picker/theme/hackerone.css ***!
   \******************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../css-loader/lib/css-base.js */ 434)();
+	exports = module.exports = __webpack_require__(/*! ./../../css-loader/lib/css-base.js */ 261)();
 	// imports
 	
 	
@@ -2348,7 +2159,122 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 438:
+/***/ 265:
+/*!***********************!*\
+  !*** ./individus.jsx ***!
+  \***********************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	
+	var _react = __webpack_require__(/*! react */ 3);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactAddonsLinkedStateMixin = __webpack_require__(/*! react-addons-linked-state-mixin */ 174);
+	
+	var _reactAddonsLinkedStateMixin2 = _interopRequireDefault(_reactAddonsLinkedStateMixin);
+	
+	var _app = __webpack_require__(/*! ./app */ 1);
+	
+	var _app2 = _interopRequireDefault(_app);
+	
+	var _storage = __webpack_require__(/*! ./storage */ 161);
+	
+	var _storage2 = _interopRequireDefault(_storage);
+	
+	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 243);
+	
+	var _stagiaires2 = _interopRequireDefault(_stagiaires);
+	
+	var _layout = __webpack_require__(/*! ./layout */ 172);
+	
+	var Individus = {};
+	
+	(function () {
+		Individus.View = _react2["default"].createClass({
+			displayName: "View",
+	
+			getInitialState: function getInitialState() {
+				return {
+					view: "form"
+				};
+			},
+			onSubmit: function onSubmit(stagiaire) {
+				_storage2["default"].create("stagiaires", stagiaire);
+				this.setState({
+					view: "thankYou"
+				});
+			},
+			render: function render() {
+				switch (this.state.view) {
+					case "form":
+						return _react2["default"].createElement(_Form, { onSubmit: this.onSubmit });
+					case "thankYou":
+						return _react2["default"].createElement(_ThankYou, null);
+				}
+			}
+		});
+	
+		var _Form = _react2["default"].createClass({
+			displayName: "_Form",
+	
+			mixins: [_reactAddonsLinkedStateMixin2["default"]],
+			propTypes: {
+				onSubmit: _react2["default"].PropTypes.func.isRequired
+			},
+			getInitialState: _stagiaires2["default"].create,
+			onSubmit: function onSubmit(event) {
+				event.preventDefault();
+				this.props.onSubmit(this.state);
+			},
+			render: function render() {
+				return _react2["default"].createElement(
+					"form",
+					{ onSubmit: this.onSubmit },
+					_react2["default"].createElement(
+						"h2",
+						null,
+						"Formulaire d'inscription"
+					),
+					_react2["default"].createElement(_layout.Form.Text, { name: "nom", label: "Nom", value: this.linkState("nom") }),
+					_react2["default"].createElement(_layout.Form.Text, { name: "prenom", label: "Prénom", value: this.linkState("prenom") }),
+					_react2["default"].createElement(_layout.Form.Text, { name: "numeroId", label: "Numéro ID", value: this.linkState("numeroId") }),
+					_react2["default"].createElement(
+						"button",
+						{ type: "submit", className: "btn btn-primary" },
+						_react2["default"].createElement(_layout.Glyph, { icon: "ok" }),
+						" Soumettre"
+					)
+				);
+			}
+		});
+	
+		var _ThankYou = _react2["default"].createClass({
+			displayName: "_ThankYou",
+	
+			render: function render() {
+				return _react2["default"].createElement(
+					"div",
+					{ className: "alert alert-success", role: "alert" },
+					"Votre demande a bien été prise en compte."
+				);
+			}
+		});
+	})();
+	
+	exports["default"] = Individus;
+	module.exports = exports["default"];
+
+/***/ },
+
+/***/ 266:
 /*!********************!*\
   !*** ./salles.jsx ***!
   \********************/
@@ -2374,15 +2300,21 @@ webpackJsonp([0],{
 	
 	var _reactAddonsLinkedStateMixin2 = _interopRequireDefault(_reactAddonsLinkedStateMixin);
 	
-	var _reactBootstrapLib = __webpack_require__(/*! react-bootstrap/lib */ 179);
+	var _reactBootstrapLibTab = __webpack_require__(/*! react-bootstrap/lib/Tab */ 256);
+	
+	var _reactBootstrapLibTab2 = _interopRequireDefault(_reactBootstrapLibTab);
+	
+	var _reactBootstrapLibTabs = __webpack_require__(/*! react-bootstrap/lib/Tabs */ 244);
+	
+	var _reactBootstrapLibTabs2 = _interopRequireDefault(_reactBootstrapLibTabs);
 	
 	var _layout = __webpack_require__(/*! ./layout */ 172);
 	
 	var _layout2 = _interopRequireDefault(_layout);
 	
-	var _evenements = __webpack_require__(/*! ./evenements */ 419);
+	var _evenements = __webpack_require__(/*! ./evenements */ 196);
 	
-	var _mixins = __webpack_require__(/*! ./mixins */ 417);
+	var _mixins = __webpack_require__(/*! ./mixins */ 258);
 	
 	var Salles = {};
 	
@@ -2507,10 +2439,10 @@ webpackJsonp([0],{
 				"form",
 				{ onSubmit: this.onSubmit },
 				_react2["default"].createElement(
-					_reactBootstrapLib.Tabs,
+					_reactBootstrapLibTabs2["default"],
 					{ defaultActiveKey: 1 },
 					_react2["default"].createElement(
-						_reactBootstrapLib.Tab,
+						_reactBootstrapLibTab2["default"],
 						{ eventKey: 1, title: "Info" },
 						_react2["default"].createElement(
 							"div",
@@ -2520,7 +2452,7 @@ webpackJsonp([0],{
 						)
 					),
 					_react2["default"].createElement(
-						_reactBootstrapLib.Tab,
+						_reactBootstrapLibTab2["default"],
 						{ eventKey: 2, title: "Calendrier", disabled: this.props.salle.id === undefined },
 						_react2["default"].createElement(
 							"div",
@@ -2539,7 +2471,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 439:
+/***/ 267:
 /*!************************!*\
   !*** ./formateurs.jsx ***!
   \************************/
@@ -2565,17 +2497,27 @@ webpackJsonp([0],{
 	
 	var _reactAddonsLinkedStateMixin2 = _interopRequireDefault(_reactAddonsLinkedStateMixin);
 	
-	var _reactBootstrapLib = __webpack_require__(/*! react-bootstrap/lib */ 179);
+	var _reactBootstrapLibTabs = __webpack_require__(/*! react-bootstrap/lib/Tabs */ 244);
+	
+	var _reactBootstrapLibTabs2 = _interopRequireDefault(_reactBootstrapLibTabs);
+	
+	var _reactBootstrapLibTab = __webpack_require__(/*! react-bootstrap/lib/Tab */ 256);
+	
+	var _reactBootstrapLibTab2 = _interopRequireDefault(_reactBootstrapLibTab);
+	
+	var _reactBootstrapLibPanel = __webpack_require__(/*! react-bootstrap/lib/Panel */ 197);
+	
+	var _reactBootstrapLibPanel2 = _interopRequireDefault(_reactBootstrapLibPanel);
 	
 	var _layout = __webpack_require__(/*! ./layout */ 172);
 	
 	var _layout2 = _interopRequireDefault(_layout);
 	
-	var _evenements = __webpack_require__(/*! ./evenements */ 419);
+	var _evenements = __webpack_require__(/*! ./evenements */ 196);
 	
 	var _evenements2 = _interopRequireDefault(_evenements);
 	
-	var _mixins = __webpack_require__(/*! ./mixins */ 417);
+	var _mixins = __webpack_require__(/*! ./mixins */ 258);
 	
 	var _storage = __webpack_require__(/*! ./storage */ 161);
 	
@@ -2696,10 +2638,10 @@ webpackJsonp([0],{
 			});
 	
 			return _react2["default"].createElement(
-				_reactBootstrapLib.Tabs,
+				_reactBootstrapLibTabs2["default"],
 				{ defaultActiveKey: 1 },
 				_react2["default"].createElement(
-					_reactBootstrapLib.Tab,
+					_reactBootstrapLibTab2["default"],
 					{ eventKey: 1, title: "Info" },
 					_react2["default"].createElement(
 						"form",
@@ -2710,7 +2652,7 @@ webpackJsonp([0],{
 					)
 				),
 				_react2["default"].createElement(
-					_reactBootstrapLib.Tab,
+					_reactBootstrapLibTab2["default"],
 					{ eventKey: 2, title: "Calendrier", disabled: this.props.formateur.id === undefined },
 					_react2["default"].createElement(
 						"div",
