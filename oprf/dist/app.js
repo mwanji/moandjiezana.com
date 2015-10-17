@@ -153,23 +153,23 @@ webpackJsonp([0],{
 	
 	var _dashboard2 = _interopRequireDefault(_dashboard);
 	
-	var _individus = __webpack_require__(/*! ./individus */ 265);
+	var _individus = __webpack_require__(/*! ./individus */ 437);
 	
 	var _individus2 = _interopRequireDefault(_individus);
 	
-	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 243);
+	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 429);
 	
 	var _stagiaires2 = _interopRequireDefault(_stagiaires);
 	
-	var _evenements = __webpack_require__(/*! ./evenements */ 196);
+	var _evenements = __webpack_require__(/*! ./evenements */ 416);
 	
 	var _evenements2 = _interopRequireDefault(_evenements);
 	
-	var _salles = __webpack_require__(/*! ./salles */ 266);
+	var _salles = __webpack_require__(/*! ./salles */ 438);
 	
 	var _salles2 = _interopRequireDefault(_salles);
 	
-	var _formateurs = __webpack_require__(/*! ./formateurs */ 267);
+	var _formateurs = __webpack_require__(/*! ./formateurs */ 439);
 	
 	var _formateurs2 = _interopRequireDefault(_formateurs);
 	
@@ -467,15 +467,15 @@ webpackJsonp([0],{
 	
 	var _storage2 = _interopRequireDefault(_storage);
 	
-	var _evenements = __webpack_require__(/*! ./evenements */ 196);
+	var _evenements = __webpack_require__(/*! ./evenements */ 416);
 	
 	var _evenements2 = _interopRequireDefault(_evenements);
 	
-	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 243);
+	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 429);
 	
 	var _stagiaires2 = _interopRequireDefault(_stagiaires);
 	
-	var _reactBootstrapLibPanel = __webpack_require__(/*! react-bootstrap/lib/Panel */ 197);
+	var _reactBootstrapLibPanel = __webpack_require__(/*! react-bootstrap/lib/Panel */ 402);
 	
 	var _reactBootstrapLibPanel2 = _interopRequireDefault(_reactBootstrapLibPanel);
 	
@@ -626,7 +626,7 @@ webpackJsonp([0],{
 	
 	var _reactAddonsLinkedStateMixin2 = _interopRequireDefault(_reactAddonsLinkedStateMixin);
 	
-	var _reactBootstrapLib = __webpack_require__(/*! react-bootstrap/lib */ 268);
+	var _reactBootstrapLib = __webpack_require__(/*! react-bootstrap/lib */ 178);
 	
 	var Layout = {};
 	
@@ -862,7 +862,7 @@ webpackJsonp([0],{
 			var options = this.props.options.map(this.props.optionMapper).map(function (option) {
 				return _react2["default"].createElement(
 					"option",
-					{ key: option.value, value: option.value },
+					{ key: option.value, value: option.value, disabled: option.disabled || false },
 					option.label
 				);
 			});
@@ -970,31 +970,11 @@ webpackJsonp([0],{
 	};
 	
 	exports.Label = Label;
-	/*
-	export const Label = React.createClass({
-		propTypes: {
-			type: React.PropTypes.string,
-			text: React.PropTypes.string.isRequired
-		},
-		getDefaultProps: function () {
-			return {
-				type: "default"
-			};
-		},
-		render: function () {
-			const classes = {
-				label: true
-			};
-			classes["label-" + this.props.type] = true;
-			return <span className={classNames(classes)}>{this.props.text}</span>
-		}
-	});
-	*/
 	exports["default"] = Layout;
 
 /***/ },
 
-/***/ 196:
+/***/ 416:
 /*!************************!*\
   !*** ./evenements.jsx ***!
   \************************/
@@ -1016,11 +996,15 @@ webpackJsonp([0],{
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
+	var _classnames = __webpack_require__(/*! classnames */ 173);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
 	var _react = __webpack_require__(/*! react */ 3);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactBootstrapLibPanel = __webpack_require__(/*! react-bootstrap/lib/Panel */ 197);
+	var _reactBootstrapLibPanel = __webpack_require__(/*! react-bootstrap/lib/Panel */ 402);
 	
 	var _reactBootstrapLibPanel2 = _interopRequireDefault(_reactBootstrapLibPanel);
 	
@@ -1028,7 +1012,7 @@ webpackJsonp([0],{
 	
 	var _momentLocaleFr2 = _interopRequireDefault(_momentLocaleFr);
 	
-	var _reactDatePicker = __webpack_require__(/*! react-date-picker */ 231);
+	var _reactDatePicker = __webpack_require__(/*! react-date-picker */ 417);
 	
 	var _reactDatePicker2 = _interopRequireDefault(_reactDatePicker);
 	
@@ -1036,20 +1020,20 @@ webpackJsonp([0],{
 	
 	var _app2 = _interopRequireDefault(_app);
 	
-	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 243);
+	var _layout = __webpack_require__(/*! ./layout */ 172);
+	
+	var _mixins = __webpack_require__(/*! ./mixins */ 430);
+	
+	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 429);
 	
 	var _stagiaires2 = _interopRequireDefault(_stagiaires);
 	
-	var _classnames = __webpack_require__(/*! classnames */ 173);
+	var _salles = __webpack_require__(/*! ./salles */ 438);
 	
-	var _classnames2 = _interopRequireDefault(_classnames);
+	var _salles2 = _interopRequireDefault(_salles);
 	
-	var _layout = __webpack_require__(/*! ./layout */ 172);
-	
-	var _mixins = __webpack_require__(/*! ./mixins */ 258);
-	
-	__webpack_require__(/*! react-date-picker/base.css */ 259);
-	__webpack_require__(/*! react-date-picker/theme/hackerone.css */ 263);
+	__webpack_require__(/*! react-date-picker/base.css */ 431);
+	__webpack_require__(/*! react-date-picker/theme/hackerone.css */ 435);
 	
 	function create() {
 		return {
@@ -1085,9 +1069,9 @@ webpackJsonp([0],{
 		render: function render() {
 			switch (this.props.view) {
 				case "list":
-					return _react2["default"].createElement(List, { evenements: this.props.evenements, onEdit: this.props.onEdit, stagiaires: this.props.stagiaires });
+					return _react2["default"].createElement(List, { evenements: this.props.evenements, onEdit: this.props.onEdit, stagiaires: this.props.stagiaires, salles: this.props.salles });
 				case "edit":
-					return _react2["default"].createElement(_Form, { evenement: this.props.evenement, stagiaires: this.props.stagiaires, formateurs: this.props.formateurs, salles: this.props.salles, onSave: this.props.onSave });
+					return _react2["default"].createElement(_Form, { evenement: this.props.evenement, stagiaires: this.props.stagiaires, formateurs: this.props.formateurs, salles: this.props.salles, evenements: this.props.evenements, onSave: this.props.onSave });
 			}
 		}
 	});
@@ -1139,17 +1123,25 @@ webpackJsonp([0],{
 			this.props.onSave(this.state.linkedForm);
 		},
 		render: function render() {
-			var newEvenement = this.props.evenement.id === undefined;
+			var _props = this.props;
+			var evenement = _props.evenement;
+			var evenements = _props.evenements;
+			var salles = _props.salles;
+			var linkedForm = this.state.linkedForm;
+	
+			var newEvenement = evenement.id === undefined;
 			var stagiairesMin = newEvenement ? false : _stagiaires2["default"].countParticipants(this.props.stagiaires, this.props.evenement) >= this.props.evenement.nbStagiairesMin;
-			var statut = stagiairesMin && this.props.evenement.materiel && this.props.evenement.formateurId && this.props.evenement.salleId ? "Ouvert" : "Proposé";
-			var minDate = _moment2["default"].min((0, _moment2["default"])(this.state.linkedForm.date), (0, _moment2["default"])());
-			var cal = this.state.showCalendar ? _react2["default"].createElement(_reactDatePicker2["default"], { date: (0, _moment2["default"])(this.state.linkedForm.date), onChange: this.onDateChange, minDate: minDate, dateFormat: "DD/MM/YYYY" }) : null;
-			var salles = this.props.salles;
+			var statut = stagiairesMin && evenement.materiel && this.props.evenement.formateurId && this.props.evenement.salleId ? "Ouvert" : "Proposé";
+			var minDate = _moment2["default"].min((0, _moment2["default"])(linkedForm.date), (0, _moment2["default"])());
+			var cal = this.state.showCalendar ? _react2["default"].createElement(_reactDatePicker2["default"], { date: (0, _moment2["default"])(linkedForm.date), onChange: this.onDateChange, minDate: minDate, dateFormat: "DD/MM/YYYY" }) : null;
 	
 			var optionMapper = function optionMapper(salle) {
 				return {
 					value: salle.id,
-					label: salle.nom + " (" + salle.places + ")"
+					label: salle.nom + " (" + salle.places + ")",
+					disabled: _salles2["default"].isOccupied(salle, evenements.filter(function (e) {
+						return e.id !== evenement.id;
+					}), linkedForm.date)
 				};
 			};
 			var formateurOptionMapper = function formateurOptionMapper(formateur) {
@@ -1212,7 +1204,7 @@ webpackJsonp([0],{
 						{ onClick: this.onCalendarToggle, className: "btn btn-default", type: "button" },
 						_react2["default"].createElement(_layout.Glyph, { icon: "calendar" }),
 						" ",
-						(0, _moment2["default"])(this.state.linkedForm.date).format("DD/MM/YYYY")
+						(0, _moment2["default"])(linkedForm.date).format("DD/MM/YYYY")
 					),
 					_react2["default"].createElement(
 						"div",
@@ -1250,7 +1242,7 @@ webpackJsonp([0],{
 				_react2["default"].createElement(_layout.Form.Text, { name: "nbStagiairesMin", label: "Nombre minimum de stagiaires", value: this.linkNumber("nbStagiairesMin"), type: "number", min: 1 }),
 				_react2["default"].createElement(_layout.Form.Select, { name: "salleId", value: this.linkNumber("salleId"), options: salles, optionMapper: optionMapper, label: "Salle" }),
 				_react2["default"].createElement(_layout.Form.Select, { name: "formateurId", value: this.linkNumber("formateurId"), options: this.props.formateurs, optionMapper: formateurOptionMapper, label: "Formateur" }),
-				_react2["default"].createElement(_layout.Form.Checkbox, { label: "Matériel disponible", checked: this.state.linkedForm.materiel, value: this.linkText("materiel") }),
+				_react2["default"].createElement(_layout.Form.Checkbox, { label: "Matériel disponible", checked: linkedForm.materiel, value: this.linkText("materiel") }),
 				_react2["default"].createElement(_layout.Form.Submit, { create: newEvenement })
 			);
 		}
@@ -1262,13 +1254,33 @@ webpackJsonp([0],{
 		onClick: function onClick(evenement) {
 			this.props.onEdit(evenement);
 		},
+		navigateTo: function navigateTo(tableName, record, event) {
+			event.preventDefault();
+			event.stopPropagation();
+			_app2["default"].edit(tableName, record.id);
+		},
 		render: function render() {
 			var _this = this;
 	
-			var rows = this.props.evenements.map(function (evenement) {
+			var evenementsSortedByDate = this.props.evenements.slice();
+			evenementsSortedByDate.sort(function (e1, e2) {
+				return (0, _moment2["default"])(e1.date) - (0, _moment2["default"])(e2.date);
+			});
+	
+			var rows = evenementsSortedByDate.map(function (evenement) {
+				var matchingSalles = _this.props.salles.filter(function (s) {
+					return s.id === evenement.salleId;
+				});
+				var salle = matchingSalles.length > 0 ? matchingSalles[0] : undefined;
+	
 				return _react2["default"].createElement(
 					"tr",
 					{ onClick: _this.onClick.bind(_this, evenement), key: evenement.id, className: "clickable" },
+					_react2["default"].createElement(
+						"td",
+						null,
+						(0, _moment2["default"])(evenement.date).format("DD/MM/YYYY")
+					),
 					_react2["default"].createElement(
 						"td",
 						null,
@@ -1277,7 +1289,11 @@ webpackJsonp([0],{
 					_react2["default"].createElement(
 						"td",
 						null,
-						(0, _moment2["default"])(evenement.date).format("DD/MM/YYYY")
+						salle ? _react2["default"].createElement(
+							"a",
+							{ href: "#", onClick: _this.navigateTo.bind(_this, "salles", salle) },
+							salle.nom
+						) : null
 					),
 					_react2["default"].createElement(
 						"td",
@@ -1317,7 +1333,7 @@ webpackJsonp([0],{
 					{ spacing: "Top" },
 					_react2["default"].createElement(
 						_layout.Layout.Table,
-						{ cols: ["Nom", "Date", "Nb Participants"] },
+						{ cols: ["Date", "Nom", "Salle", "Nb Participants"] },
 						rows
 					)
 				)
@@ -1330,7 +1346,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 243:
+/***/ 429:
 /*!************************!*\
   !*** ./stagiaires.jsx ***!
   \************************/
@@ -1360,11 +1376,11 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactBootstrapLibTabs = __webpack_require__(/*! react-bootstrap/lib/Tabs */ 244);
+	var _reactBootstrapLibTabs = __webpack_require__(/*! react-bootstrap/lib/Tabs */ 412);
 	
 	var _reactBootstrapLibTabs2 = _interopRequireDefault(_reactBootstrapLibTabs);
 	
-	var _reactBootstrapLibTab = __webpack_require__(/*! react-bootstrap/lib/Tab */ 256);
+	var _reactBootstrapLibTab = __webpack_require__(/*! react-bootstrap/lib/Tab */ 410);
 	
 	var _reactBootstrapLibTab2 = _interopRequireDefault(_reactBootstrapLibTab);
 	
@@ -1374,7 +1390,7 @@ webpackJsonp([0],{
 	
 	var _layout = __webpack_require__(/*! ./layout */ 172);
 	
-	var _mixins = __webpack_require__(/*! ./mixins */ 258);
+	var _mixins = __webpack_require__(/*! ./mixins */ 430);
 	
 	function create() {
 		return {
@@ -1703,7 +1719,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 258:
+/***/ 430:
 /*!*******************!*\
   !*** ./mixins.js ***!
   \*******************/
@@ -1774,7 +1790,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 259:
+/***/ 431:
 /*!***************************************!*\
   !*** ../~/react-date-picker/base.css ***!
   \***************************************/
@@ -1783,10 +1799,10 @@ webpackJsonp([0],{
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../css-loader!./base.css */ 260);
+	var content = __webpack_require__(/*! !./../css-loader!./base.css */ 432);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../style-loader/addStyles.js */ 262)(content, {});
+	var update = __webpack_require__(/*! ./../style-loader/addStyles.js */ 434)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -1804,13 +1820,13 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 260:
+/***/ 432:
 /*!*******************************************************!*\
   !*** ../~/css-loader!../~/react-date-picker/base.css ***!
   \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../css-loader/lib/css-base.js */ 261)();
+	exports = module.exports = __webpack_require__(/*! ./../css-loader/lib/css-base.js */ 433)();
 	// imports
 	
 	
@@ -1822,7 +1838,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 261:
+/***/ 433:
 /*!***************************************!*\
   !*** ../~/css-loader/lib/css-base.js ***!
   \***************************************/
@@ -1882,7 +1898,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 262:
+/***/ 434:
 /*!**************************************!*\
   !*** ../~/style-loader/addStyles.js ***!
   \**************************************/
@@ -2111,7 +2127,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 263:
+/***/ 435:
 /*!**************************************************!*\
   !*** ../~/react-date-picker/theme/hackerone.css ***!
   \**************************************************/
@@ -2120,10 +2136,10 @@ webpackJsonp([0],{
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../css-loader!./hackerone.css */ 264);
+	var content = __webpack_require__(/*! !./../../css-loader!./hackerone.css */ 436);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../style-loader/addStyles.js */ 262)(content, {});
+	var update = __webpack_require__(/*! ./../../style-loader/addStyles.js */ 434)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -2141,13 +2157,13 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 264:
+/***/ 436:
 /*!******************************************************************!*\
   !*** ../~/css-loader!../~/react-date-picker/theme/hackerone.css ***!
   \******************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../css-loader/lib/css-base.js */ 261)();
+	exports = module.exports = __webpack_require__(/*! ./../../css-loader/lib/css-base.js */ 433)();
 	// imports
 	
 	
@@ -2159,7 +2175,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 265:
+/***/ 437:
 /*!***********************!*\
   !*** ./individus.jsx ***!
   \***********************/
@@ -2189,7 +2205,7 @@ webpackJsonp([0],{
 	
 	var _storage2 = _interopRequireDefault(_storage);
 	
-	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 243);
+	var _stagiaires = __webpack_require__(/*! ./stagiaires */ 429);
 	
 	var _stagiaires2 = _interopRequireDefault(_stagiaires);
 	
@@ -2274,7 +2290,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 266:
+/***/ 438:
 /*!********************!*\
   !*** ./salles.jsx ***!
   \********************/
@@ -2292,6 +2308,10 @@ webpackJsonp([0],{
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
+	var _moment = __webpack_require__(/*! moment */ 164);
+	
+	var _moment2 = _interopRequireDefault(_moment);
+	
 	var _react = __webpack_require__(/*! react */ 3);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -2300,11 +2320,11 @@ webpackJsonp([0],{
 	
 	var _reactAddonsLinkedStateMixin2 = _interopRequireDefault(_reactAddonsLinkedStateMixin);
 	
-	var _reactBootstrapLibTab = __webpack_require__(/*! react-bootstrap/lib/Tab */ 256);
+	var _reactBootstrapLibTab = __webpack_require__(/*! react-bootstrap/lib/Tab */ 410);
 	
 	var _reactBootstrapLibTab2 = _interopRequireDefault(_reactBootstrapLibTab);
 	
-	var _reactBootstrapLibTabs = __webpack_require__(/*! react-bootstrap/lib/Tabs */ 244);
+	var _reactBootstrapLibTabs = __webpack_require__(/*! react-bootstrap/lib/Tabs */ 412);
 	
 	var _reactBootstrapLibTabs2 = _interopRequireDefault(_reactBootstrapLibTabs);
 	
@@ -2312,11 +2332,19 @@ webpackJsonp([0],{
 	
 	var _layout2 = _interopRequireDefault(_layout);
 	
-	var _evenements = __webpack_require__(/*! ./evenements */ 196);
+	var _evenements = __webpack_require__(/*! ./evenements */ 416);
 	
-	var _mixins = __webpack_require__(/*! ./mixins */ 258);
+	var _evenements2 = _interopRequireDefault(_evenements);
 	
-	var Salles = {};
+	var _mixins = __webpack_require__(/*! ./mixins */ 430);
+	
+	var Salles = {
+		isOccupied: function isOccupied(salle, evenements, date) {
+			return evenements.filter(function (evenement) {
+				return evenement.salleId === salle.id && (0, _moment2["default"])(evenement.date).isSame(date, "day");
+			}).length > 0;
+		}
+	};
 	
 	function create() {
 		return {
@@ -2416,8 +2444,7 @@ webpackJsonp([0],{
 	});
 	
 	var Item = _react2["default"].createClass({
-		displayName: "Item",
-	
+		displayName: "Salles.Item",
 		mixins: [_reactAddonsLinkedStateMixin2["default"], _mixins.LinkedNumberStateMixin],
 		propTypes: {
 			salle: _react.PropTypes.object.isRequired,
@@ -2432,7 +2459,7 @@ webpackJsonp([0],{
 		},
 		render: function render() {
 			var salleEvenements = getCalendrier(this.props.salle, this.props.evenements).map(function (evenement) {
-				return _react2["default"].createElement(_evenements.CalendrierItem, { key: evenement.id, evenement: evenement });
+				return _react2["default"].createElement(_evenements2["default"].CalendrierItem, { key: evenement.id, evenement: evenement });
 			});
 	
 			return _react2["default"].createElement(
@@ -2471,7 +2498,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 267:
+/***/ 439:
 /*!************************!*\
   !*** ./formateurs.jsx ***!
   \************************/
@@ -2497,15 +2524,15 @@ webpackJsonp([0],{
 	
 	var _reactAddonsLinkedStateMixin2 = _interopRequireDefault(_reactAddonsLinkedStateMixin);
 	
-	var _reactBootstrapLibTabs = __webpack_require__(/*! react-bootstrap/lib/Tabs */ 244);
+	var _reactBootstrapLibTabs = __webpack_require__(/*! react-bootstrap/lib/Tabs */ 412);
 	
 	var _reactBootstrapLibTabs2 = _interopRequireDefault(_reactBootstrapLibTabs);
 	
-	var _reactBootstrapLibTab = __webpack_require__(/*! react-bootstrap/lib/Tab */ 256);
+	var _reactBootstrapLibTab = __webpack_require__(/*! react-bootstrap/lib/Tab */ 410);
 	
 	var _reactBootstrapLibTab2 = _interopRequireDefault(_reactBootstrapLibTab);
 	
-	var _reactBootstrapLibPanel = __webpack_require__(/*! react-bootstrap/lib/Panel */ 197);
+	var _reactBootstrapLibPanel = __webpack_require__(/*! react-bootstrap/lib/Panel */ 402);
 	
 	var _reactBootstrapLibPanel2 = _interopRequireDefault(_reactBootstrapLibPanel);
 	
@@ -2513,11 +2540,11 @@ webpackJsonp([0],{
 	
 	var _layout2 = _interopRequireDefault(_layout);
 	
-	var _evenements = __webpack_require__(/*! ./evenements */ 196);
+	var _evenements = __webpack_require__(/*! ./evenements */ 416);
 	
 	var _evenements2 = _interopRequireDefault(_evenements);
 	
-	var _mixins = __webpack_require__(/*! ./mixins */ 258);
+	var _mixins = __webpack_require__(/*! ./mixins */ 430);
 	
 	var _storage = __webpack_require__(/*! ./storage */ 161);
 	
