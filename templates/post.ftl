@@ -1,6 +1,10 @@
 <#include "header.ftl">
 	
-  <h1><a href="/">Moandji Ezana</a> <small>Blog</small></h1>
+	<#if content?? && content.series?? && content.series == "getonline" >
+    <h1><a href="/get-online">Get Online!</a></h1>
+	<#else>
+    <h1><a href="/">Moandji Ezana</a> <small>Blog</small></h1>
+	</#if>
 
   <div class="row">
     <div class="col-lg-12">

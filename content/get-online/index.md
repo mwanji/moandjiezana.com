@@ -1,6 +1,7 @@
 title=Get Your Life And Business Online
 date=2016-02-18
 type=post
+series=getonline
 status=published
 og_description=A series of guides to taking control of your online life
 ~~~~~~

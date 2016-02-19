@@ -194,7 +194,10 @@
 <div class="row">
   <div class="col-lg-offset-1 col-lg-11">
     <#list published_posts as post>
-      <h4><a href="${post.noExtensionUri}">${post.title}</a> <span class="text-muted">${post.date?string("dd MMMM yyyy")}</span></h4>
+      <#if post.series??>
+      <#else>
+        <h4><a href="${post.noExtensionUri}">${post.title}</a> <span class="text-muted">${post.date?string("dd MMMM yyyy")}</span></h4>
+      </#if>
     </#list>
   </div>
 </div>

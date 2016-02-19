@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <p class="muted credits">&copy; 2009-${.now?string("yyyy")} Moandji Ezana | Baked with <a href="http://jbake.org">JBake</a></p>
+          <p class="muted credits">&copy; 2009-${.now?string("yyyy")} Moandji Ezana</p>
         </div>
       </div>
     </footer>

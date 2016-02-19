@@ -1,6 +1,7 @@
 title=How To Get Your Own Web Address
 date=2016-02-18
 type=post
+series=getonline
 status=published
 og_description=A straightforward guide to getting your own .com 
 ~~~~~~
@@ -27,7 +28,7 @@ Prices generally start at $10 per year for common TLDs such as .com or .co.za. T
 
 Domain names are rented, rather than owned. This means that you have to pay for your domain name every year. It is also possible to pay for several years in advance. The place you get the domain from will email you to remind you before it expires.
 
-**Which TLD should I choose?**
+**Should I choose a .com or something else?**
 
 .com is the most common and well-known TLD, so it makes sense to use that. However, there are two reasons you might choose something else:
 
@@ -36,7 +37,7 @@ Domain names are rented, rather than owned. This means that you have to pay for 
 
 The elements you need to balance are availability, cost and memorability. As your TLD becomes more outlandish, it is more likely to be available, but people may have a harder time remembering it. In that case, it may be worth paying a little more to get something more familiar or shorter.
 
-**I'm sold, how do I get my domain name?**
+**I'm sold, tell me how to get my domain name!**
 
 There are essentially two places to get it from: domain registrars and website hosts.
 
