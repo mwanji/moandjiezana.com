@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Moandji Ezana</title>
+    <title><#if content?? && content.title??>${content.title} - </#if><#if content?? && content.series??>${content.series} - </#if>Moandji Ezana</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Moandji Ezana">
     <#if content?? && content.og_description?? >

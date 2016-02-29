@@ -1,7 +1,7 @@
 title=How To Get Your Own Web Address
 date=2016-02-18
 type=post
-series=getonline
+series=Get Online
 status=published
 og_description=A straightforward guide to getting your own .com 
 ~~~~~~
@@ -50,7 +50,7 @@ Domain registrars specialise in selling and managing domain names. There are hun
 1. Hover will tell you if the name you asked for is available and will also suggest a huge number of alternatives, along with their price. Remember that the price they show is per year.
 1. Click on the plus next to the domain name or names that you want. When you're ready, click on the "Proceed to cart" button in the right-hand column.
 1. Now you can choose how long you wish to own the domain name. Unfortunately, there are no volume discounts, but by choosing a longer period, you won't have to think about it for a longer period of time.
-1. If you have promo code, which are often advertised on podcasts, click the small "Add promo code" link to enter it. The promo code will give you a discount.
+1. If you have a promo code, click the small "Add promo code" link to enter it. The promo code will give you a discount. If you don't have one, they are often advertised on podcasts such as the [Accidental Tech Podcast](http://atp.fm).
 1. Click on the "Secure checkout" button at the bottom of the form.
 1. On the next pages, you will create a Hover account and fill in details such as an address.
 1. You can pay either by credit card or PayPal.

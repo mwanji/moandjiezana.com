@@ -1,6 +1,6 @@
 <#include "header.ftl">
 	
-	<#if content?? && content.series?? && content.series == "getonline" >
+	<#if content?? && content.series?? && content.series == "Get Online" >
     <h1><a href="/get-online">Get Online!</a></h1>
 	<#else>
     <h1><a href="/">Moandji Ezana</a> <small>Blog</small></h1>
