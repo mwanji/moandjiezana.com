@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How To Set Up Mailgun DNS Records on Digital Ocean - Moandji Ezana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Moandji Ezana">
+      <meta property="og:type" content="article"/>
+      <meta property="og:url" content="http://moandjiezana.com/blog/2016/mailgun-on-digital-ocean/index.html"/>
+      <meta property="og:site_name" content="Moandji Ezana Blog"/>
+      <meta property="article:author" content="http://facebook.com/mwanji">
+      <meta property="og:title" content="How To Set Up Mailgun DNS Records on Digital Ocean">
+      <meta property="og:description" content="Steps to avoid wasting time when connecting Mailgun to Digital Ocean.">
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/font-mfizz/font-mfizz.css">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+  <body>
+    <div class="container">
+   
+	
+    <h1><a href="/">Moandji Ezana</a> <small>Blog</small></h1>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h4>April 07, 2016</h4>
+       <h2><a href="/blog/2016/mailgun-on-digital-ocean/index.html">How To Set Up Mailgun DNS Records on Digital Ocean</a></h2>
+    </div>
+  </div>
+  
+  <div class="row post-body">
+    <div class="col-lg-10">
+    	<p>There are a few pitfalls that can make you waste a lot of time when setting up <a href="https://mailgun.com">Mailgun</a> on a <a href="https://digitalocean.com">Digital Ocean</a> server. Here&rsquo;s how to avoid them.</p><h2>Apex or subdomain?</h2><p>If you wish to receive email via Mailgun and already have MX records for your domain, you must create a Mailgun-specific subdomain. This is the case if, for example, you own mydomain.com and have connected <a href="mailto:&#105;n&#102;&#x6f;&#x40;&#x6d;&#x79;&#100;&#x6f;&#x6d;a&#105;&#x6e;&#46;c&#111;&#109;">&#105;n&#102;&#x6f;&#x40;&#x6d;&#x79;&#100;&#x6f;&#x6d;a&#105;&#x6e;&#46;c&#111;&#109;</a> to Gmail or another email provider.</p><p>In Digital Ocean, go to <code>Networking &gt; Domains</code> and add a domain. It does not matter which droplet you point it to. In our example, you might create mg.mydomain.com. All subsequent DNS records will be created for this domain.</p><h2>SPF Record</h2><p>Use <code>@</code> as the name of the TXT record and the value provided by Mailgun as the record&rsquo;s text. For example, <code>v=spf1 include:mailgun.org ~all</code>.</p><h2>DKIM Record</h2><p>Do not include the fully-qualified domain name in the name of the TXT record. If Mailgun gives you <code>mx._domainkey.mydomain.com</code>, only put <code>mx._domainkey</code> (no trailing dot).</p><p>You must wrap the DKIM value in double quotes, for example: <code>&quot;k=rsa; p=MIG&quot;</code>.</p><h2>CNAME Record</h2><p>Only enter the subdomain, not the fully-qualified name, as the name of the CNAME record. If Mailgun asks you to set up email.mydomain.com, then the CNAME record&rsquo;s name is email, not email.mydomain.com. The hostname is mailgun.org.</p><p>The same holds if you are setting Mailgun up on a subdomain. To create email.mg.mydomain.com, create the record in the mg.mydomain.com domain, with <code>email</code> as name.</p><h2>MX Records</h2><p>These are necessary only to send emails via Mailgun. No pitfalls here, if there are no other MX records. You can enter the hostname and priority as given by Mailgun.</p><h2>Debugging</h2><p>If Mailgun reports any errors, the zone file at the bottom of Digital Ocean&rsquo;s DNS settings page is the best way to debug the issue. It allows you to see exactly what values have been configured.</p><h2>References</h2><p>Krister Viirsaar&rsquo;s <a href="http://code.krister.ee/mailgun-digitalocean/">Mailgun + DigitalOcean</a> article and comment thread helped me sort through these issues.</p>
+	  </div>
+  </div>
+
+    <footer id="page-footer">
+      <div class="row">
+        <div id="social-links" class="col-lg-12">
+          <a href="https://github.com/mwanji" title="Github" class="me-icon"><i class="fa fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/moandjiezana/" title="LinkedIn" class="me-icon"><i class="fa fa-linkedin"></i></a>
+          <a href="https://google.com/+MoandjiEzana?rel=author" title="Google+" class="me-icon"><i class="fa fa-google-plus"></i></a>
+          <a href="https://www.facebook.com/mwanji" title="Facebook" class="me-icon"><i class="fa fa-facebook"></i></a>
+          <a href="https://twitter.com/mwanji" title="@mwanji" class="me-icon"><i class="fa fa-twitter"></i></a>
+          <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <p class="muted credits">&copy; 2009-2016 Moandji Ezana</p>
+        </div>
+      </div>
+    </footer>
+    
+  </body>
+</html>
