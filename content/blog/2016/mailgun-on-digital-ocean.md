@@ -27,11 +27,11 @@ You must wrap the DKIM value in double quotes, for example: `"k=rsa; p=MIG"`.
 
 Only enter the subdomain, not the fully-qualified name, as the name of the CNAME record. If Mailgun asks you to set up email.mydomain.com, then the CNAME record's name is `email`, not email.mydomain.com. The hostname is `mailgun.org`.
 
-The same holds if you are setting Mailgun up on a subdomain. To create email.mg.mydomain.com, create the record in the mg.mydomain.com domain, with `email` as name.
+The same holds if you are setting Mailgun up on a subdomain. To create email.mg.mydomain.com, create the record in the mg.mydomain.com domain, with `email` as name. The hostname is `mailgun.org`.
 
 ##MX Records
 
-These are necessary only to receive emails via Mailgun. No pitfalls here, if there are no other MX records. You can enter the hostname and priority as given by Mailgun.
+These are necessary only to receive emails via Mailgun. No pitfalls here, if there are no other MX records, as explained above. You can enter the hostname and priority as given by Mailgun.
 
 ##Debugging
 
