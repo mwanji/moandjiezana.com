@@ -1,16 +1,20 @@
 title=How I Started Programming
-date=2016-04-05
+date=2016-04-12
 type=post
-status=draft
+status=published
 og_description=The story of how I started programming
 ~~~~~~
 
-When I left France for Sussex University in Brighton, England, to study International Relations, it felt like I was fulfilling my destiny.
+The thing you should know about me is that I'm not a real computer programmer.
 
-Both of my parents worked for U.N. organisations and we lived in many parts of the world: Trinidad, New York, Kenya, France. So when I flipped through the course catalogue and came across the promise of understanding how the world worked through the lens of its international actors, the decision was easy and instantaneous.
+I went to university to study International Relations, and felt like I was fulfilling my destiny. Growing up, I lived in many parts of the world: Trinidad, New York, Kenya, France. Both of my parents worked for U.N. organisations. So learning how the world worked, through the lens of its international actors, was the natural thing to do. Computer Science didn't even cross my mind.
 
-I started university in autumn 1996 and soon used the Internet for the first time. I was immediately engrossed. As soon as I realised I could create my own content, I bought a book on HTML, set up a site on Geocities and spent hours trying to get a table layout that mimicked [Star Trek: The Next Generation's console design](https://www.google.com/search?q=star+trek+control+panel&espv=2&biw=638&bih=705&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwjU67yUuNzLAhUH5GMKHX_qCFgQsAQIGw#tbm=isch&q=star+trek+next+generation+control+panel). This culminated in creating the first online version of the university's student newspaper.
+I started university in autumn 1996 and used the Internet for the first time. I was immediately hooked. I discovered Netscape, newsgroups and email. As soon as I realised I could create my own content, I bought a book on HTML, set up a site on Geocities and spent hours trying to get a table layout that mimicked [Star Trek: The Next Generation's console design](https://www.google.com/search?q=star+trek+control+panel&espv=2&biw=638&bih=705&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwjU67yUuNzLAhUH5GMKHX_qCFgQsAQIGw#tbm=isch&q=star+trek+next+generation+control+panel). I spent hours struggling to wrap my head around JavaScript and put fancy rollover effects on my website. My efforts culminated in creating the first online version of Sussex University's student newspaper.
 
-I continued working with HTML and CSS during summer internships at UNESCO and the ILO. When I moved to Brussels in 2001, enrolling in a programming course seemed as natural and obvious as International Relations had been 5 years earlier. The course itself proved me right: the lessons just clicked and everything felt easy.
+I continued working with HTML and CSS during summer internships at UNESCO and the ILO. I even briefly worked on the World Trade Organization's website, which paid great, for a summer job!
 
-Today, 15 years later, not everything is so easy to learn and apply, but programming still feels like the simple and natural thing to be doing.
+When I moved to Brussels in 2001, enrolling in a programming course seemed as natural and obvious as International Relations had been 5 years earlier. The course itself proved me right: the lessons just clicked and everything felt easy.
+
+When I got my first programming job, I realised I still had a lot of work to do. Many of my colleagues had computer science degrees. All I had was a few months of training. So I continued studying fundamentals such as the Java language, design patterns and data structures. I wanted to catch up to everyone else as quickly as possible.
+
+Today, 15 years later, I'm still learning: microservices, cloud platforms and new web frameworks. I'm still trying to become a real programmer. Still trying to catch up to everyone else. And there's still nothing else I'd rather be doing!

@@ -10,4 +10,4 @@ In this series of articles, I will take you through the steps to get various par
 
 Along with the step-by-step process, I discuss the background information you need to understand the reasons and issues behind the choices you make.
 
-[How To Get Your Own Web Address](domain.html): a domain name is the foundation of your online identity. Start here to get if you don't have one yet.
+[How To Get Your Own Web Address](domain): a domain name is the foundation of your online identity. Start here to get if you don't have one yet.
