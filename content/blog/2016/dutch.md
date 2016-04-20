@@ -5,7 +5,7 @@ status=draft
 og_description=Can a terrible soap opera really be a valuable learning tool?
 ~~~~~~
 
-Here is definitive proof that even the worst soap operas can be turned into something useful.
+This might be definitive proof that even the worst soap operas can be turned into something useful.
 
 In 2001 I moved to Brussels, Belgium, to a one-bedroom appartment. It was so close to the Anderlecht Football Club's stadium that we could hear cheering after a goal.
 
