@@ -1,262 +1,299 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Moandji Ezana</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Moandji Ezana">
+<html lang="en" class="bg-white">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Moandji Ezana</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-mfizz/2.4.1/font-mfizz.min.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            @import url(http://fonts.googleapis.com/css?family=Lato:100,300,900);
 
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/font-mfizz/font-mfizz.css">
-    <link href="/css/styles.css" rel="stylesheet">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+            :root {
+                --grid-item-margin-left: 3rem;
+            }
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
-    <![endif]-->
+            body {
+              font: 400 22px/1.5em 'Lato', sans-serif;
+              padding: 0.75rem;
+            }
 
-    <!-- Fav and touch icons -->
-    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
-    <link rel="shortcut icon" href="/favicon.ico">
-  </head>
-  <body>
-    <div class="container">
-   
+            h1, h2 {
+                font-weight: 300;
+                line-height: 1.5;
+            }
 
-<div itemscope itemtype="http://data-vocabulary.org/Person">
-  <h1 itemprop="name">Moandji Ezana
-    <small itemprop="title">Software developer</small>
-  </h1>
-  <div style="display: none">
-    <span itemprop="location">Mtunzini, South Africa</span>
-  </div>
-</div>
+            a {
+                color: #428bca;
+                text-decoration: none;
+            }
 
-<div class="row">
-  <div class="col-lg-12">
-    <h2 class="page-header">tl;dr</h2>
-  </div>
-</div>
+            a:hover {
+                color: #f0ad4e;
+                text-decoration: underline;
+                transition: color .3s ease-in-out;
+            }
 
-<div class="row">
-  <div class="col-lg-offset-1 col-lg-5">
-    <h3>Open Source</h3>
-    <p>
-      <a href="https://github.com/mwanji/toml4j">toml4j</a> parses TOML<br/>
-      <a href="https://github.com/mwanji/humpty">humpty</a> puts your web assets back together
-    </p>
-    
-    <h3>Languages</h3>
-    <p>
-      Java web applications since 2005.<br/>
-      JavaScript&#8217;s good parts since 2009.<br/>
-      Ruby on Rails in 2012 &amp; 2013.<br/>
-      Node.js since 2013.
-    </p>
-  </div>
-  <div class="col-lg-6">
-    <h2><i class="icon-java" title="Java"></i> <i class="icon-javascript" title="JavaScript"></i> <i class="icon-nodejs" title="Node.js"></i> <i class="icon-ruby-on-rails-alt" title="Ruby on Rails"></i></h2>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-offset-1 col-lg-5">
-    <h3>Client-side</h3>
-    <p>I&#8217;m very interested in HTML5 &amp; Android.</p>
-  </div>
-  <div class="col-lg-6">
-    <h2><i class="fa fa-html5" title="HTML5"></i> <i class="fa fa-android" title="Android"></i></h2>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-offset-1 col-lg-5">
-    <h3>Details</i></h3>
-    <p>Read my CV: <a href="http://be.linkedin.com/in/moandjiezana/">LinkedIn</a>, <a href="cv/Moandji_Ezana_CV.pdf">PDF</a>. Read the highlights below.</p>
-  </div>
-</div>
+            footer {
+                text-align: center;
+                margin-top: 2rem;
+                font-size: 0.75rem;
+            }
 
-<div class="row">
-  <div class="col-lg-offset-6 col-lg-5">
-    <h3>Leisure</h3>
-    I make <a href="https://github.com/mwanji">apps</a> and <a href="http://mewf.co">libraries</a>, take <a href="https://plus.google.com/photos/111520224886440923363/albums">pictures</a> and write <a href="#blog">words</a>.
-  </div>
-</div>
-    
-<div class="row">
-  <div class="col-lg-12">
-    <h2 class="page-header">product highlights</h2>
-  </div>
-</div>
+            .entries-grid {
+                display: grid;
+                grid-template-columns: auto;
+                grid-row-gap: 2.1rem;
+                margin-top: 2.1rem;
+                margin-bottom: 2.1rem;
+            }
 
-<div class="row">
-  <div class="col-lg-offset-1 col-lg-5">
-    <h3 class="no-margin-bottom"><a href="https://orderbook.biz">OrderBook.biz</a> <span class="text-muted">2014 - 2015</span></h3>
-    <div class="me-icon-row">
-      <i class="icon-java" title="Java 8"></i> <i class="icon-javascript" title="Jquery"></i> <i class="icon-css3" title="Bootstrap 3"></i> <i class="icon-tomcat" title="Tomcat 8.0"></i> <i class="icon-mysql" title="MySql"></i> <i class="icon-ubuntu" title="Ubuntu 14.04"></i>
-    </div>
-    <p>
-      An order management and analysis web application for small businesses. I built it alone, from server setup to front-end design and client demos.
-    </p>
-    <p>
-      Java 8, JAX-RS 2, JPA 2.1, Bootstrap 3, humpty.
-    </p>
-  </div>
-  <div class="col-lg-5">
-    <h3 class="no-margin-bottom">Inet Edge <span class="text-muted">2012-2013</span></h3>
-    <div class="me-icon-row">
-      <i class="icon-ruby-on-rails-alt" title="Rails 3.2"></i> <i class="icon-javascript" title="Jquery, Bootstrap 2, underscore"></i> <i class="icon-css3" title="Bootstrap 2"></i> <i class="icon-postgres" title="Postgresql"></i>
-    </div>
-    <p>
-      Creation of embeddable widgets such as financial graphs (<a href="img/inet-edge.png">screenshot</a>).
-    </p>
-    <p>
-      Ruby on Rails 3.2, memcached, Bootstrap 2, Highcharts, Jquery, underscore.
-    </p>
-  </div>
-</div>
+            i.fa-github {
+              font-size: 110%;
+              color: #000;
+            }
 
-<div class="row">
-  <div class="col-lg-offset-1 col-lg-5">
-    <h3 class="no-margin-bottom"><a href="http://www.goldenpages.be/businesscenter/create-company-website-MySite">Truvo MySite</a> <span class="text-muted">2009-2010</span></h3>
-    <div class="me-icon-row">
-      <i class="icon-java" title="Spring MVC, Hibernate"></i> <i class="icon-javascript" title="YUI"></i> <i class="icon-mysql" title="MySQL"></i> <i class="icon-tomcat" title="Tomcat 5.5"></i>
-    </div>
-    <p>
-      Customisable, <a href="http://blog.emakina.eu/2010/09/10/truvo%E2%80%99s-mysite-awarded-at-the-ima/">award-winning</a> merchant websites within Yellow Pages listings in Belgium, Ireland and Portugal (<a href="http://www.emakina.com/work/projects/projectdetail.cfm?projectId=287">presentation</a>, <a href="img/truvo-mysite.jpg">screenshot</a>). 
-    </p>
-    <p>
-      Spring MVC, Hibernate, YUI.
-    </p>
-  </div>
-  <div class="col-lg-5">
-    <h3 class="no-margin-bottom">Samsung World <span class="text-muted">2011</span></h3>
-    <div class="me-icon-row">
-      <i class="icon-java" title="Spring MVC, Hibernate, Freemarker"></i> <i class="icon-mssql" title="MS-SQL Server"></i>
-    </div>
-    <p>
-      Community site for Samsung Benelux. Screenshots: <a href="/img/samsung-world/home.jpg">home page</a>, <a href="/img/samsung-world/product.jpg">product page</a>, <a href="/img/samsung-world/support.jpg">support page</a>.
-    </p>
-    <p>
-      Spring MVC, Hibernate, Freemarker.
-    </p>
-  </div>
-</div>
-    
-<div class="row">
-  <div class="col-lg-12">
-    <h2 class="page-header">open source</h2>
-  </div>
-</div>
+            i.fa-linkedin {
+              color: #007bb6;
+            }
 
-<div class="row">
-  <div class="col-lg-offset-1 col-lg-5">
-    <h3><a href="https://github.com/mwanji/humpty">humpty</a> <i class="icon-java" title="Java"></i></h3>
-    <p>
-      [creator] Web asset optimisation. Strives to be extensible and low-ceremony: add WebJars and plugins to customise your asset pipeline.
-    </p>
-  </div>
-  <div class="col-lg-5">
-    <h3><a href="https://github.com/mwanji/toml4j">toml4j</a> <i class="icon-java" title="Java"></i></h3>
-    <p>
-      [creator] Parses <a href="https://github.com/toml-lang/toml">TOML</a> files into Java objects.
-    </p>
-  </div>
-</div>
+            i.fa-google-plus {
+              color: #dd4b39;
+            }
 
-<div class="row">
-  <div class="col-lg-offset-1 col-lg-5">
-    <h3><a href="http://www.webjars.org">WebJars</a> <i class="icon-java" title="Java"></i></h3>
-    <p>
-      Version web assets with Java build tools.<br/>
-      [creator] <a href="https://github.com/webjars/webjars-maven-plugin">webjars-maven-plugin</a> brings Bower-like ease of use<br/>
-      [contributor] <a href="https://github.com/webjars/webjars-locator/commits?author=mwanji">webjars-locator</a> and many individual WebJars.
-    </p>
-  </div>
-  <div class="col-lg-5">
-    <h3><a href="https://github.com/sethvargo/bootstrap_forms/commits?author=mwanji">bootstrap_forms</a> <i class="icon-ruby-on-rails-alt" title="Ruby on Rails"></i></h3>
-    <p>
-      [contributor] <a href="http://rubyonrails.org/">Ruby on Rails</a> form builder for Twitter Bootstrap.
-    </p>
-  </div>
-</div>
+            i.fa-facebook {
+              color: #3b5999;
+            }
 
-<div class="row">
-  <div class="col-lg-offset-1 col-lg-5">
-    <h3><a href="https://github.com/bryanburgers/node-mustache-express/commits?author=mwanji">node-mustache-express</a> <i class="icon-nodejs" title="Node.js"></i></h3>
-    <p>
-      [contributor] Adapts the <a href="http://mustache.github.io/">Mustache</a> templating engine to <a href="http://expressjs.com/">Express</a>, the web framework for <a href="http://nodejs.org">Node</a>.
-    </p>
-  </div>
-  <div class="col-lg-5">
-    <h3><a href="https://github.com/mwanji/jscolor-rails">jscolor-rails</a> <i class="icon-ruby-on-rails-alt" title="Ruby on Rails"></i> <i class="icon-javascript" title="jscolor"></i></h3>
-    <p>
-      [creator] A gem that makes <a href="http://www.jscolor.com">JSColor</a> available to Ruby on Rails apps.
-    </p>
-  </div>
-</div>
+            i.fa-twitter {
+              color: #00aced;
+            }
 
-<div class="row">
-  <div class="col-lg-offset-1 col-lg-5">
-    <h3><a href="https://github.com/soulgalore/jdbcmetrics/commits?author=mwanji">jdbcmetrics</a> <i class="icon-java" title="Java"></i></h3>
-    <p>
-      [contributor] A JDBC extension to the <a href="http://metrics.codahale.com/">Metrics</a> performance measurement library.
-    </p>
-  </div>
-  <div class="col-lg-5">
-    <h3><a href="https://github.com/resteasy/Resteasy/commits?author=mwanji">resteasy-guice</a> <i class="icon-java" title="Java"></i></h3>
-    <p>
-      [contributor] <a href="http://code.google.com/p/google-guice">Guice</a> integration for JBoss's <a href="http://www.jboss.org/resteasy">RESTEasy</a> JAX-RS implementation.
-    </p>
-  </div>
-</div>
+            i.fa-envelope-o {
+              color: #555;
+            }
 
-<div class="row">
-  <div class="col-lg-12">
-    <h2 class="page-header">blog</h2><a name="blog"></a>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-offset-1 col-lg-11">
-        <h4><a href="/blog/2016/programming/">How I Started Programming</a> <span class="text-muted">12 April 2016</span></h4>
-        <h4><a href="/blog/2016/mailgun-on-digital-ocean/">How To Set Up Mailgun DNS Records on Digital Ocean</a> <span class="text-muted">07 April 2016</span></h4>
-        <h4><a href="/blog/2016/orderbook/">The Orderbook.biz Story</a> <span class="text-muted">27 March 2016</span></h4>
-        <h4><a href="/blog/2014/eclipse-m2e-java-8/">Using Java 8 with Eclipse and m2e</a> <span class="text-muted">10 April 2014</span></h4>
-        <h4><a href="/blog/2014/understanding-method-references/">Understanding Java 8 Method References</a> <span class="text-muted">01 April 2014</span></h4>
-        <h4><a href="/blog/2013/readme-driven-development/">README-Driven Development</a> <span class="text-muted">12 July 2013</span></h4>
-        <h4><a href="/blog/2012/stage-naming-your-kids/">Stage-Naming Your Kids</a> <span class="text-muted">12 December 2012</span></h4>
-        <h4><a href="/blog/2011/shift-hover/">Eclipse shortcut: shift + hover</a> <span class="text-muted">20 February 2011</span></h4>
-        <h4><a href="/blog/2011/java-coders-distrust-neighbours/">Java Coders Distrust Their Neighbours</a> <span class="text-muted">02 February 2011</span></h4>
-        <h4><a href="/blog/2011/super-keziah-then-and-now/">Super Keziah, Then and Now</a> <span class="text-muted">01 February 2011</span></h4>
-        <h4><a href="/blog/2010/hippie-completion/">Eclipse shortcut of the day: Hippie Completion</a> <span class="text-muted">29 March 2010</span></h4>
-        <h4><a href="/blog/2010/keziah-stats-1/">Keziah's Stats for 05/01/2010</a> <span class="text-muted">05 January 2010</span></h4>
-        <h4><a href="/blog/2009/oxm-madness/">Object-XML Mapping in Spring 3.0: when indirection gets out of hand</a> <span class="text-muted">08 November 2009</span></h4>
-        <h4><a href="/blog/2009/unit-test-convenience-methods/">Unit-testing Convenience Methods</a> <span class="text-muted">08 November 2009</span></h4>
-  </div>
-</div>
+            #social-links {
+                font-size: 1.6rem;
+            }
 
-<!--p>Older posts are available in the <a href="/archive.html">archive</a>.</p-->
+            #social-links a {
+                margin-right: 0.25rem;
+            }
 
-    <footer id="page-footer">
-      <div class="row">
-        <div id="social-links" class="col-lg-12">
-          <a href="https://github.com/mwanji" title="Github" class="me-icon"><i class="fa fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/moandjiezana/" title="LinkedIn" class="me-icon"><i class="fa fa-linkedin"></i></a>
-          <a href="https://google.com/+MoandjiEzana?rel=author" title="Google+" class="me-icon"><i class="fa fa-google-plus"></i></a>
-          <a href="https://www.facebook.com/mwanji" title="Facebook" class="me-icon"><i class="fa fa-facebook"></i></a>
-          <a href="https://twitter.com/mwanji" title="@mwanji" class="me-icon"><i class="fa fa-twitter"></i></a>
-          <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="fa fa-envelope"></i></a>
+            @media screen and (min-width: 992px) {
+                .entries-grid {
+                    grid-column-gap: 2em;
+                    grid-template-columns: 1fr 1fr;
+                    margin-left: var(--grid-item-margin-left);
+                }
+
+                .entries-grid h1 {
+                    grid-column: 1 / span 2;
+                }
+
+                #tldr-tech {
+                    grid-row: 1;
+                    grid-column: 2;
+                }
+
+                #tldr-skills {
+                    grid-row: 1;
+                    grid-column: 1;
+                }
+
+                #tldr-leisure {
+                    grid-column: 2;
+                }
+
+                #blog {
+                    margin-left: var(--grid-item-margin-left);
+                }
+            }
+        </style>
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+        <link rel="shortcut icon" href="/favicon.ico">
+    </head>
+    <body>
+        <div class="container mx-auto lg:my-8">
+            <header class="text-center mb-12 leading-normal">
+                <h1 class="inline-block mr-3" style="font-size: 5rem;">Moandji Ezana</h1>
+                <span class="text-grey-darker text-hairline uppercase text-4xl md:whitespace-no-wrap" style="font-size: 3.2rem;">Software Developer</span>
+            </header>
+            <main>
+
+                <h1 class="border-b">tl;dr</h1>
+                <section class="entries-grid mb-12">
+                    <div id="tldr-tech" class="text-5xl text-grey-darker">
+                        <i class="icon-java" title="Java 8"></i>
+                        <i class="icon-javascript-alt" title="JavaScript"></i>
+                        <i class="icon-html5" title="HTML 5"></i>
+                        <i class="icon-node" title="Node.js"></i>
+                    </div>
+                    <div id="tldr-skills">
+                        <h2>Languages</h2>
+                        <p>
+                            Java web applications since 2005.<br/>
+                            JavaScript&#8217;s good parts since 2009.<br/>
+                            HTML 5 since 2010.
+                            Node.js since 2013.<br/>
+                            Ruby on Rails in 2012 &amp; 2013.<br/>
+                        </p>
+                        <h2 class="mt-6">Open Source</h2>
+                        <p>
+                            <a href="https://github.com/mwanji/toml4j">toml4j</a> parses TOML in Java.<br/>
+                            <a href="https://github.com/mwanji/humpty">humpty</a> puts your web assets back together.
+                        </p>
+                        <h2 class="mt-6">Details</h2>
+                        <p>
+                            Read my CV: <a href="http://be.linkedin.com/in/moandjiezana/">LinkedIn</a>, <a href="cv/Moandji_Ezana_CV.pdf">PDF</a>, <a href="https://github.com/mwanji">Github</a>. Read the highlights below.
+                        </p>
+                    </div>
+                    <div id="tldr-leisure">
+                        <h2>Leisure</h2>
+                        <p>
+                            I write <a href="https://github.com/mwanji">open source code</a>, take <a href="https://plus.google.com/photos/111520224886440923363/albums">pictures</a> and write <a href="#blog">words</a>.
+                        </p>
+                    </div>
+                </section>
+
+
+                <h1 class="border-b">Product Highlights</h1>
+                <section class="entries-grid">
+                    <div>
+                        <h2 class="pb-3">Bru Textiles <span class="text-grey-darker text-xl whitespace-no-wrap">2017 - 2018</span></h2>
+                        <div class="text-3xl text-grey-darker">
+                            <i class="icon-java" title="Java 8"></i> <i class="icon-docker" title="Docker"></i> <i class="icon-spring" title="Spring Boot"></i> <i class="icon-mysql" title="MySql"></i> <i class="icon-git" title="git"></i>
+                        </div>
+                        <p>
+                            Developed a warehouse management system with Java EE, event-sourced micro-services with Spring Boot and Axon, Swing and mobile UIs, REST endpoints and interfacing with SAP over SOAP. We used an integrated build and deploy environment with git-flow, Bamboo CI and Docker to deploy quickly and often.
+                        </p>
+                    </div>
+                    <div>
+                        <h2 class="pb-3">OrderBook.biz <span class="text-grey-darker text-xl whitespace-no-wrap">2014 - 2017</span></h2>
+                        <div class="text-3xl text-grey-darker">
+                            <i class="icon-java" title="Java 8"></i> <i class="icon-javascript" title="Jquery"></i> <i class="icon-css3" title="Bootstrap 3"></i> <i class="icon-tomcat" title="Tomcat 8.0"></i> <i class="icon-mysql" title="MySql"></i> <i class="icon-ubuntu" title="Ubuntu 14.04"></i>
+                        </div>
+                        <p>
+                            An order management and analysis web application for small businesses. I built the full stack, from server setup to front-end design and client demos.
+                        </p>
+                        <p class="mt-6">
+                            Java 8, JAX-RS 2, JPA 2.1, Bootstrap 3, humpty, running on a Digital Ocean VPS.
+                        </p>
+                    </div>
+                    <div>
+                        <h2 class="pb-3">Inet Edge <span class="text-grey-darker text-xl whitespace-no-wrap">2012-2013</span></h2>
+                        <div class="text-3xl text-grey-darker">
+                            <i class="icon-ruby-on-rails-alt" title="Rails 3.2"></i> <i class="icon-javascript" title="Jquery, Bootstrap 2, underscore"></i> <i class="icon-css3" title="Bootstrap 2"></i> <i class="icon-postgres" title="Postgresql"></i>
+                        </div>
+                        <p>
+                            Creation of embeddable widgets such as financial graphs (<a href="img/inet-edge.png">screenshot</a>).
+                        </p>
+                        <p class="mt-6">
+                            Ruby on Rails 3.2, memcached, Bootstrap 2, Highcharts, Jquery, underscore.
+                        </p>
+                    </div>
+                    <div>
+                        <h2 class="pb-3">Truvo MySite <span class="text-grey-darker text-xl whitespace-no-wrap">2009-2010</span></h2>
+                        <div class="text-3xl text-grey-darker">
+                            <i class="icon-java" title="Spring MVC, Hibernate"></i> <i class="icon-javascript" title="YUI"></i> <i class="icon-mysql" title="MySQL"></i> <i class="icon-tomcat" title="Tomcat 5.5"></i>
+                        </div>
+                        <p>
+                            Customisable, <a href="http://blog.emakina.eu/2010/09/10/truvo%E2%80%99s-mysite-awarded-at-the-ima/">award-winning</a> merchant websites within Yellow Pages listings in Belgium, Ireland and Portugal (<a href="http://www.emakina.com/work/projects/projectdetail.cfm?projectId=287">presentation</a>, <a href="img/truvo-mysite.jpg">screenshot</a>).
+                        </p>
+                        <p class="mt-6">
+                            Spring MVC, Hibernate, YUI.
+                        </p>
+                    </div>
+                </section>
+
+                <h1 class="border-b">Open Source</h1>
+                <section class="entries-grid">
+                    <div>
+                        <h2><a href="https://github.com/mwanji/toml4j">toml4j</a> <i class="icon-java" title="Java"></i></h2>
+                        <p>
+                            [creator] Parses <a href="https://github.com/toml-lang/toml">TOML</a> files into Java objects.
+                        </p>
+                    </div>
+                    <div>
+                        <h2><a href="https://github.com/mwanji/humpty">humpty</a> <i class="icon-java" title="Java"></i></h2>
+                        <p>
+                            [creator] Web asset optimisation. Strives to be extensible and low-ceremony: add WebJars and plugins to customise your asset pipeline.
+                        </p>
+                    </div>
+                    <div>
+                        <h2><a href="https://github.com/resteasy/Resteasy/commits?author=mwanji">resteasy-guice</a> <i class="icon-java" title="Java"></i></h2>
+                        <p>
+                            [contributor] <a href="http://code.google.com/p/google-guice">Guice</a> integration for JBoss's <a href="http://www.jboss.org/resteasy">RESTEasy</a> JAX-RS implementation.
+                        </p>
+                    </div>
+                    <div>
+                        <h2><a href="http://www.webjars.org">WebJars</a> <i class="icon-java" title="Java"></i></h2>
+                        <p>
+                            Version web assets with Java build tools.<br/>
+                            [creator] <a href="https://github.com/webjars/webjars-maven-plugin">webjars-maven-plugin</a> brings Bower-like ease of use<br/>
+                            [contributor] <a href="https://github.com/webjars/webjars-locator/commits?author=mwanji">webjars-locator</a> and many individual WebJars.
+                        </p>
+                    </div>
+                    <div>
+                        <h2><a href="https://github.com/soulgalore/jdbcmetrics/commits?author=mwanji">jdbcmetrics</a> <i class="icon-java" title="Java"></i></h2>
+                        <p>
+                            [contributor] A JDBC extension to the <a href="http://metrics.codahale.com/">Metrics</a> performance measurement library.
+                        </p>
+                    </div>
+                    <div>
+                        <h2><a href="https://github.com/sethvargo/bootstrap_forms/commits?author=mwanji">bootstrap_forms</a> <i class="icon-ruby-on-rails-alt" title="Ruby on Rails"></i></h2>
+                        <p>
+                            [contributor] <a href="http://rubyonrails.org/">Ruby on Rails</a> form builder for Twitter Bootstrap.
+                        </p>
+                    </div>
+                    <div>
+                        <h2><a href="https://github.com/bryanburgers/node-mustache-express/commits?author=mwanji">node-mustache-express</a> <i class="icon-nodejs" title="Node.js"></i></h2>
+                        <p>
+                            [contributor] Adapts the <a href="http://mustache.github.io/">Mustache</a> templating engine to <a href="http://expressjs.com/">Express</a>, the web framework for <a href="http://nodejs.org">Node</a>.
+                        </p>
+                    </div>
+                    <div>
+                        <h2><a href="https://github.com/mwanji/jscolor-rails">jscolor-rails</a> <i class="icon-ruby-on-rails-alt" title="Ruby on Rails"></i> <i class="icon-javascript" title="jscolor"></i></h2>
+                        <p>
+                            [creator] A gem that makes <a href="http://www.jscolor.com">JSColor</a> available to Ruby on Rails apps.
+                        </p>
+                    </div>
+                </section>
+
+                <a name="blog"></a>
+                <h1 class="border-b mb-6">Blog</h1>
+                <section id="blog">
+                    <p><a href="/blog/2016/programming/">How I Started Programming</a> <span class="text-grey-darker text-xl">12 April 2016</span></p>
+                    <p><a href="/blog/2016/mailgun-on-digital-ocean/">How To Set Up Mailgun DNS Records on Digital Ocean</a> <span class="text-grey-darker text-xl">07 April 2016</span></p>
+                    <p><a href="/blog/2016/orderbook/">The Orderbook.biz Story</a> <span class="text-grey-darker text-xl">27 March 2016</span></p>
+                    <p><a href="/blog/2014/eclipse-m2e-java-8/">Using Java 8 with Eclipse and m2e</a> <span class="text-grey-darker text-xl">10 April 2014</span></p>
+                    <p><a href="/blog/2014/understanding-method-references/">Understanding Java 8 Method References</a> <span class="text-grey-darker text-xl">01 April 2014</span></p>
+                    <p><a href="/blog/2013/readme-driven-development/">README-Driven Development</a> <span class="text-grey-darker text-xl">12 July 2013</span></p>
+                    <p><a href="/blog/2012/stage-naming-your-kids/">Stage-Naming Your Kids</a> <span class="text-grey-darker text-xl">12 December 2012</span></p>
+                    <p><a href="/blog/2011/shift-hover/">Eclipse shortcut: shift + hover</a> <span class="text-grey-darker text-xl">20 February 2011</span></p>
+                    <p><a href="/blog/2011/java-coders-distrust-neighbours/">Java Coders Distrust Their Neighbours</a> <span class="text-grey-darker text-xl">02 February 2011</span></p>
+                    <p><a href="/blog/2011/super-keziah-then-and-now/">Super Keziah, Then and Now</a> <span class="text-grey-darker text-xl">01 February 2011</span></p>
+                    <p><a href="/blog/2010/hippie-completion/">Eclipse shortcut of the day: Hippie Completion</a> <span class="text-grey-darker text-xl">29 March 2010</span></p>
+                    <p><a href="/blog/2010/keziah-stats-1/">Keziah's Stats for 05/01/2010</a> <span class="text-grey-darker text-xl">05 January 2010</span></p>
+                    <p><a href="/blog/2009/oxm-madness/">Object-XML Mapping in Spring 3.0: when indirection gets out of hand</a> <span class="text-grey-darker text-xl">08 November 2009</span></p>
+                    <p><a href="/blog/2009/unit-test-convenience-methods/">Unit-testing Convenience Methods</a> <span class="text-grey-darker text-xl">08 November 2009</span></p>
+                </section>
+            </main>
+
+            <footer>
+                <div id="social-links">
+                    <a href="https://github.com/mwanji" title="Github" class="me-icon"><i class="fa fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/moandjiezana/" title="LinkedIn" class="me-icon"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://google.com/+MoandjiEzana?rel=author" title="Google+" class="me-icon"><i class="fa fa-google-plus"></i></a>
+                    <a href="https://www.facebook.com/mwanji" title="Facebook" class="me-icon"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/mwanji" title="@mwanji" class="me-icon"><i class="fa fa-twitter"></i></a>
+                    <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="fa fa-envelope"></i></a>
+                </div>
+                <p>&copy; 2009-2018 Moandji Ezana</p>
+            </footer>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <p class="muted credits">&copy; 2009-2016 Moandji Ezana</p>
-        </div>
-      </div>
-    </footer>
-    
-  </body>
+    </body>
 </html>
