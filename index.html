@@ -5,187 +5,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Moandji Ezana</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-mfizz/2.4.1/font-mfizz.min.css" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>
-            @import url(http://fonts.googleapis.com/css?family=Lato:100,300,900);
-
-            :root {
-                --grid-item-margin-left: 3rem;
-            }
-
-            html {
-                background-color: #ffffff;
-            }
-
-            body {
-              font: 400 22px/1.5em 'Lato', sans-serif;
-              padding: 0.75rem;
-            }
-
-            header {
-                text-align: center;
-                margin-bottom: 3rem;
-            }
-
-            header h1 {
-                font-size: 5rem;
-                font-weight: 900;
-                display: inline-block;
-                line-height: 1.5;
-                margin-right: 0.75rem;
-            }
-
-            header span {
-                font-size: 3.2rem;
-                font-weight: 100;
-                text-transform: uppercase;
-            }
-
-            main h1 {
-                border-bottom: solid 1px #dae1e7;
-            }
-
-            h1, h2 {
-                font-weight: 300;
-                line-height: 1.5;
-            }
-
-            a {
-                color: #428bca;
-                text-decoration: none;
-            }
-
-            a:hover {
-                color: #f0ad4e;
-                text-decoration: underline;
-                transition: color .3s ease-in-out;
-            }
-
-            footer {
-                text-align: center;
-                margin-top: 2rem;
-                font-size: 1.2rem;
-            }
-
-            .entries-grid {
-                display: grid;
-                grid-template-columns: auto;
-                grid-row-gap: 2.1rem;
-                margin-top: 2.1rem;
-                margin-bottom: 2.1rem;
-            }
-
-            .mb-6 {
-                margin-bottom: 1.5rem;
-            }
-
-            .mt-6 {
-                margin-top: 1.5rem;
-            }
-
-            .text-5xl {
-                font-size: 3rem;
-            }
-
-            i.fa-github {
-              font-size: 110%;
-              color: #000;
-            }
-
-            i.fa-linkedin {
-              color: #007bb6;
-            }
-
-            i.fa-google-plus {
-              color: #dd4b39;
-            }
-
-            i.fa-facebook {
-              color: #3b5999;
-            }
-
-            i.fa-twitter {
-              color: #00aced;
-            }
-
-            i.fa-envelope-o {
-              color: #555;
-            }
-
-            #container {
-                margin-left: auto;
-                margin-right: auto;
-                width: 100%;
-            }
-
-            #social-links {
-                font-size: 2.5rem;
-            }
-
-            #social-links a {
-                margin-right: 0.25rem;
-            }
-
-            @media screen and (min-width: 768px) {
-                header span {
-                    white-space: nowrap;
-                }
-            }
-
-            @media screen and (min-width: 992px) {
-                .entries-grid {
-                    grid-column-gap: 2em;
-                    grid-template-columns: 1fr 1fr;
-                    margin-left: var(--grid-item-margin-left);
-                }
-
-                .entries-grid h1 {
-                    grid-column: 1 / span 2;
-                }
-
-                #container {
-                    margin-top: 2rem;
-                    margin-bottom: 2rem;
-                }
-
-                #tldr-tech {
-                    grid-row: 1;
-                    grid-column: 2;
-                }
-
-                #tldr-skills {
-                    grid-row: 1;
-                    grid-column: 1;
-                }
-
-                #tldr-leisure {
-                    grid-column: 2;
-                }
-
-                #blog {
-                    margin-left: var(--grid-item-margin-left);
-                }
-            }
-        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="./index.css">
         <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
         <link rel="shortcut icon" href="/favicon.ico">
     </head>
     <body>
-        <div id="container" class="container">
+        <div id="container">
             <header>
                 <h1>Moandji Ezana</h1>
-                <span class="text-grey-darker">Software Developer</span>
+                <span>Software Developer</span>
             </header>
             <main>
                 <h1>tl;dr</h1>
                 <section class="entries-grid">
-                    <div id="tldr-tech" class="text-5xl text-grey-darker">
-                        <i class="icon-java" title="Java 8"></i>
-                        <i class="icon-javascript-alt" title="JavaScript"></i>
+                    <div id="tldr-tech">
+                        <i class="fab fa-java" title="Java 8"></i>
+                        <i class="fab fa-js-square" title="JavaScript"></i>
                         <i class="icon-html5" title="HTML 5"></i>
-                        <i class="icon-node" title="Node.js"></i>
                     </div>
                     <div id="tldr-skills">
                         <h2>Languages</h2>
@@ -196,12 +34,12 @@
                             Node.js since 2013.<br/>
                             Ruby on Rails in 2012 &amp; 2013.<br/>
                         </p>
-                        <h2 class="mt-6">Open Source</h2>
+                        <h2>Open Source</h2>
                         <p>
                             <a href="https://github.com/mwanji/toml4j">toml4j</a> parses TOML in Java.<br/>
                             <a href="https://github.com/mwanji/humpty">humpty</a> puts your web assets back together.
                         </p>
-                        <h2 class="mt-6">Details</h2>
+                        <h2>Details</h2>
                         <p>
                             Read my CV: <a href="http://be.linkedin.com/in/moandjiezana/">LinkedIn</a>, <a href="cv/Moandji_Ezana_CV.pdf">PDF</a>, <a href="https://github.com/mwanji">Github</a>. Read the highlights below.
                         </p>
@@ -216,49 +54,69 @@
 
 
                 <h1>Product Highlights</h1>
-                <section class="entries-grid">
+                <section id="product-highlights" class="entries-grid">
                     <div>
-                        <h2 class="pb-3">Bru Textiles <span class="text-grey-darker text-xl whitespace-no-wrap">2017 - 2018</span></h2>
-                        <div class="text-3xl text-grey-darker">
-                            <i class="icon-java" title="Java 8"></i> <i class="icon-docker" title="Docker"></i> <i class="icon-spring" title="Spring Boot"></i> <i class="icon-mysql" title="MySql"></i> <i class="icon-git" title="git"></i>
+                        <h2>MyInsights+ 2018-present</h2>
+                        <div>
+                            <i class="fab fa-js-square" title="JavaScript"></i>
+                            <i class="icon-css3" title="CSS"></i>
+                            <i class="fab fa-bootstrap" title="Bootstrap 4"></i>
+                            <i class="icon-html5" title="HTML 5"></i>
+                            <i class="fab fa-node" title="Node"></i>
+                            <i class="fab fa-salesforce" title="Salesforce"></i>
+                        </div>
+                        <p>
+                            Lead developer for a data visualisation dashboarding framework. Challenges:
+                            <ul>
+                                <li>A very modular architecture allowing Salesforce admins to create dashboards</li>
+                                <li>Handling client-specific customisations within a single codebase</li>
+                                <li>Developing a build process to handle the very unusual requirement to ship the application as a ZIP file that can run offline</li>
+                            </ul>
+                        </p>
+                        <p>ES6+, Bootstrap, lit-html, Node/npm</p>
+                    </div>
+                    <div>
+                        <h2>Bru Textiles <span class="text-xl whitespace-no-wrap">2017 - 2018</span></h2>
+                        <div>
+                            <i class="fab fa-java" title="Java 8"></i> <i class="fab fa-docker" title="Docker"></i> <i class="icon-spring" title="Spring Boot"></i> <i class="icon-mysql" title="MySql"></i> <i class="fab fa-git-alt" title="git"></i>
                         </div>
                         <p>
                             Developed a warehouse management system with Java EE, event-sourced micro-services with Spring Boot and Axon, Swing and mobile UIs, REST endpoints and interfacing with SAP over SOAP. We used an integrated build and deploy environment with git-flow, Bamboo CI and Docker to deploy quickly and often.
                         </p>
                     </div>
                     <div>
-                        <h2 class="pb-3">OrderBook.biz <span class="text-grey-darker text-xl whitespace-no-wrap">2014 - 2017</span></h2>
-                        <div class="text-3xl text-grey-darker">
-                            <i class="icon-java" title="Java 8"></i> <i class="icon-javascript" title="Jquery"></i> <i class="icon-css3" title="Bootstrap 3"></i> <i class="icon-tomcat" title="Tomcat 8.0"></i> <i class="icon-mysql" title="MySql"></i> <i class="icon-ubuntu" title="Ubuntu 14.04"></i>
+                        <h2>OrderBook.biz <span class="text-xl whitespace-no-wrap">2014 - 2017</span></h2>
+                        <div>
+                            <i class="fab fa-java" title="Java 8"></i> <i class="fab fa-js-square" title="Jquery"></i> <i class="icon-css3" title="Bootstrap 3"></i> <i class="icon-tomcat" title="Tomcat 8.0"></i> <i class="icon-mysql" title="MySql"></i> <i class="icon-ubuntu" title="Ubuntu 14.04"></i>
                         </div>
                         <p>
                             An order management and analysis web application for small businesses. I built the full stack, from server setup to front-end design and client demos.
                         </p>
-                        <p class="mt-6">
+                        <p>
                             Java 8, JAX-RS 2, JPA 2.1, Bootstrap 3, humpty, running on a Digital Ocean VPS.
                         </p>
                     </div>
                     <div>
-                        <h2 class="pb-3">Inet Edge <span class="text-grey-darker text-xl whitespace-no-wrap">2012-2013</span></h2>
-                        <div class="text-3xl text-grey-darker">
-                            <i class="icon-ruby-on-rails-alt" title="Rails 3.2"></i> <i class="icon-javascript" title="Jquery, Bootstrap 2, underscore"></i> <i class="icon-css3" title="Bootstrap 2"></i> <i class="icon-postgres" title="Postgresql"></i>
+                        <h2>Inet Edge <span class="text-xl whitespace-no-wrap">2012-2013</span></h2>
+                        <div>
+                            <i class="icon-ruby-on-rails-alt" title="Rails 3.2"></i> <i class="fab fa-js-square" title="Jquery, Bootstrap 2, underscore"></i> <i class="icon-css3" title="Bootstrap 2"></i> <i class="icon-postgres" title="Postgresql"></i>
                         </div>
                         <p>
                             Creation of embeddable widgets such as financial graphs (<a href="img/inet-edge.png">screenshot</a>).
                         </p>
-                        <p class="mt-6">
+                        <p>
                             Ruby on Rails 3.2, memcached, Bootstrap 2, Highcharts, Jquery, underscore.
                         </p>
                     </div>
                     <div>
-                        <h2 class="pb-3">Truvo MySite <span class="text-grey-darker text-xl whitespace-no-wrap">2009-2010</span></h2>
-                        <div class="text-3xl text-grey-darker">
-                            <i class="icon-java" title="Spring MVC, Hibernate"></i> <i class="icon-javascript" title="YUI"></i> <i class="icon-mysql" title="MySQL"></i> <i class="icon-tomcat" title="Tomcat 5.5"></i>
+                        <h2>Truvo MySite <span class="text-xl whitespace-no-wrap">2009-2010</span></h2>
+                        <div>
+                            <i class="fab fa-java" title="Spring MVC, Hibernate"></i> <i class="fab fa-js-square" title="YUI"></i> <i class="icon-tomcat" title="Tomcat 5.5"></i> <i class="icon-mysql" title="MySQL"></i>
                         </div>
                         <p>
                             Customisable, <a href="http://blog.emakina.eu/2010/09/10/truvo%E2%80%99s-mysite-awarded-at-the-ima/">award-winning</a> merchant websites within Yellow Pages listings in Belgium, Ireland and Portugal (<a href="http://www.emakina.com/work/projects/projectdetail.cfm?projectId=287">presentation</a>, <a href="img/truvo-mysite.jpg">screenshot</a>).
                         </p>
-                        <p class="mt-6">
+                        <p>
                             Spring MVC, Hibernate, YUI.
                         </p>
                     </div>
@@ -267,25 +125,25 @@
                 <h1>Open Source</h1>
                 <section class="entries-grid">
                     <div>
-                        <h2><a href="https://github.com/mwanji/toml4j">toml4j</a> <i class="icon-java" title="Java"></i></h2>
+                        <h2><a href="https://github.com/mwanji/toml4j">toml4j</a> <i class="fab fa-java" title="Java"></i></h2>
                         <p>
                             [creator] Parses <a href="https://github.com/toml-lang/toml">TOML</a> files into Java objects.
                         </p>
                     </div>
                     <div>
-                        <h2><a href="https://github.com/mwanji/humpty">humpty</a> <i class="icon-java" title="Java"></i></h2>
+                        <h2><a href="https://github.com/mwanji/humpty">humpty</a> <i class="fab fa-java" title="Java"></i></h2>
                         <p>
                             [creator] Web asset optimisation. Strives to be extensible and low-ceremony: add WebJars and plugins to customise your asset pipeline.
                         </p>
                     </div>
                     <div>
-                        <h2><a href="https://github.com/resteasy/Resteasy/commits?author=mwanji">resteasy-guice</a> <i class="icon-java" title="Java"></i></h2>
+                        <h2><a href="https://github.com/resteasy/Resteasy/commits?author=mwanji">resteasy-guice</a> <i class="fab fa-java" title="Java"></i></h2>
                         <p>
                             [contributor] <a href="http://code.google.com/p/google-guice">Guice</a> integration for JBoss's <a href="http://www.jboss.org/resteasy">RESTEasy</a> JAX-RS implementation.
                         </p>
                     </div>
                     <div>
-                        <h2><a href="http://www.webjars.org">WebJars</a> <i class="icon-java" title="Java"></i></h2>
+                        <h2><a href="http://www.webjars.org">WebJars</a> <i class="fab fa-java" title="Java"></i></h2>
                         <p>
                             Version web assets with Java build tools.<br/>
                             [creator] <a href="https://github.com/webjars/webjars-maven-plugin">webjars-maven-plugin</a> brings Bower-like ease of use<br/>
@@ -293,7 +151,7 @@
                         </p>
                     </div>
                     <div>
-                        <h2><a href="https://github.com/soulgalore/jdbcmetrics/commits?author=mwanji">jdbcmetrics</a> <i class="icon-java" title="Java"></i></h2>
+                        <h2><a href="https://github.com/soulgalore/jdbcmetrics/commits?author=mwanji">jdbcmetrics</a> <i class="fab fa-java" title="Java"></i></h2>
                         <p>
                             [contributor] A JDBC extension to the <a href="http://metrics.codahale.com/">Metrics</a> performance measurement library.
                         </p>
@@ -311,7 +169,7 @@
                         </p>
                     </div>
                     <div>
-                        <h2><a href="https://github.com/mwanji/jscolor-rails">jscolor-rails</a> <i class="icon-ruby-on-rails-alt" title="Ruby on Rails"></i> <i class="icon-javascript" title="jscolor"></i></h2>
+                        <h2><a href="https://github.com/mwanji/jscolor-rails">jscolor-rails</a> <i class="icon-ruby-on-rails-alt" title="Ruby on Rails"></i> <i class="fab fa-js-square" title="jscolor"></i></h2>
                         <p>
                             [creator] A gem that makes <a href="http://www.jscolor.com">JSColor</a> available to Ruby on Rails apps.
                         </p>
@@ -319,35 +177,34 @@
                 </section>
 
                 <a name="blog"></a>
-                <h1 class="mb-6">Blog</h1>
-                <section id="blog">
-                    <p><a href="/blog/2016/programming/">How I Started Programming</a> <span class="text-grey-darker text-xl">12 April 2016</span></p>
-                    <p><a href="/blog/2016/mailgun-on-digital-ocean/">How To Set Up Mailgun DNS Records on Digital Ocean</a> <span class="text-grey-darker text-xl">07 April 2016</span></p>
-                    <p><a href="/blog/2016/orderbook/">The Orderbook.biz Story</a> <span class="text-grey-darker text-xl">27 March 2016</span></p>
-                    <p><a href="/blog/2014/eclipse-m2e-java-8/">Using Java 8 with Eclipse and m2e</a> <span class="text-grey-darker text-xl">10 April 2014</span></p>
-                    <p><a href="/blog/2014/understanding-method-references/">Understanding Java 8 Method References</a> <span class="text-grey-darker text-xl">01 April 2014</span></p>
-                    <p><a href="/blog/2013/readme-driven-development/">README-Driven Development</a> <span class="text-grey-darker text-xl">12 July 2013</span></p>
-                    <p><a href="/blog/2012/stage-naming-your-kids/">Stage-Naming Your Kids</a> <span class="text-grey-darker text-xl">12 December 2012</span></p>
-                    <p><a href="/blog/2011/shift-hover/">Eclipse shortcut: shift + hover</a> <span class="text-grey-darker text-xl">20 February 2011</span></p>
-                    <p><a href="/blog/2011/java-coders-distrust-neighbours/">Java Coders Distrust Their Neighbours</a> <span class="text-grey-darker text-xl">02 February 2011</span></p>
-                    <p><a href="/blog/2011/super-keziah-then-and-now/">Super Keziah, Then and Now</a> <span class="text-grey-darker text-xl">01 February 2011</span></p>
-                    <p><a href="/blog/2010/hippie-completion/">Eclipse shortcut of the day: Hippie Completion</a> <span class="text-grey-darker text-xl">29 March 2010</span></p>
-                    <p><a href="/blog/2010/keziah-stats-1/">Keziah's Stats for 05/01/2010</a> <span class="text-grey-darker text-xl">05 January 2010</span></p>
-                    <p><a href="/blog/2009/oxm-madness/">Object-XML Mapping in Spring 3.0: when indirection gets out of hand</a> <span class="text-grey-darker text-xl">08 November 2009</span></p>
-                    <p><a href="/blog/2009/unit-test-convenience-methods/">Unit-testing Convenience Methods</a> <span class="text-grey-darker text-xl">08 November 2009</span></p>
-                </section>
+                <h1>Blog</h1>
+                <ol id="blog" style="margin-left: var(--grid-item-margin-left); list-style-type: none; padding: 0;">
+                    <li><a href="/blog/2016/programming/">How I Started Programming</a> <span class="text-xl">12 April 2016</span></li>
+                    <li><a href="/blog/2016/mailgun-on-digital-ocean/">How To Set Up Mailgun DNS Records on Digital Ocean</a> <span class="text-xl">07 April 2016</span></li>
+                    <li><a href="/blog/2016/orderbook/">The Orderbook.biz Story</a> <span class="text-xl">27 March 2016</span></li>
+                    <li><a href="/blog/2014/eclipse-m2e-java-8/">Using Java 8 with Eclipse and m2e</a> <span class="text-xl">10 April 2014</span></li>
+                    <li><a href="/blog/2014/understanding-method-references/">Understanding Java 8 Method References</a> <span class="text-xl">01 April 2014</span></li>
+                    <li><a href="/blog/2013/readme-driven-development/">README-Driven Development</a> <span class="text-xl">12 July 2013</span></li>
+                    <li><a href="/blog/2012/stage-naming-your-kids/">Stage-Naming Your Kids</a> <span class="text-xl">12 December 2012</span></li>
+                    <li><a href="/blog/2011/shift-hover/">Eclipse shortcut: shift + hover</a> <span class="text-xl">20 February 2011</span></li>
+                    <li><a href="/blog/2011/java-coders-distrust-neighbours/">Java Coders Distrust Their Neighbours</a> <span class="text-xl">02 February 2011</span></li>
+                    <li><a href="/blog/2011/super-keziah-then-and-now/">Super Keziah, Then and Now</a> <span class="text-xl">01 February 2011</span></li>
+                    <li><a href="/blog/2010/hippie-completion/">Eclipse shortcut of the day: Hippie Completion</a> <span class="text-xl">29 March 2010</span></li>
+                    <li><a href="/blog/2010/keziah-stats-1/">Keziah's Stats for 05/01/2010</a> <span class="text-xl">05 January 2010</span></li>
+                    <li><a href="/blog/2009/oxm-madness/">Object-XML Mapping in Spring 3.0: when indirection gets out of hand</a> <span class="text-xl">08 November 2009</span></li>
+                    <li><a href="/blog/2009/unit-test-convenience-methods/">Unit-testing Convenience Methods</a> <span class="text-xl">08 November 2009</span></li>
+                </ol>
             </main>
 
             <footer>
                 <div id="social-links">
-                    <a href="https://github.com/mwanji" title="Github" class="me-icon"><i class="fa fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/moandjiezana/" title="LinkedIn" class="me-icon"><i class="fa fa-linkedin"></i></a>
-                    <a href="https://google.com/+MoandjiEzana?rel=author" title="Google+" class="me-icon"><i class="fa fa-google-plus"></i></a>
-                    <a href="https://www.facebook.com/mwanji" title="Facebook" class="me-icon"><i class="fa fa-facebook"></i></a>
-                    <a href="https://twitter.com/mwanji" title="@mwanji" class="me-icon"><i class="fa fa-twitter"></i></a>
-                    <a href="mailto:moandji@ezana.net" title="Email" class="me-icon"><i class="fa fa-envelope"></i></a>
+                    <a href="mailto:moandji@ezana.net" title="Email"><i class="far fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/moandjiezana/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/mwanji" title="Github"><i class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/mwanji" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/mwanji" title="@mwanji"><i class="fab fa-twitter"></i></a>
                 </div>
-                <p>&copy; 2009-2018 Moandji Ezana</p>
+                <p>&copy; 2009-2020 Moandji Ezana</p>
             </footer>
         </div>
     </body>
