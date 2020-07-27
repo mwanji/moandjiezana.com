@@ -3,7 +3,6 @@
 :root {
   --background-color: #ffffff;
   --blog-link-display: block;
-  --body-color: 0, 0, 0;
   --body-font-size: 1.1rem;
   --body-padding: 0.75rem;
   --border-color: #dae1e7;
@@ -13,17 +12,25 @@
   --grid-item-margin-left: 0;
   --header-font-size-ratio: 2;
   --header-margin-bottom: 1rem;
-  --header-subtitle-white-space: normal;
   --link-color: #428bca;
   --link-hover-color: #f0ad4e;
-  --text-light-color: rgba(var(--body-color), 0.6);
+  --text-color: 0, 0, 0;
+  --text-light-color-opacity: 0.6;
+  --text-light-color: rgba(var(--text-color), var(--text-light-color-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #000000;
+    --text-color: 255, 255, 255;
+    --text-light-color-opacity: 0.88;
+    --link-color: #7fa5c7;
+  }
 }
 
 @media screen and (min-width: 768px) {
   :root {
     --header-font-size-ratio: 5;
-    --header-margin-bottom: 2rem;
-    --header-subtitle-white-space: nowrap;
   }
 }
 
@@ -45,6 +52,7 @@
 
 html {
   background-color: var(--background-color);
+  color: rgb(var(--text-color));
 }
 
 body {
@@ -76,7 +84,7 @@ header span {
   font-size: calc(var(--header-font-size-ratio) * 3 / 5 * var(--body-font-size));
   font-weight: 100;
   text-transform: uppercase;
-  white-space: var(--header-subtitle-white-space);
+  white-space: nowrap;
 }
 
 main h1 {
@@ -119,15 +127,11 @@ footer {
 
 i.fa-github {
   font-size: 110%;
-  color: #000;
+  color: rgb(var(--text-color));
 }
 
 i.fa-linkedin {
   color: #007bb6;
-}
-
-i.fa-google-plus {
-  color: #dd4b39;
 }
 
 i.fa-facebook {
