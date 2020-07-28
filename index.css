@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,900);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css);
 
 :root {
   --background-color: #ffffff;
@@ -130,27 +131,6 @@ footer {
   margin-bottom: 0;
 }
 
-i.fa-github {
-  font-size: 110%;
-  color: rgb(var(--text-color));
-}
-
-i.fa-linkedin {
-  color: #007bb6;
-}
-
-i.fa-facebook {
-  color: #3b5999;
-}
-
-i.fa-twitter {
-  color: #00aced;
-}
-
-i.fa-envelope-o {
-  color: #555;
-}
-
 #blog li a {
   display: var(--blog-link-display);
 }
@@ -165,14 +145,6 @@ i.fa-envelope-o {
 #product-highlights i {
   font-size: 160%;
   color: var(--text-light-color);
-}
-
-#social-links {
-  font-size: 2.5rem;
-}
-
-#social-links a:not(:last-child) {
-  margin-right: 0.25rem;
 }
 
 #tldr-leisure {
