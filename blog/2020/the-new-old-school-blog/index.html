@@ -8,12 +8,14 @@
       - want to write static html in "notepad": no 3rd party tooling, author from anywhere
       - plain html + web components + html -> rss generator
       - web components: API better suited to distributed web components than site-specific ones? Or am I using it wrong?
+        - using it wrong: SHADOW DOM IS NOT REQUIRED!!!! You can add light DOM in constructor (or connected callback, I suppose)
         - social-links: pure HTML, so what I actually want is a bit of HTML I can reuse
         - external CSS: only applied to light DOM
         - no API whatsoever to include external resources or add styles? Template string literals are not an API
         - tradeoff: repeated HTML vs. JavaScript required. Only use for unimportant things: eg. social media links
         - fonts: need to be imported in host and in web component (security reasons?). Impact on Font Awesome.
       - CSS: custom properties, @import, CSS grid => great!
+      - I kind of love that I can forget to include the JS file and it still works fine! Without the CSS file it's hideous, but all the content is visible and legible.
     </article>
   </body>
 </html>
