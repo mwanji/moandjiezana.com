@@ -115,6 +115,40 @@ footer {
   font-size: 1.2rem;
 }
 
+mke-credits {
+  display: block;
+}
+
+social-links a {
+  font-size: 2.5rem;
+  color: var(--link-color);
+}
+
+social-links a:not(:last-child) {
+  margin-right: 0.8rem;
+}
+
+i.fa-github {
+  font-size: 110%;
+  color: rgb(var(--text-color));
+}
+
+i.fa-linkedin {
+  color: #007bb6;
+}
+
+i.fa-facebook {
+  color: #3b5999;
+}
+
+i.fa-twitter {
+  color: #00aced;
+}
+
+i.fa-envelope-o {
+  color: #555;
+}
+
 .entries-grid {
   display: grid;
   grid-template-columns: var(--entries-grid-template-columns);
