@@ -1,3 +1,13 @@
+class BlogPost extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `<article>
+      <time datetime="${this.dataset.datetime}">${this.dataset.date}</time>
+      <h1><a href=".">${this.dataset.title}</a></h1>
+      ${this.innerHTML}
+    </article>`;
+  }
+}
+
 class SocialLinks extends HTMLElement {
   constructor() {
     const el = super();
@@ -35,6 +45,14 @@ class Footer extends HTMLElement {
   }
 }
 
+class Page extends HTMLElement {
+  constructor() {
+    const el = super();
+    el.insertAdjacentHTML('afterbegin', '<mke-header>');
+    el.insertAdjacentHTML('beforeend', '<mke-footer>');
+  }
+}
+
 function link(title, href, classes) {
   const a = document.createElement('a');
   a.title = title;
@@ -48,3 +66,5 @@ customElements.define('social-links', SocialLinks);
 customElements.define('mke-credits', Credits);
 customElements.define('mke-header', Header);
 customElements.define('mke-footer', Footer);
+customElements.define('mke-page', Page);
+customElements.define('mke-blog-post', BlogPost);
