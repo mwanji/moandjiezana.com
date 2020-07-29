@@ -12,7 +12,26 @@ class SocialLinks extends HTMLElement {
 class Credits extends HTMLElement {
   constructor() {
     const el = super();
-    el.insertAdjacentText('beforeend', ` 2009 - ${new Date().getFullYear()}`)
+    el.innerHTML = `&copy; 2009 - ${new Date().getFullYear()} Moandji Ezana`;
+  }
+}
+
+class Header extends HTMLElement {
+  constructor() {
+    const el = super();
+    el.insertAdjacentHTML('afterbegin', `
+      <header>
+        <h1><a href="/">Moandji Ezana</a></h1>
+        <span>Blog</span>
+      </header>
+    `);
+  }
+}
+
+class Footer extends HTMLElement {
+  constructor() {
+    const el = super();
+    el.insertAdjacentHTML('afterbegin', '<footer><social-links></social-links><mke-credits></mke-credits></footer>');
   }
 }
 
@@ -27,3 +46,5 @@ function link(title, href, classes) {
 
 customElements.define('social-links', SocialLinks);
 customElements.define('mke-credits', Credits);
+customElements.define('mke-header', Header);
+customElements.define('mke-footer', Footer);
