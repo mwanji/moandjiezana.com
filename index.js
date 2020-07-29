@@ -48,8 +48,11 @@ class Footer extends HTMLElement {
 class Page extends HTMLElement {
   constructor() {
     const el = super();
-    el.insertAdjacentHTML('afterbegin', '<mke-header>');
-    el.insertAdjacentHTML('beforeend', '<mke-footer>');
+    el.innerHTML = `<div id="container">
+      <mke-header></mke-header>
+      ${el.innerHTML}
+      <mke-footer></mke-footer>
+    </div>`;
   }
 }
 
