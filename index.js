@@ -71,7 +71,9 @@ class Page extends HTMLElement {
     const el = super();
     el.innerHTML = `<div id="container">
       <mke-header></mke-header>
-      ${el.innerHTML}
+      <main>
+        ${el.innerHTML}
+      </main>
       <mke-footer></mke-footer>
     </div>`;
   }
