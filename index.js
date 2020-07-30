@@ -1,5 +1,26 @@
 class BlogPost extends HTMLElement {
   connectedCallback() {
+    document.head.insertAdjacentHTML('beforeend', `
+      <meta property="og:type" content="article"/>
+      <meta property="og:site_name" content="Moandji Ezana Blog"/>
+      <meta property="article:author" content="http://facebook.com/mwanji" />
+      <meta property="og:title" content="${this.dataset.title}" />
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@mwanji" />
+      <meta name="twitter:creator" content="@mwanji" />
+      <meta name="twitter:title" content="${this.dataset.title}" />
+    `);
+    if (this.dataset.description) {
+      document.head.insertAdjacentHTML('beforeend', `<meta name="twitter:description" content="${this.dataset.description}" />`);
+    }
+    if (this.dataset.socialImage) {
+      document.head.insertAdjacentHTML('beforeend', `<meta name="twitter:image" content="${this.dataset.socialImage}" />`);
+    }
+    if (this.dataset.socialImageAlt) {
+      document.head.insertAdjacentHTML('beforeend', `<meta name="twitter:image:alt" content="${this.dataset.socialImageAlt}" />`);
+    }
+    
     this.innerHTML = `<article>
       <time datetime="${this.dataset.datetime}">${this.dataset.date}</time>
       <h1><a href=".">${this.dataset.title}</a></h1>
@@ -64,6 +85,10 @@ function link(title, href, classes) {
 
   return a;
 }
+
+document.head.insertAdjacentHTML('beforeend', `
+  <meta name="author" content="Moandji Ezana">
+`);
 
 customElements.define('social-links', SocialLinks);
 customElements.define('mke-credits', Credits);
