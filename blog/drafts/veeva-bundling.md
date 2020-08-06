@@ -28,9 +28,10 @@ Compare:
 Biggest optimisation is that I don't have to build any more while developing locally! So in reality going from almost a minute multiplied by the dozens of times a day I wanted to see changes in the simulator to 0.
 V1 (Parcel):
 BI: 68secs. 
-ELA: 65secs. 
+ELA: 31secs. 
 JJ: 52secs.
 v2 (esbuild):
+ELA: 5secs.
 JJ: 19-21 seconds.
 - JS file size (unzipped): 
 Parcel: 
